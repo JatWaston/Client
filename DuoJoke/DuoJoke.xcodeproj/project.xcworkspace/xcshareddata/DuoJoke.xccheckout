@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7E4FAB7A-984A-4E0E-9657-76C1C91282D4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DuoJoke</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>315328A5A68D08B95ED6E2D2F71001EB13F0EB0E</key>
+		<string>github.com:JatWaston/Duowan.git</string>
+		<key>AA860949CE107357C04134F80F91F4E871336F10</key>
+		<string>github.com:JatWaston/Client.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DuoJoke/DuoJoke.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>315328A5A68D08B95ED6E2D2F71001EB13F0EB0E</key>
+		<string>../../../../Duowan</string>
+		<key>AA860949CE107357C04134F80F91F4E871336F10</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:JatWaston/Client.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AA860949CE107357C04134F80F91F4E871336F10</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AA860949CE107357C04134F80F91F4E871336F10</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Client</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>315328A5A68D08B95ED6E2D2F71001EB13F0EB0E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Duowan</string>
+		</dict>
+	</array>
+</dict>
+</plist>
