@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>11388476-90D9-43E1-AD6A-E29C644EBBA0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Wallpaper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4FEDE0199EC614736E4C97A2181367CE89A8037D</key>
+		<string>https://github.com/JatWaston/Wallpaper-Client.git</string>
+		<key>E3E51412-2E9F-465D-8C50-817CF7D832F4</key>
+		<string>https://github.com/JatWaston/Wallpaper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Wallpaper/Wallpaper.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4FEDE0199EC614736E4C97A2181367CE89A8037D</key>
+		<string>../../..</string>
+		<key>E3E51412-2E9F-465D-8C50-817CF7D832F4</key>
+		<string>../../../../Wallpaper</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JatWaston/Wallpaper-Client.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4FEDE0199EC614736E4C97A2181367CE89A8037D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4FEDE0199EC614736E4C97A2181367CE89A8037D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Client</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E3E51412-2E9F-465D-8C50-817CF7D832F4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Wallpaper</string>
+		</dict>
+	</array>
+</dict>
+</plist>
