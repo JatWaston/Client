@@ -932,6 +932,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = JW;
 				TargetAttributes = {
+					16DB6D7919ED479F0029F234 = {
+						DevelopmentTeam = N7D8BU5MWS;
+					};
 					16DB6D9A19ED479F0029F234 = {
 						TestTargetID = 16DB6D7919ED479F0029F234;
 					};
@@ -1139,7 +1142,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1157,6 +1161,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1177,7 +1182,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1188,6 +1194,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "0264e9a9-790e-4acc-a1d9-5a9dad70c878";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1198,6 +1205,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DuoJoke/DuoJoke-Prefix.pch";
 				INFOPLIST_FILE = "DuoJoke/DuoJoke-Info.plist";
@@ -1210,6 +1218,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1219,6 +1228,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DuoJoke/DuoJoke-Prefix.pch";
 				INFOPLIST_FILE = "DuoJoke/DuoJoke-Info.plist";
@@ -1231,6 +1241,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0264e9a9-790e-4acc-a1d9-5a9dad70c878";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1261,6 +1272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DuoJoke.app/DuoJoke";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1270,6 +1282,7 @@
 				GCC_PREFIX_HEADER = "DuoJoke/DuoJoke-Prefix.pch";
 				INFOPLIST_FILE = "DuoJokeTests/DuoJokeTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

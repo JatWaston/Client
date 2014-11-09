@@ -406,7 +406,7 @@ const NSInteger kNumberOfCells = 100;
     NSDictionary *dic = [self.items objectAtIndex:[indexPath row]];
     NSString *imageURL = [dic valueForKey:kCoverImageKey];
 //    UIImage *placeholderImage = [UIImage imageWithColor:[UIColor antiqueWhiteColor] andSize:cell.photoView.frame.size];
-    int count = [_placeImages count];
+    int count = (int)[_placeImages count];
     if (count) {
         _placeholderImage = _placeImages[arc4random() % count];
     }
