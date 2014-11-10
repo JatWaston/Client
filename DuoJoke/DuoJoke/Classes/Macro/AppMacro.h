@@ -22,9 +22,15 @@
 #define kJokeCatalogURL @"http://jwjoke.sinaapp.com/catalog.php"
 #define kJokeImageDetailURL @"http://jwjoke.sinaapp.com/imageDetail.php"
 
+typedef NS_ENUM(NSUInteger,JWStorePlatform)
+{
+    JW91SttorePlatform = 0,
+    JWAppStorePlatform,
+};
+
 
 //渠道
-//#define APP_STORE
+#define APP_STORE
 
 #ifdef APP_STORE
     #define kChannel @"App Store"
@@ -33,8 +39,10 @@
 #endif
 
 #ifdef APP_STORE
-    #define kDefaultCatalog 1000
-    #define kDefaultTitle @"每日美女"
+//    #define kDefaultCatalog 1000
+//    #define kDefaultTitle @"每日美女"
+    #define kDefaultCatalog 3000
+    #define kDefaultTitle @"吐槽囧图"
 #else
     #define kDefaultCatalog 3000
     #define kDefaultTitle @"吐槽囧图"

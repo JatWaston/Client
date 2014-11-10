@@ -42,7 +42,12 @@
     [self.view addSubview:_scrollView];
     
     [self loadDataFromCache];
-    [self requestURLWithPath:kJokeListURL forceRequest:YES showHUD:NO];
+    NSUInteger store = JW91SttorePlatform;
+#ifdef APP_STORE
+    store = JWAppStorePlatform;
+#endif
+    NSString *requestURL = [kJokeListURL stringByAppendingString:[NSString stringWithFormat:@"?store=%d",(int)store]];
+    [self requestURLWithPath:requestURL forceRequest:YES showHUD:NO];
 }
 
 - (void)loadDataFromCache

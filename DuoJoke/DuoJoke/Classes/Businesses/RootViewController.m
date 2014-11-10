@@ -157,8 +157,12 @@ const NSInteger kNumberOfCells = 100;
 - (NSString*)builtURLWithPage:(NSUInteger)page catalog:(NSUInteger)catalog validKey:(NSString*)vaild
 {
     _catalog = catalog;
+    NSUInteger store = JW91SttorePlatform;
+#ifdef APP_STORE
+    store = JWAppStorePlatform;
+#endif
     NSString *md5 = [[NSString stringWithFormat:@"%d%d%@",(int)_catalog,(int)_currentPage,kValidStr] MD5];
-    NSString *requestURL = [kJokeCatalogURL stringByAppendingString:[NSString stringWithFormat:@"?catalog=%d&page=%d&valid=%@&pageSize=%d",(int)_catalog,(int)_currentPage,md5,kRequestPageSize]];
+    NSString *requestURL = [kJokeCatalogURL stringByAppendingString:[NSString stringWithFormat:@"?catalog=%d&page=%d&valid=%@&pageSize=%d&store=%d",(int)_catalog,(int)_currentPage,md5,kRequestPageSize,(int)store]];
     return requestURL;
 }
 
