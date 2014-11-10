@@ -85,7 +85,7 @@
             [button setTitle:[info valueForKey:kNameKey] forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
             [button translucencyStyle];
-            if ([[info valueForKey:kCatalogKey] integerValue] == 1000) {
+            if ([[info valueForKey:kCatalogKey] integerValue] == kDefaultCatalog) {
                 _selectedButton = button;
                 _selectedButton.selected = YES;
             }

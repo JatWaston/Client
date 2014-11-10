@@ -38,7 +38,8 @@
 #define kHeightKey     @"image_height"
 
 #define kRequestPageSize 10
-#define kDefaultCatalog 1000
+
+
 
 const NSInteger kNumberOfCells = 100;
 
@@ -89,8 +90,8 @@ const NSInteger kNumberOfCells = 100;
     _catalog = kDefaultCatalog;
     _currentPage = 1;
     _isRefreshing = YES;
-    
-    self.title = @"每日美女";
+
+    self.title = kDefaultTitle;
     [self loadDataFromCache];
 
     [self createPlaceImages];
