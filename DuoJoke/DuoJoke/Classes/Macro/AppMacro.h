@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
 
 
 //渠道
-#define APP_STORE
+//#define APP_STORE
 
 #ifdef APP_STORE
     #define kChannel @"App Store"
@@ -44,8 +44,8 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
     #define kDefaultCatalog 3000
     #define kDefaultTitle @"吐槽囧图"
 #else
-    #define kDefaultCatalog 3000
-    #define kDefaultTitle @"吐槽囧图"
+    #define kDefaultCatalog 5000
+    #define kDefaultTitle @"今日囧图"
 #endif
 
 //#define kTestURL
