@@ -10,7 +10,7 @@
 	<string>Wallpaper</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4FEDE0199EC614736E4C97A2181367CE89A8037D</key>
+		<key>AA860949CE107357C04134F80F91F4E871336F10</key>
 		<string>https://github.com/JatWaston/Wallpaper-Client.git</string>
 		<key>E3E51412-2E9F-465D-8C50-817CF7D832F4</key>
 		<string>https://github.com/JatWaston/Wallpaper.git</string>
@@ -19,7 +19,7 @@
 	<string>Wallpaper/Wallpaper.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4FEDE0199EC614736E4C97A2181367CE89A8037D</key>
+		<key>AA860949CE107357C04134F80F91F4E871336F10</key>
 		<string>../../..</string>
 		<key>E3E51412-2E9F-465D-8C50-817CF7D832F4</key>
 		<string>../../../../Wallpaper</string>
@@ -29,14 +29,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4FEDE0199EC614736E4C97A2181367CE89A8037D</string>
+	<string>AA860949CE107357C04134F80F91F4E871336F10</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4FEDE0199EC614736E4C97A2181367CE89A8037D</string>
+			<string>AA860949CE107357C04134F80F91F4E871336F10</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Client</string>
 		</dict>
