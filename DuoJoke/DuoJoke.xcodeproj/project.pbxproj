@@ -1218,7 +1218,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "105DCE8F-30DC-46B9-8C15-632ED5B33DC0";
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1228,7 +1228,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SUI LAN CHUNG (75GWPCB33P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DuoJoke/DuoJoke-Prefix.pch";
 				INFOPLIST_FILE = "DuoJoke/DuoJoke-Info.plist";
@@ -1241,7 +1242,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "105DCE8F-30DC-46B9-8C15-632ED5B33DC0";
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

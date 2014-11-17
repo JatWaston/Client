@@ -13,14 +13,11 @@
 #define kCatalogDetailCachePath @"CatalogDetail"
 #define kCacheRootKey           @"JW"
 
-#define kValidStr @"Joke"
+#define kValidStr @"TenTu"
 
 #define kCode       @"code"
 #define kData       @"data"
 
-#define kJokeListURL @"http://jwjoke.sinaapp.com/list.php"
-#define kJokeCatalogURL @"http://jwjoke.sinaapp.com/catalog.php"
-#define kJokeImageDetailURL @"http://jwjoke.sinaapp.com/imageDetail.php"
 
 typedef NS_ENUM(NSUInteger,JWStorePlatform)
 {
@@ -48,17 +45,13 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
     #define kDefaultTitle @"今日囧图"
 #endif
 
-//#define kTestURL
-//
-//#ifdef kTestURL
-//    #define kJokeListURL @"http://192.168.254.97/~zzl/SAE/Duowan/Service2/list.php"
-//    #define kJokeCatalogURL @"http://192.168.254.97/~zzl/SAE/Duowan/Service2/catalog.php"
-//    #define kJokeImageDetailURL @"http://192.168.254.97/~zzl/SAE/Duowan/Service2/imageDetail.php"
-//#else
-//    #define kJokeListURL @"http://192.168.1.6/~apple/PHP/SAE/Duowan/Service/list.php"
-//    #define kJokeCatalogURL @"http://192.168.1.6/~apple/PHP/SAE/Duowan/Service/catalog.php"
-//    #define kJokeImageDetailURL @"http://192.168.1.6/~apple/PHP/SAE/Duowan/Service/imageDetail.php"
-//#endif
+#define kTestURL
+
+#ifdef kTestURL
+    #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/TenTu/tentu/1/dailyContent.php"
+#else
+    #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/TenTu/tentu/1/dailyContent.php"
+#endif
 
 
 #endif

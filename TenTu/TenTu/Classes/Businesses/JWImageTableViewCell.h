@@ -10,4 +10,6 @@
 
 @interface JWImageTableViewCell : UITableViewCell
 
+- (void)initCellData:(NSDictionary*)info;
+
 @end

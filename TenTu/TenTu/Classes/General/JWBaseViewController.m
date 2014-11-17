@@ -10,6 +10,8 @@
 #import "UIViewController+Compatibility.h"
 #import "JWNetworking.h"
 #import "SVProgressHUD.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
 
 ///////////////////////////
 #import "UIColor+Colours.h"
@@ -84,7 +86,7 @@
             }
             if (_isRequesting && self.networking) {
                 [self.networking cancelRequest];
-                [SVProgressHUD dismiss];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
             }
             break;
         case NO:
@@ -96,7 +98,7 @@
             break;
     }
     if (show) {
-        [SVProgressHUD showWithStatus:@"请稍后..."];
+        [MBProgressHUD showMessag:@"获取数据中..." toView:self.view];
     }
     
     _isRequesting = YES;
@@ -104,7 +106,7 @@
     [self.networking requestWithURL:urlPath requestMethod:JWRequestMethodGet params:nil requestComplete:^(NSData *data, NSError *error) {
         _isRequesting = NO;
         if (show) {
-            [SVProgressHUD dismiss];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
         if (error) {
             self.resultData = nil;
