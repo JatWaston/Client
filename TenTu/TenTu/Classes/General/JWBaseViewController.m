@@ -74,6 +74,7 @@
         [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
     } else {
         [[UINavigationBar appearance] setBarTintColor:[UIColor skyBlueColor]];
+        [self.navigationController.navigationBar setTranslucent:YES];
     }
 }
 

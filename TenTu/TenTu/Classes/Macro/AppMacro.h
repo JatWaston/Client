@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
 #define kTestURL
 
 #ifdef kTestURL
-    #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/TenTu/tentu/1/dailyContent.php"
+    #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/TenTu/tentu/1/dailyContent.php"
 #else
     #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/TenTu/tentu/1/dailyContent.php"
 #endif
