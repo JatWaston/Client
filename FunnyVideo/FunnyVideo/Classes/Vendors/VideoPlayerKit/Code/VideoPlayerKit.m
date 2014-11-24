@@ -301,6 +301,8 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                   delay:0.0f
                                 options:UIViewAnimationCurveLinear
                              animations:^{
+                                 
+                                 self.videoPlayerView.frame = self.videoPlayerView.superview.frame;
                                  [self.videoPlayerView setCenter:CGPointMake( self.videoPlayerView.superview.bounds.size.width / 2, ( self.videoPlayerView.superview.bounds.size.height / 2))];
                                  self.videoPlayerView.bounds = self.videoPlayerView.superview.bounds;
                              }

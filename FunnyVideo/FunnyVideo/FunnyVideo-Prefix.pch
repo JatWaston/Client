@@ -13,4 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "UtilisMacro.h"
+    #import "InterfaceMacro.h"
+    #import "AppMacro.h"
+    #import "Vendors.h"
 #endif

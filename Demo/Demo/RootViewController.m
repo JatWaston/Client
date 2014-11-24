@@ -54,10 +54,8 @@
 
 - (void)playVideo
 {
-    NSURL *movieUrl = [NSURL URLWithString:@"http://k.youku.com/player/getFlvPath/sid/44168119271541225115f_01/st/mp4/fileid/03002001005472ACE5BD1C00332C4833AA1835-E171-6083-F1AA-7D174E2EE875?K=774abe57f74a3c52282a095f&hd=0&myp=0&ts=180&ypp=2&ctype=12&ev=1&token=2649&oip=3663591661&ep=diaVHEGMV8cC4iLajD8bZSnjdXJZXP4J9h%2BHgdJjALshTO%2B96E2kwu%2FET4xCFvoacFECGOjy2qHmYkMRYYVCrmkQ2U6gOvqW%2F4GS5aonxZcEExtDB8XQsVScRTT4"];
+    NSURL *movieUrl = [NSURL URLWithString:@"http://k.youku.com/player/getFlvPath/sid/9416831564485129772ca_00/st/mp4/fileid/03000801005472DFF62B3006257BB67BC3A57F-7D0E-61A9-84EC-626B4A6E7719?K=b65f5bf641d16955261e06cd&hd=1&myp=0&ts=181&ypp=0&ctype=12&ev=1&token=1618&oip=2015647293&ep=eyaVHEGOV8sG4SfXjT8bbivldiReXP4J9h%2BFidJjALshTO%2B97UinwZ%2FCTf9CEPscdVB0FuyD2NOWb0diYfc3qR0Q2U%2FZMPro%2BoWQ5atRwuIEFx9DdcrWvVSfRTH5"];
     _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
-//    [self presentMoviePlayerViewControllerAnimated:player];
-//    VideoViewController *controller = [[VideoViewController alloc] init];
     [self presentMoviePlayerViewControllerAnimated:_player];
 }
 

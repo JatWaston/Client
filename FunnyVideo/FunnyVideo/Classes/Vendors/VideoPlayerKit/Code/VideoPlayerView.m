@@ -66,7 +66,10 @@
         _videoScrubber = [[UISlider alloc] init];
         [_videoScrubber setMinimumTrackTintColor:[UIColor redColor]];
         [_videoScrubber setMaximumTrackImage:[UIImage imageNamed:@"transparentBar"] forState:UIControlStateNormal];
-        [_videoScrubber setThumbTintColor:[UIColor whiteColor]];
+        UIImage *thumbImage = [UIImage imageNamed:@"VideoPosition"];
+        [_videoScrubber setThumbImage:thumbImage forState:UIControlStateHighlighted];
+        [_videoScrubber setThumbImage:thumbImage forState:UIControlStateNormal];
+        //[_videoScrubber setThumbTintColor:[UIColor whiteColor]];
         [_playerControlBar addSubview:_videoScrubber];
         
         _volumeView = [[MPVolumeView alloc] init];
@@ -123,6 +126,7 @@
     [super layoutSubviews];
     
     CGRect bounds = [self bounds];
+    NSLog(@"bounds = %@",NSStringFromCGRect(bounds));
 
     CGRect insetBounds = CGRectInset(UIEdgeInsetsInsetRect(bounds, self.controlsEdgeInsets), _padding, _padding);
     CGSize titleLabelSize = [[_titleLabel text] sizeWithFont:[_titleLabel font]
@@ -143,6 +147,11 @@
                                          insetBounds.size.width,
                                          titleLabelSize.height)];
         
+        [_playerControlBar setFrame:CGRectMake(bounds.origin.x,
+                                               bounds.size.height - PLAYER_CONTROL_BAR_HEIGHT,
+                                               bounds.size.width,
+                                               PLAYER_CONTROL_BAR_HEIGHT)];
+        
         CGRect playerFrame = CGRectMake(0,
                                         0,
                                         bounds.size.width,
@@ -161,12 +170,14 @@
         [_airplayIsActiveView setFrame:bounds];
         
         [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
+        
+        [_playerControlBar setFrame:CGRectMake(bounds.origin.x,
+                                               bounds.size.height - 1.5f*PLAYER_CONTROL_BAR_HEIGHT,
+                                               bounds.size.width,
+                                               PLAYER_CONTROL_BAR_HEIGHT)];
     }
     
-    [_playerControlBar setFrame:CGRectMake(bounds.origin.x,
-                                           bounds.size.height - PLAYER_CONTROL_BAR_HEIGHT,
-                                           bounds.size.width,
-                                           PLAYER_CONTROL_BAR_HEIGHT)];
+
     
     [_activityIndicator setFrame:CGRectMake((bounds.size.width - _activityIndicator.frame.size.width)/2.0,
                                             (bounds.size.height - _activityIndicator.frame.size.width)/2.0,

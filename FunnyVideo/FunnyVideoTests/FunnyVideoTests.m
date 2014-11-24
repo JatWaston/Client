@@ -2,7 +2,7 @@
 //  FunnyVideoTests.m
 //  FunnyVideoTests
 //
-//  Created by zhengzhilin on 14-11-21.
+//  Created by JatWaston on 14-11-21.
 //  Copyright (c) 2014年 JatWaston. All rights reserved.
 //
 

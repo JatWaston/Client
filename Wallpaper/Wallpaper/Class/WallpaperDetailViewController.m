@@ -345,6 +345,7 @@ typedef NS_ENUM(NSInteger, UIPreviewImageType)
 
 - (void)createHomePreview
 {
+    //[self deleteImage];
     //[[WallpaperManager shareManager] applyWallpaper:_currentImageView.image type:UIWallpaperHomeType];
     if (_previewHomeView == nil)
     {
