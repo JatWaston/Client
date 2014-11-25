@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UMSocialControllerService.h"
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController <UMSocialDataDelegate>
 
 @end

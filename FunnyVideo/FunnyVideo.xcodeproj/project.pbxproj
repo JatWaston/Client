@@ -20,6 +20,28 @@
 		161139101A1F51E80024B34E /* FunnyVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1611390F1A1F51E80024B34E /* FunnyVideoTests.m */; };
 		1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA191A2345F300EC5F14 /* AppDelegate.m */; };
 		1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA4D1A23461500EC5F14 /* RootViewController.m */; };
+		16DB4B631A2437700081EF68 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B3A1A2437700081EF68 /* UMSocialLocalizable.strings */; };
+		16DB4B641A2437700081EF68 /* libUMSocial_Sdk_4.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B481A2437700081EF68 /* libUMSocial_Sdk_4.2.a */; };
+		16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4A1A2437700081EF68 /* UMSCommentDetailController.xib */; };
+		16DB4B661A2437700081EF68 /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4B1A2437700081EF68 /* UMSCommentInputController.xib */; };
+		16DB4B671A2437700081EF68 /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4C1A2437700081EF68 /* UMSCommentInputControlleriPad.xib */; };
+		16DB4B681A2437700081EF68 /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4D1A2437700081EF68 /* UMShareEditViewController.xib */; };
+		16DB4B691A2437700081EF68 /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4E1A2437700081EF68 /* UMShareEditViewControlleriPad.xib */; };
+		16DB4B6A1A2437700081EF68 /* UMSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4F1A2437700081EF68 /* UMSLoginViewController.xib */; };
+		16DB4B6B1A2437700081EF68 /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B501A2437700081EF68 /* UMSnsAccountViewController.xib */; };
+		16DB4B6C1A2437700081EF68 /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B511A2437700081EF68 /* UMSShareListController.xib */; };
+		16DB4B6D1A2437700081EF68 /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B521A2437700081EF68 /* UMSocialSDKResourcesNew.bundle */; };
+		16DB4B6E1A2437700081EF68 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B561A2437700081EF68 /* libSocialSina.a */; };
+		16DB4B6F1A2437700081EF68 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B591A2437700081EF68 /* libSocialQQ.a */; };
+		16DB4B701A2437700081EF68 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B5A1A2437700081EF68 /* TencentOpenAPI.framework */; };
+		16DB4B711A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B5B1A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		16DB4B721A2437700081EF68 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B5E1A2437700081EF68 /* libSocialWechat.a */; };
+		16DB4B731A2437700081EF68 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B5F1A2437700081EF68 /* libWeChatSDK.a */; };
+		16DB4B751A2438CE0081EF68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B741A2438CE0081EF68 /* Security.framework */; };
+		16DB4B771A2438E10081EF68 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */; };
+		16DB4B791A243E490081EF68 /* UMS_social_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B781A243E490081EF68 /* UMS_social_demo.png */; };
+		16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */; };
+		16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7C1A243F650081EF68 /* libstdc++.dylib */; };
 		18BB57021A2373C6001C85B2 /* JWMPMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57011A2373C6001C85B2 /* JWMPMoviePlayerViewController.m */; };
 		18BB57251A237D73001C85B2 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57051A237D73001C85B2 /* MKAnnotationView+WebCache.m */; };
 		18BB57261A237D73001C85B2 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57071A237D73001C85B2 /* NSData+ImageContentType.m */; };
@@ -114,6 +136,45 @@
 		1697FA191A2345F300EC5F14 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1697FA4C1A23461500EC5F14 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1697FA4D1A23461500EC5F14 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		16DB4B3B1A2437700081EF68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
+		16DB4B3D1A2437700081EF68 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
+		16DB4B3E1A2437700081EF68 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
+		16DB4B3F1A2437700081EF68 /* UMSocialBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialBar.h; sourceTree = "<group>"; };
+		16DB4B401A2437700081EF68 /* UMSocialConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialConfig.h; sourceTree = "<group>"; };
+		16DB4B411A2437700081EF68 /* UMSocialControllerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialControllerService.h; sourceTree = "<group>"; };
+		16DB4B421A2437700081EF68 /* UMSocialControllerServiceComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialControllerServiceComment.h; sourceTree = "<group>"; };
+		16DB4B431A2437700081EF68 /* UMSocialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialData.h; sourceTree = "<group>"; };
+		16DB4B441A2437700081EF68 /* UMSocialDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialDataService.h; sourceTree = "<group>"; };
+		16DB4B451A2437700081EF68 /* UMSocialSnsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsData.h; sourceTree = "<group>"; };
+		16DB4B461A2437700081EF68 /* UMSocialSnsPlatformManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsPlatformManager.h; sourceTree = "<group>"; };
+		16DB4B471A2437700081EF68 /* UMSocialSnsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsService.h; sourceTree = "<group>"; };
+		16DB4B481A2437700081EF68 /* libUMSocial_Sdk_4.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_4.2.a; sourceTree = "<group>"; };
+		16DB4B4A1A2437700081EF68 /* UMSCommentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentDetailController.xib; sourceTree = "<group>"; };
+		16DB4B4B1A2437700081EF68 /* UMSCommentInputController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputController.xib; sourceTree = "<group>"; };
+		16DB4B4C1A2437700081EF68 /* UMSCommentInputControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputControlleriPad.xib; sourceTree = "<group>"; };
+		16DB4B4D1A2437700081EF68 /* UMShareEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewController.xib; sourceTree = "<group>"; };
+		16DB4B4E1A2437700081EF68 /* UMShareEditViewControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewControlleriPad.xib; sourceTree = "<group>"; };
+		16DB4B4F1A2437700081EF68 /* UMSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSLoginViewController.xib; sourceTree = "<group>"; };
+		16DB4B501A2437700081EF68 /* UMSnsAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSnsAccountViewController.xib; sourceTree = "<group>"; };
+		16DB4B511A2437700081EF68 /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
+		16DB4B521A2437700081EF68 /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
+		16DB4B531A2437700081EF68 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
+		16DB4B561A2437700081EF68 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		16DB4B571A2437700081EF68 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		16DB4B591A2437700081EF68 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		16DB4B5A1A2437700081EF68 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		16DB4B5B1A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		16DB4B5C1A2437700081EF68 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		16DB4B5E1A2437700081EF68 /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
+		16DB4B5F1A2437700081EF68 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		16DB4B601A2437700081EF68 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		16DB4B611A2437700081EF68 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		16DB4B621A2437700081EF68 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		16DB4B741A2438CE0081EF68 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		16DB4B781A243E490081EF68 /* UMS_social_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UMS_social_demo.png; sourceTree = "<group>"; };
+		16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		16DB4B7C1A243F650081EF68 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		18BB57001A2373C6001C85B2 /* JWMPMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWMPMoviePlayerViewController.h; sourceTree = "<group>"; };
 		18BB57011A2373C6001C85B2 /* JWMPMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWMPMoviePlayerViewController.m; sourceTree = "<group>"; };
 		18BB57041A237D73001C85B2 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -262,12 +323,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */,
+				16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */,
+				161138ED1A1F51E70024B34E /* CoreGraphics.framework in Frameworks */,
+				16DB4B771A2438E10081EF68 /* SystemConfiguration.framework in Frameworks */,
+				16DB4B751A2438CE0081EF68 /* Security.framework in Frameworks */,
+				16DB4B731A2437700081EF68 /* libWeChatSDK.a in Frameworks */,
+				16DB4B641A2437700081EF68 /* libUMSocial_Sdk_4.2.a in Frameworks */,
+				16DB4B701A2437700081EF68 /* TencentOpenAPI.framework in Frameworks */,
 				18BB57D51A237E46001C85B2 /* libsqlite3.dylib in Frameworks */,
+				16DB4B721A2437700081EF68 /* libSocialWechat.a in Frameworks */,
+				16DB4B6F1A2437700081EF68 /* libSocialQQ.a in Frameworks */,
 				18BB57D31A237E3E001C85B2 /* libz.dylib in Frameworks */,
 				18BB57811A237D9B001C85B2 /* libUMFeedback.a in Frameworks */,
-				161138ED1A1F51E70024B34E /* CoreGraphics.framework in Frameworks */,
 				18BB57761A237D8D001C85B2 /* libGoogleAdMobAds.a in Frameworks */,
 				161138EF1A1F51E70024B34E /* UIKit.framework in Frameworks */,
+				16DB4B6E1A2437700081EF68 /* libSocialSina.a in Frameworks */,
 				161138EB1A1F51E70024B34E /* Foundation.framework in Frameworks */,
 				18BB57801A237D9B001C85B2 /* libMobClickLibrary.a in Frameworks */,
 			);
@@ -308,6 +379,10 @@
 		161138E91A1F51E70024B34E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16DB4B7C1A243F650081EF68 /* libstdc++.dylib */,
+				16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */,
+				16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */,
+				16DB4B741A2438CE0081EF68 /* Security.framework */,
 				18BB57D41A237E46001C85B2 /* libsqlite3.dylib */,
 				18BB57D21A237E3E001C85B2 /* libz.dylib */,
 				161138EA1A1F51E70024B34E /* Foundation.framework */,
@@ -397,6 +472,7 @@
 		1697FA1B1A2345F300EC5F14 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				16DB4B381A2437700081EF68 /* UMSocial */,
 				18BB57BF1A237E2C001C85B2 /* REFrostedViewController */,
 				18BB57771A237D9B001C85B2 /* UMLib */,
 				18BB57681A237D8D001C85B2 /* AdMob */,
@@ -406,6 +482,102 @@
 				18BB57031A237D73001C85B2 /* SDWebImage */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		16DB4B381A2437700081EF68 /* UMSocial */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B391A2437700081EF68 /* UMSocial_Sdk_4.2 */,
+				16DB4B541A2437700081EF68 /* UMSocial_Sdk_Extra_Frameworks */,
+			);
+			path = UMSocial;
+			sourceTree = "<group>";
+		};
+		16DB4B391A2437700081EF68 /* UMSocial_Sdk_4.2 */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B3A1A2437700081EF68 /* UMSocialLocalizable.strings */,
+				16DB4B3C1A2437700081EF68 /* Header */,
+				16DB4B481A2437700081EF68 /* libUMSocial_Sdk_4.2.a */,
+				16DB4B491A2437700081EF68 /* SocialSDKXib */,
+				16DB4B521A2437700081EF68 /* UMSocialSDKResourcesNew.bundle */,
+			);
+			path = UMSocial_Sdk_4.2;
+			sourceTree = "<group>";
+		};
+		16DB4B3C1A2437700081EF68 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B3D1A2437700081EF68 /* UMSocial.h */,
+				16DB4B3E1A2437700081EF68 /* UMSocialAccountManager.h */,
+				16DB4B3F1A2437700081EF68 /* UMSocialBar.h */,
+				16DB4B401A2437700081EF68 /* UMSocialConfig.h */,
+				16DB4B411A2437700081EF68 /* UMSocialControllerService.h */,
+				16DB4B421A2437700081EF68 /* UMSocialControllerServiceComment.h */,
+				16DB4B431A2437700081EF68 /* UMSocialData.h */,
+				16DB4B441A2437700081EF68 /* UMSocialDataService.h */,
+				16DB4B451A2437700081EF68 /* UMSocialSnsData.h */,
+				16DB4B461A2437700081EF68 /* UMSocialSnsPlatformManager.h */,
+				16DB4B471A2437700081EF68 /* UMSocialSnsService.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		16DB4B491A2437700081EF68 /* SocialSDKXib */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B4A1A2437700081EF68 /* UMSCommentDetailController.xib */,
+				16DB4B4B1A2437700081EF68 /* UMSCommentInputController.xib */,
+				16DB4B4C1A2437700081EF68 /* UMSCommentInputControlleriPad.xib */,
+				16DB4B4D1A2437700081EF68 /* UMShareEditViewController.xib */,
+				16DB4B4E1A2437700081EF68 /* UMShareEditViewControlleriPad.xib */,
+				16DB4B4F1A2437700081EF68 /* UMSLoginViewController.xib */,
+				16DB4B501A2437700081EF68 /* UMSnsAccountViewController.xib */,
+				16DB4B511A2437700081EF68 /* UMSShareListController.xib */,
+			);
+			path = SocialSDKXib;
+			sourceTree = "<group>";
+		};
+		16DB4B541A2437700081EF68 /* UMSocial_Sdk_Extra_Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B551A2437700081EF68 /* Sina */,
+				16DB4B581A2437700081EF68 /* TencentOpenAPI */,
+				16DB4B5D1A2437700081EF68 /* Wechat */,
+			);
+			path = UMSocial_Sdk_Extra_Frameworks;
+			sourceTree = "<group>";
+		};
+		16DB4B551A2437700081EF68 /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B561A2437700081EF68 /* libSocialSina.a */,
+				16DB4B571A2437700081EF68 /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
+		16DB4B581A2437700081EF68 /* TencentOpenAPI */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B591A2437700081EF68 /* libSocialQQ.a */,
+				16DB4B5A1A2437700081EF68 /* TencentOpenAPI.framework */,
+				16DB4B5B1A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle */,
+				16DB4B5C1A2437700081EF68 /* UMSocialQQHandler.h */,
+			);
+			path = TencentOpenAPI;
+			sourceTree = "<group>";
+		};
+		16DB4B5D1A2437700081EF68 /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				16DB4B5E1A2437700081EF68 /* libSocialWechat.a */,
+				16DB4B5F1A2437700081EF68 /* libWeChatSDK.a */,
+				16DB4B601A2437700081EF68 /* UMSocialWechatHandler.h */,
+				16DB4B611A2437700081EF68 /* WXApi.h */,
+				16DB4B621A2437700081EF68 /* WXApiObject.h */,
+			);
+			path = Wechat;
 			sourceTree = "<group>";
 		};
 		18BB56FA1A237081001C85B2 /* Resouces */ = {
@@ -419,6 +591,7 @@
 		18BB56FB1A237081001C85B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				16DB4B781A243E490081EF68 /* UMS_social_demo.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -709,6 +882,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 161138DE1A1F51E70024B34E;
 			productRefGroup = 161138E81A1F51E70024B34E /* Products */;
@@ -726,9 +900,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16DB4B711A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				18BB57461A237D79001C85B2 /* MJRefresh.bundle in Resources */,
 				18BB57821A237D9B001C85B2 /* umFeedback.bundle in Resources */,
+				16DB4B791A243E490081EF68 /* UMS_social_demo.png in Resources */,
+				16DB4B661A2437700081EF68 /* UMSCommentInputController.xib in Resources */,
+				16DB4B6C1A2437700081EF68 /* UMSShareListController.xib in Resources */,
+				16DB4B691A2437700081EF68 /* UMShareEditViewControlleriPad.xib in Resources */,
+				16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */,
+				16DB4B681A2437700081EF68 /* UMShareEditViewController.xib in Resources */,
+				16DB4B631A2437700081EF68 /* UMSocialLocalizable.strings in Resources */,
+				16DB4B6B1A2437700081EF68 /* UMSnsAccountViewController.xib in Resources */,
+				16DB4B6D1A2437700081EF68 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				161138F51A1F51E70024B34E /* InfoPlist.strings in Resources */,
+				16DB4B6A1A2437700081EF68 /* UMSLoginViewController.xib in Resources */,
+				16DB4B671A2437700081EF68 /* UMSCommentInputControlleriPad.xib in Resources */,
 				161138FD1A1F51E70024B34E /* Images.xcassets in Resources */,
 				18BB57551A237D7F001C85B2 /* MBProgressHUD.bundle in Resources */,
 			);
@@ -845,6 +1031,15 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		16DB4B3A1A2437700081EF68 /* UMSocialLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16DB4B3B1A2437700081EF68 /* en */,
+				16DB4B531A2437700081EF68 /* zh-Hans */,
+			);
+			name = UMSocialLocalizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -883,6 +1078,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
@@ -915,14 +1111,20 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};
 		161139141A1F51E80024B34E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FunnyVideo/FunnyVideo-Prefix.pch";
 				INFOPLIST_FILE = "FunnyVideo/FunnyVideo-Info.plist";
@@ -931,8 +1133,13 @@
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/AdMob",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMLib/Analytics",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMLib/Feedback",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_4.2",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -940,8 +1147,13 @@
 		161139151A1F51E80024B34E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FunnyVideo/FunnyVideo-Prefix.pch";
 				INFOPLIST_FILE = "FunnyVideo/FunnyVideo-Info.plist";
@@ -950,8 +1162,13 @@
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/AdMob",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMLib/Analytics",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMLib/Feedback",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_4.2",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/Sina",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
