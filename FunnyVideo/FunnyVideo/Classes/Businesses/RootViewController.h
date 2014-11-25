@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JWBaseTableViewController.h"
 #import "UMSocialControllerService.h"
 
-@interface RootViewController : UIViewController <UMSocialDataDelegate>
+@interface RootViewController : JWBaseTableViewController <UMSocialDataDelegate>
 
 @end

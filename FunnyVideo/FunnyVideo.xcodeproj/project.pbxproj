@@ -20,6 +20,19 @@
 		161139101A1F51E80024B34E /* FunnyVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1611390F1A1F51E80024B34E /* FunnyVideoTests.m */; };
 		1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA191A2345F300EC5F14 /* AppDelegate.m */; };
 		1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA4D1A23461500EC5F14 /* RootViewController.m */; };
+		16BBE2041A24AA7700C0ACB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */; };
+		16BBE2091A24ABB900C0ACB3 /* tab_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2051A24ABB900C0ACB3 /* tab_cross@2x.png */; };
+		16BBE20A1A24ABB900C0ACB3 /* tab_daily@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2061A24ABB900C0ACB3 /* tab_daily@2x.png */; };
+		16BBE20B1A24ABB900C0ACB3 /* tab_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2071A24ABB900C0ACB3 /* tab_home@2x.png */; };
+		16BBE20C1A24ABB900C0ACB3 /* tab_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2081A24ABB900C0ACB3 /* tab_setting@2x.png */; };
+		16BBE20F1A24ADAB00C0ACB3 /* JWBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BBE20E1A24ADAB00C0ACB3 /* JWBaseTabBarController.m */; };
+		16BBE2171A24B22B00C0ACB3 /* 20141125064247949_easyicon_net_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2101A24B22B00C0ACB3 /* 20141125064247949_easyicon_net_256.png */; };
+		16BBE2181A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2111A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png */; };
+		16BBE2191A24B22B00C0ACB3 /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2121A24B22B00C0ACB3 /* like@2x.png */; };
+		16BBE21A1A24B22B00C0ACB3 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2131A24B22B00C0ACB3 /* play@2x.png */; };
+		16BBE21B1A24B22B00C0ACB3 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2141A24B22B00C0ACB3 /* share@2x.png */; };
+		16BBE21C1A24B22B00C0ACB3 /* share1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2151A24B22B00C0ACB3 /* share1@2x.png */; };
+		16BBE21D1A24B22B00C0ACB3 /* unlike@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2161A24B22B00C0ACB3 /* unlike@2x.png */; };
 		16DB4B631A2437700081EF68 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B3A1A2437700081EF68 /* UMSocialLocalizable.strings */; };
 		16DB4B641A2437700081EF68 /* libUMSocial_Sdk_4.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B481A2437700081EF68 /* libUMSocial_Sdk_4.2.a */; };
 		16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4A1A2437700081EF68 /* UMSCommentDetailController.xib */; };
@@ -85,7 +98,6 @@
 		18BB57971A237DB1001C85B2 /* JWBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57901A237DB1001C85B2 /* JWBaseTableViewController.m */; };
 		18BB57981A237DB1001C85B2 /* JWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57921A237DB1001C85B2 /* JWBaseViewController.m */; };
 		18BB57991A237DB1001C85B2 /* JWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57941A237DB1001C85B2 /* JWNavigationController.m */; };
-		18BB579A1A237DB1001C85B2 /* JWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57961A237DB1001C85B2 /* JWTabBarController.m */; };
 		18BB57B01A237DB7001C85B2 /* NSData+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB579D1A237DB7001C85B2 /* NSData+MD5.m */; };
 		18BB57B11A237DB7001C85B2 /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB579F1A237DB7001C85B2 /* NSObject+Category.m */; };
 		18BB57B21A237DB7001C85B2 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57A11A237DB7001C85B2 /* NSString+FontAwesome.m */; };
@@ -136,6 +148,21 @@
 		1697FA191A2345F300EC5F14 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1697FA4C1A23461500EC5F14 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1697FA4D1A23461500EC5F14 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		16BBE2021A24AA7700C0ACB3 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		16BBE2051A24ABB900C0ACB3 /* tab_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_cross@2x.png"; sourceTree = "<group>"; };
+		16BBE2061A24ABB900C0ACB3 /* tab_daily@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_daily@2x.png"; sourceTree = "<group>"; };
+		16BBE2071A24ABB900C0ACB3 /* tab_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_home@2x.png"; sourceTree = "<group>"; };
+		16BBE2081A24ABB900C0ACB3 /* tab_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_setting@2x.png"; sourceTree = "<group>"; };
+		16BBE20D1A24ADAB00C0ACB3 /* JWBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWBaseTabBarController.h; sourceTree = "<group>"; };
+		16BBE20E1A24ADAB00C0ACB3 /* JWBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWBaseTabBarController.m; sourceTree = "<group>"; };
+		16BBE2101A24B22B00C0ACB3 /* 20141125064247949_easyicon_net_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20141125064247949_easyicon_net_256.png; sourceTree = "<group>"; };
+		16BBE2111A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20141125064409365_easyicon_net_128.png; sourceTree = "<group>"; };
+		16BBE2121A24B22B00C0ACB3 /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@2x.png"; sourceTree = "<group>"; };
+		16BBE2131A24B22B00C0ACB3 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		16BBE2141A24B22B00C0ACB3 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
+		16BBE2151A24B22B00C0ACB3 /* share1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share1@2x.png"; sourceTree = "<group>"; };
+		16BBE2161A24B22B00C0ACB3 /* unlike@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlike@2x.png"; sourceTree = "<group>"; };
 		16DB4B3B1A2437700081EF68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		16DB4B3D1A2437700081EF68 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		16DB4B3E1A2437700081EF68 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -274,8 +301,6 @@
 		18BB57921A237DB1001C85B2 /* JWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWBaseViewController.m; sourceTree = "<group>"; };
 		18BB57931A237DB1001C85B2 /* JWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWNavigationController.h; sourceTree = "<group>"; };
 		18BB57941A237DB1001C85B2 /* JWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWNavigationController.m; sourceTree = "<group>"; };
-		18BB57951A237DB1001C85B2 /* JWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWTabBarController.h; sourceTree = "<group>"; };
-		18BB57961A237DB1001C85B2 /* JWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWTabBarController.m; sourceTree = "<group>"; };
 		18BB579C1A237DB7001C85B2 /* NSData+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MD5.h"; sourceTree = "<group>"; };
 		18BB579D1A237DB7001C85B2 /* NSData+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MD5.m"; sourceTree = "<group>"; };
 		18BB579E1A237DB7001C85B2 /* NSObject+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
@@ -459,6 +484,8 @@
 		1697FA1A1A2345F300EC5F14 /* Businesses */ = {
 			isa = PBXGroup;
 			children = (
+				16BBE2021A24AA7700C0ACB3 /* SettingViewController.h */,
+				16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */,
 				18BB57D61A238135001C85B2 /* JWImageTableViewCell.h */,
 				18BB57D71A238135001C85B2 /* JWImageTableViewCell.m */,
 				18BB57001A2373C6001C85B2 /* JWMPMoviePlayerViewController.h */,
@@ -591,6 +618,17 @@
 		18BB56FB1A237081001C85B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				16BBE2101A24B22B00C0ACB3 /* 20141125064247949_easyicon_net_256.png */,
+				16BBE2111A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png */,
+				16BBE2121A24B22B00C0ACB3 /* like@2x.png */,
+				16BBE2131A24B22B00C0ACB3 /* play@2x.png */,
+				16BBE2141A24B22B00C0ACB3 /* share@2x.png */,
+				16BBE2151A24B22B00C0ACB3 /* share1@2x.png */,
+				16BBE2161A24B22B00C0ACB3 /* unlike@2x.png */,
+				16BBE2051A24ABB900C0ACB3 /* tab_cross@2x.png */,
+				16BBE2061A24ABB900C0ACB3 /* tab_daily@2x.png */,
+				16BBE2071A24ABB900C0ACB3 /* tab_home@2x.png */,
+				16BBE2081A24ABB900C0ACB3 /* tab_setting@2x.png */,
 				16DB4B781A243E490081EF68 /* UMS_social_demo.png */,
 			);
 			path = Images;
@@ -761,8 +799,8 @@
 				18BB57921A237DB1001C85B2 /* JWBaseViewController.m */,
 				18BB57931A237DB1001C85B2 /* JWNavigationController.h */,
 				18BB57941A237DB1001C85B2 /* JWNavigationController.m */,
-				18BB57951A237DB1001C85B2 /* JWTabBarController.h */,
-				18BB57961A237DB1001C85B2 /* JWTabBarController.m */,
+				16BBE20D1A24ADAB00C0ACB3 /* JWBaseTabBarController.h */,
+				16BBE20E1A24ADAB00C0ACB3 /* JWBaseTabBarController.m */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -903,11 +941,17 @@
 				16DB4B711A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				18BB57461A237D79001C85B2 /* MJRefresh.bundle in Resources */,
 				18BB57821A237D9B001C85B2 /* umFeedback.bundle in Resources */,
+				16BBE20B1A24ABB900C0ACB3 /* tab_home@2x.png in Resources */,
+				16BBE2091A24ABB900C0ACB3 /* tab_cross@2x.png in Resources */,
 				16DB4B791A243E490081EF68 /* UMS_social_demo.png in Resources */,
 				16DB4B661A2437700081EF68 /* UMSCommentInputController.xib in Resources */,
+				16BBE2181A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png in Resources */,
 				16DB4B6C1A2437700081EF68 /* UMSShareListController.xib in Resources */,
+				16BBE20A1A24ABB900C0ACB3 /* tab_daily@2x.png in Resources */,
+				16BBE21B1A24B22B00C0ACB3 /* share@2x.png in Resources */,
 				16DB4B691A2437700081EF68 /* UMShareEditViewControlleriPad.xib in Resources */,
 				16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */,
+				16BBE21C1A24B22B00C0ACB3 /* share1@2x.png in Resources */,
 				16DB4B681A2437700081EF68 /* UMShareEditViewController.xib in Resources */,
 				16DB4B631A2437700081EF68 /* UMSocialLocalizable.strings in Resources */,
 				16DB4B6B1A2437700081EF68 /* UMSnsAccountViewController.xib in Resources */,
@@ -915,6 +959,11 @@
 				161138F51A1F51E70024B34E /* InfoPlist.strings in Resources */,
 				16DB4B6A1A2437700081EF68 /* UMSLoginViewController.xib in Resources */,
 				16DB4B671A2437700081EF68 /* UMSCommentInputControlleriPad.xib in Resources */,
+				16BBE2171A24B22B00C0ACB3 /* 20141125064247949_easyicon_net_256.png in Resources */,
+				16BBE21D1A24B22B00C0ACB3 /* unlike@2x.png in Resources */,
+				16BBE21A1A24B22B00C0ACB3 /* play@2x.png in Resources */,
+				16BBE20C1A24ABB900C0ACB3 /* tab_setting@2x.png in Resources */,
+				16BBE2191A24B22B00C0ACB3 /* like@2x.png in Resources */,
 				161138FD1A1F51E70024B34E /* Images.xcassets in Resources */,
 				18BB57551A237D7F001C85B2 /* MBProgressHUD.bundle in Resources */,
 			);
@@ -962,6 +1011,7 @@
 				18BB57CC1A237E2C001C85B2 /* RECommonFunctions.m in Sources */,
 				18BB57B81A237DB7001C85B2 /* UILabel+ContentSize.m in Sources */,
 				18BB572A1A237D73001C85B2 /* SDWebImageDownloader.m in Sources */,
+				16BBE20F1A24ADAB00C0ACB3 /* JWBaseTabBarController.m in Sources */,
 				18BB574A1A237D79001C85B2 /* MJRefreshHeaderView.m in Sources */,
 				18BB57251A237D73001C85B2 /* MKAnnotationView+WebCache.m in Sources */,
 				18BB578C1A237DAA001C85B2 /* JWNetworking.m in Sources */,
@@ -986,11 +1036,11 @@
 				18BB57261A237D73001C85B2 /* NSData+ImageContentType.m in Sources */,
 				18BB57311A237D73001C85B2 /* UIImage+WebP.m in Sources */,
 				18BB57B71A237DB7001C85B2 /* UIImage+Util.m in Sources */,
-				18BB579A1A237DB1001C85B2 /* JWTabBarController.m in Sources */,
 				18BB57651A237D87001C85B2 /* FMDatabasePool.m in Sources */,
 				18BB578D1A237DAA001C85B2 /* UtilManager.m in Sources */,
 				18BB57991A237DB1001C85B2 /* JWNavigationController.m in Sources */,
 				18BB57CE1A237E2C001C85B2 /* REFrostedViewController.m in Sources */,
+				16BBE2041A24AA7700C0ACB3 /* SettingViewController.m in Sources */,
 				18BB57B51A237DB7001C85B2 /* UIButton+Bootstrap.m in Sources */,
 				18BB57B11A237DB7001C85B2 /* NSObject+Category.m in Sources */,
 			);

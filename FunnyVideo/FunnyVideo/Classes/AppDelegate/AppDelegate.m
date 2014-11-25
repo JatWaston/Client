@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "SettingViewController.h"
+#import "JWBaseTabBarController.h"
+
 #import "UMSocial.h"
+#import "UIColor+Colours.h"
 
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
@@ -26,21 +30,37 @@
     //打开新浪微博的SSO开关
     [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
-    //打开腾讯微博SSO开关，设置回调地址，只支持32位
-    //    [UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://sns.whalecloud.com/tencent2/callback"];
-    
-    //打开人人网SSO开关，只支持32位
-    //    [UMSocialRenrenHandler openSSO];
-    
-    //    //设置分享到QQ空间的应用Id，和分享url 链接
+    //设置分享到QQ空间的应用Id，和分享url 链接
     [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
-    //    //设置支持没有客户端情况下使用SSO授权
+    //设置支持没有客户端情况下使用SSO授权
     [UMSocialQQHandler setSupportWebView:YES];
+    
+
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.controller = [[RootViewController alloc] init];
-    self.window.rootViewController = self.controller;
+    
+
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor skyBlueColor]]; //设置UINavigationBar的颜色
+    
+    RootViewController *mainViewController = [[RootViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskNone tableViewStyle:UITableViewStylePlain];
+    UINavigationController *navMainViewController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    
+    
+    SettingViewController *settingViewController = [[SettingViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskNone tableViewStyle:UITableViewStyleGrouped];
+    UINavigationController *navSettingViewController = [[UINavigationController alloc] initWithRootViewController:settingViewController];
+    //navSettingViewController.navigationBar.tintColor = [UIColor skyBlueColor];
+    
+    JWBaseTabBarController *tab = [[JWBaseTabBarController alloc] init];
+    //tintColor 文字和图片的颜色
+    tab.tabBar.tintColor = [UIColor skyBlueColor];
+    tab.tabBar.barTintColor = [UIColor blackColor];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navSettingViewController, nil];
+    [tab setViewControllers:controllers animated:NO];
+    self.window.rootViewController = tab;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
