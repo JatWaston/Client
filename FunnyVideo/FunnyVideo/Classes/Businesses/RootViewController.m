@@ -95,38 +95,17 @@
 
 - (void)showVideo {
     
-    NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.umeng.com/social";             //分享内嵌文字
-    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
-    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
-    //如果得到分享完成回调，需要设置delegate为self
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:self];
-    return;
-    NSURL *movieUrl = [NSURL URLWithString:@"http://k.youku.com/player/getFlvPath/sid/9416831564485129772ca_00/st/mp4/fileid/03000801005472DFF62B3006257BB67BC3A57F-7D0E-61A9-84EC-626B4A6E7719?K=b65f5bf641d16955261e06cd&hd=1&myp=0&ts=181&ypp=0&ctype=12&ev=1&token=1618&oip=2015647293&ep=eyaVHEGOV8sG4SfXjT8bbivldiReXP4J9h%2BFidJjALshTO%2B97UinwZ%2FCTf9CEPscdVB0FuyD2NOWb0diYfc3qR0Q2U%2FZMPro%2BoWQ5atRwuIEFx9DdcrWvVSfRTH5"];
-//    NSURL *movieUrl = [NSURL URLWithString:@"http://k.youku.com/player/getFlvPath/sid/9416831564485129772ca_00/st/mp4/fileid/03000801005472DFF62B300625SDFSDFSS7BB67BC3A57F-7D0E-61A9-84EC-626B4A6E7719?K=b65f5bf641d16955261e06cd&hd=1&myp=0&ts=181&ypp=0&ctype=12&ev=1&token=1618&oip=2015647293&ep=eyaVHEGOV8sG4SfXjT8bbivldiReXP4J9h%2BFidJjALshTO%2B97UinwZ%2FCTf9CEPscdVB0FuyD2NOWb0diYfc3qR0Q2U%2FZSDFSFDSAMPro%2BoWQ5atRwuIEFx9DdcrWvVSfRTH5"];
+//    NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.umeng.com/social";             //分享内嵌文字
+//    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
+//    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+//    //如果得到分享完成回调，需要设置delegate为self
+//    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+//    return;
+    NSURL *movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=200019946&type=flv&ep=diaVHECPVcoE4yPfjz8bbi3gfX4KXPwK9h%2BEiNtmBtQnSeG%2F&token=3190&ctype=12&ev=1&oip=2015647293&sid=441692344600712912995"];
     _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
     [self presentMoviePlayerViewControllerAnimated:_player];
 }
 
-- (BOOL)shouldAutorotate
-{
-//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//    if (UIDeviceOrientationIsLandscape(orientation)) {
-//        if (!_videoPlayerViewController.fullScreenModeToggled) {
-//            [_videoPlayerViewController launchFullScreen];
-//        }
-//    } else if (UIDeviceOrientationIsPortrait(orientation)) {
-//        if (_videoPlayerViewController.fullScreenModeToggled) {
-//            [_videoPlayerViewController minimizeVideo];
-//        } 
-//    }
-//    NSLog(@"orientation = %d",[[UIDevice currentDevice] orientation]);
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -167,6 +146,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 160.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self showVideo];
 }
 
 @end
