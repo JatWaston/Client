@@ -7,6 +7,7 @@
 //
 
 #import "JWBaseViewController.h"
+#import "UIScrollView+MJRefresh.h"
 
 @interface JWBaseTableViewController : JWBaseViewController <UITableViewDataSource, UITableViewDelegate>
 {
@@ -19,5 +20,8 @@
 
 
 - (id)initWithRefreshStyle:(JWTableRefreshStyle)refreshStyle tableViewStyle:(UITableViewStyle)style;
+
+- (void)headerRereshing;
+- (void)footerRereshing;
 
 @end

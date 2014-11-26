@@ -1236,6 +1236,7 @@
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
@@ -1265,6 +1266,7 @@
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;

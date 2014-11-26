@@ -14,11 +14,28 @@
 
 #import "UIColor+Colours.h"
 
+#import "GADBannerView.h"
+#import "GADAdSize.h"
+#import "GADInterstitial.h"
 
-@interface RootViewController ()
+#import "NSString+MD5.h"
+#import "MBProgressHUD+Add.h"
+
+#define kRequestPageSize 10
+
+
+@interface RootViewController () <GADBannerViewDelegate,GADInterstitialDelegate>
 {
     JWMPMoviePlayerViewController *_player;
+    
+    GADBannerView *_adBannerView;
+    GADInterstitial *_interstitialView;
+    
+    NSUInteger _catalog;
+    NSUInteger _type;
 }
+
+- (void)initAdmobAd;
 
 @end
 
@@ -36,27 +53,117 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.navigationController.navigationBar.tintColor = [UIColor skyBlueColor];
-    // Do any additional setup after loading the view.
-//    [self showVideo];
     
-//    self.view.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:0.3f alpha:1.0f];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    CGRect frame = self.view.frame;
-//    button.frame = CGRectMake((frame.size.width-100)/2.0f, (frame.size.height-30)/2.0f, 100, 30);
-//    button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-//    [button setTitle:@"Play" forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(showVideo) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
-//    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
+    _catalog = 8000;
+    _type = 8001;
+    _currentPage = 1;
+    _isRefreshing = YES;
+  
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
     self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-50);
-    for (int i = 0; i < 100; i++) {
-        [_items addObject:[NSString stringWithFormat:@"%d",i]];
-    }
     self.contentTableView.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0f];
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.contentTableView reloadData];
+    [self initAdmobAd];
+    
+    [self requestWithCatalog:_catalog];
+    
+}
+
+- (void)requestWithCatalog:(NSUInteger)catalog
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    _isRefreshing = YES;
+    _currentPage = 1;
+    NSString *url = [self builtURLWithPage:_currentPage catalog:catalog validKey:kValidStr];
+    [self requestURLWithPath:url forceRequest:YES showHUD:YES];
+    
+    //    self.quiltView.bouncesZoom = NO;
+}
+
+- (void)loadInterstitiaAD
+{
+    if (_interstitialView && _interstitialView.hasBeenUsed) {
+        _interstitialView.delegate = nil;
+        _interstitialView = nil;
+        _interstitialView = [[GADInterstitial alloc] init];
+        _interstitialView.adUnitID = kAdmobInterstitialKey;
+        _interstitialView.delegate = self;
+        [_interstitialView loadRequest:[GADRequest request]];
+    }
+}
+
+- (NSString*)builtURLWithPage:(NSUInteger)page catalog:(NSUInteger)catalog validKey:(NSString*)vaild
+{
+    _catalog = catalog;
+    NSUInteger store = JW91SttorePlatform;
+#ifdef APP_STORE
+    store = JWAppStorePlatform;
+#endif
+    NSString *md5 = [[NSString stringWithFormat:@"%d%d%d%@",(int)_catalog,(int)_type,(int)_currentPage,kValidStr] MD5];
+    NSString *requestURL = [kDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?catalog=%d&type=%d&page=%d&valid=%@&pageSize=%d&store=%d",(int)_catalog,(int)_type,(int)_currentPage,md5,kRequestPageSize,(int)store]];
+    return requestURL;
+}
+
+- (void)handleResult:(NSDictionary*)result
+{
+    [self.contentTableView headerEndRefreshing];
+    [self.contentTableView footerEndRefreshing];
+    NSLog(@"result = %@",result);
+    if ([[result valueForKey:kCode] integerValue] == 0)
+    {
+        NSArray *array = [result valueForKey:kData];
+        NSLog(@"count = %d",(int)[array count]);
+        if (_isRefreshing) {
+            if ([array count] > 0) {
+                [_items removeAllObjects];
+            }
+        }
+        [_items addObjectsFromArray:array];
+        [self.contentTableView reloadData];
+        if (_isRefreshing)
+        {
+            [self.contentTableView setContentOffset:CGPointMake(0, 0) animated:YES];
+        }
+    }
+    _isRequesting = NO;
+    _isRefreshing = NO;
+}
+
+- (void)headerRereshing
+{
+    [super headerRereshing];
+    NSString *url = [self builtURLWithPage:_currentPage catalog:_catalog validKey:kValidStr];
+    [self requestURLWithPath:url forceRequest:YES showHUD:NO];
+    
+}
+
+- (void)footerRereshing
+{
+    [super footerRereshing];
+    NSLog(@"footerRereshing");
+    NSString *url = [self builtURLWithPage:_currentPage catalog:_catalog validKey:kValidStr];
+    [self requestURLWithPath:url forceRequest:YES showHUD:NO];
+}
+
+- (void)initAdmobAd
+{
+    //横幅
+    CGPoint origin = CGPointMake(0.0,
+                                 self.view.frame.size.height -
+                                 CGSizeFromGADAdSize(kGADAdSizeBanner).height-64-49);
+    _adBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
+    //_adBannerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
+    _adBannerView.adUnitID = kAdmobBannerKey;
+    _adBannerView.delegate = self;
+    _adBannerView.rootViewController = self;
+    [self.view addSubview:_adBannerView];
+    [_adBannerView loadRequest:[GADRequest request]];
+    
+    //插屏
+    _interstitialView = [[GADInterstitial alloc] init];
+    _interstitialView.adUnitID = kAdmobInterstitialKey;
+    _interstitialView.delegate = self;
+    [_interstitialView loadRequest:[GADRequest request]];
 }
 
 - (void)moviePlayerNotificationHandler:(NSNotification*)notification
@@ -85,11 +192,6 @@
             NSLog(@"Finish Reason = %ld", (long)reasonAsInteger);
         } /* if (reason != nil){ */
     }
-    
-}
-
--(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
-{
     
 }
 
@@ -125,11 +227,6 @@
 #pragma mark -
 #pragma mark UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_items count];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellStr = @"cellStr";
@@ -152,6 +249,43 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self showVideo];
+}
+
+#pragma mark - UMSocialDataDelegate
+
+- (void)didFinishGetUMSocialDataResponse:(UMSocialResponseEntity *)response;
+{
+    
+}
+
+#pragma mark -
+#pragma mark GADBannerViewDelegate
+
+// We've received an ad successfully.
+- (void)adViewDidReceiveAd:(GADBannerView *)adView
+{
+    NSLog(@"ad frame = %@",NSStringFromCGRect(adView.frame));
+    NSLog(@"Received ad successfully");
+}
+
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"Failed to receive ad with error: %@", [error localizedFailureReason]);
+}
+
+#pragma mark -
+#pragma mark GADInterstitialDelegate
+
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    NSLog(@"Received GADInterstitial successfully");
+    [ad presentFromRootViewController:self];
+}
+
+
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"GADInterstitial error:%@",[error localizedFailureReason]);
 }
 
 @end

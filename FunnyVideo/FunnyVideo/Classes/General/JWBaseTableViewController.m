@@ -7,7 +7,6 @@
 //
 
 #import "JWBaseTableViewController.h"
-#import "UIScrollView+MJRefresh.h"
 #import "UIViewController+REFrostedViewController.h"
 
 static NSString *cellStr = @"cell";

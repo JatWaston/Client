@@ -13,7 +13,7 @@
 #define kCatalogDetailCachePath @"CatalogDetail"
 #define kCacheRootKey           @"JW"
 
-#define kValidStr @"TenTu"
+#define kValidStr @"Video"
 
 #define kCode       @"code"
 #define kData       @"data"
@@ -36,21 +36,17 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
 #endif
 
 #ifdef APP_STORE
-//    #define kDefaultCatalog 1000
-//    #define kDefaultTitle @"每日美女"
-    #define kDefaultCatalog 3000
-    #define kDefaultTitle @"吐槽囧图"
+    #define kDefaultCatalog 1000
 #else
-    #define kDefaultCatalog 5000
-    #define kDefaultTitle @"今日囧图"
+    #define kDefaultCatalog 1000
 #endif
 
-#define kTestURL
+//#define kTestURL
 
 #ifdef kTestURL
-    #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/TenTu/tentu/1/dailyContent.php"
+    #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
 #else
-    #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/TenTu/tentu/1/dailyContent.php"
+    #define kDailyContentURL @"http://192.168.1.6/~apple/PHP/SAE/Service/Video/Service/dailyContent.php"
 #endif
 
 
