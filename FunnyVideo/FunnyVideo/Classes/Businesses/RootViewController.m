@@ -50,7 +50,7 @@
 //    [self.view addSubview:button];
 //    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
-    
+    self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-50);
     for (int i = 0; i < 100; i++) {
         [_items addObject:[NSString stringWithFormat:@"%d",i]];
     }
