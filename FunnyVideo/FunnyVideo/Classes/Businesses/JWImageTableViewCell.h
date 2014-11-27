@@ -12,4 +12,6 @@
 
 - (void)initCellData:(NSDictionary*)info;
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+
 @end

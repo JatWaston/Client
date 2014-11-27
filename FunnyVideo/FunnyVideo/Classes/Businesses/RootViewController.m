@@ -22,6 +22,7 @@
 #import "MBProgressHUD+Add.h"
 
 #import "TOWebViewController.h"
+#import "UtilManager.h"
 
 #define kRequestPageSize 10
 
@@ -67,19 +68,7 @@
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self initAdmobAd];
     
-    //[self requestWithCatalog:_catalog];
-    
-    NSString *text = @"fsafjdls;ajdfakjfdklajfdlsajfsakl测试测试测试测试测试测试fsafjdls;ajdfakjfdklaj fdlsajfsakl测试fsafjdls;ajdfakjfdklaj fdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjd ls;ajdfakjfdklajfdlsa jfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklxxxxxxxajfdlsajfsakl测试";
-    
-    float height = [self heightForText:text];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, height)];
-    label.numberOfLines = 0;
-    label.font = [UIFont systemFontOfSize:12];
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.backgroundColor = [UIColor grayColor];
-    label.text = text;
-    [self.view addSubview:label];
+    [self requestWithCatalog:_catalog];
     
 }
 
@@ -209,27 +198,7 @@
     
 }
 
-- (CGFloat)heightForText:(NSString *)text
-{
-    //设置计算文本时字体的大小,以什么标准来计算
-    NSDictionary *attrbute = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
-    
-    CGRect rect = [text boundingRectWithSize:CGSizeMake(320, 1000)
-                                     options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
-                                  attributes:attrbute
-                                     context:nil];
-    NSLog(@"rect = %@",NSStringFromCGRect(rect));
-    return rect.size.height;
-    
-}
 
-//- (float)calculateTextHeight:(NSString*)text
-//{
-//    UIFont *font = [UIFont systemFontOfSize:12.0f];
-//    CGSize titleSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(320, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
-//    NSLog(@"titleSize = %@",NSStringFromCGSize(titleSize));
-//    return titleSize.height;
-//}
 
 - (void)showVideo {
     
@@ -267,9 +236,12 @@
 {
     static NSString *cellStr = @"cellStr";
     JWImageTableViewCell *cell = (JWImageTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     if (cell == nil) {
         cell = [[JWImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
     }
+    
+    [cell initCellData:info];
     return cell;
 }
 
@@ -278,15 +250,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 160.0f;
+    //return 160.0f;
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    NSString *title = [info valueForKey:@"title"];
+    float heigth = [[UtilManager shareManager] heightForText:title rectSize:CGSizeMake(self.view.frame.size.width, 1000) fontSize:kCellTitleFontSize];
+    return heigth + 100 + 55;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //[self showVideo];
-    
-    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
     TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
 }

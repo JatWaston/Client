@@ -33,7 +33,7 @@
     if (self = [super init])
     {
         _downloadData = [[NSMutableData alloc] init];
-        self.timeoutInterval = 30.0f;
+        self.timeoutInterval = 10.0f;
     }
     return self;
 }

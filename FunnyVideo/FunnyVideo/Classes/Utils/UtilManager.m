@@ -56,4 +56,17 @@ static BOOL _iPhone5Device = NO;
     return additionURL;
 }
 
+- (CGFloat)heightForText:(NSString *)text rectSize:(CGSize)frameSize fontSize:(float)fontSize
+{
+    //设置计算文本时字体的大小,以什么标准来计算
+    NSDictionary *attrbute = @{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]};
+    CGRect rect = [text boundingRectWithSize:frameSize
+                                     options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
+                                  attributes:attrbute
+                                     context:nil];
+    //NSLog(@"rect = %@",NSStringFromCGRect(rect));
+    return rect.size.height;
+    
+}
+
 @end

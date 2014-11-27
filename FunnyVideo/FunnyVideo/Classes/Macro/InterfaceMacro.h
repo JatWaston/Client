@@ -15,6 +15,7 @@
 #define kTextColor                          [UIColor colorWithRed:0.20 green:0.23 blue:0.23 alpha:1.0]
 #define kNavBarTextColor                    kTextColor                                                  // 导航栏标题字体颜色
 #define kNavBarTextFont                     [UIFont systemFontOfSize:20]
+#define kCellTitleFontSize                  15.0f
 
 
 
