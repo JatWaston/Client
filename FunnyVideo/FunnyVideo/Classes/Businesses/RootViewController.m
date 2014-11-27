@@ -21,6 +21,8 @@
 #import "NSString+MD5.h"
 #import "MBProgressHUD+Add.h"
 
+#import "TOWebViewController.h"
+
 #define kRequestPageSize 10
 
 
@@ -65,7 +67,19 @@
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self initAdmobAd];
     
-    [self requestWithCatalog:_catalog];
+    //[self requestWithCatalog:_catalog];
+    
+    NSString *text = @"fsafjdls;ajdfakjfdklajfdlsajfsakl测试测试测试测试测试测试fsafjdls;ajdfakjfdklaj fdlsajfsakl测试fsafjdls;ajdfakjfdklaj fdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjd ls;ajdfakjfdklajfdlsa jfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklajfdlsajfsakl测试fsafjdls;ajdfakjfdklxxxxxxxajfdlsajfsakl测试";
+    
+    float height = [self heightForText:text];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, height)];
+    label.numberOfLines = 0;
+    label.font = [UIFont systemFontOfSize:12];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.backgroundColor = [UIColor grayColor];
+    label.text = text;
+    [self.view addSubview:label];
     
 }
 
@@ -195,6 +209,28 @@
     
 }
 
+- (CGFloat)heightForText:(NSString *)text
+{
+    //设置计算文本时字体的大小,以什么标准来计算
+    NSDictionary *attrbute = @{NSFontAttributeName:[UIFont systemFontOfSize:12]};
+    
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(320, 1000)
+                                     options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
+                                  attributes:attrbute
+                                     context:nil];
+    NSLog(@"rect = %@",NSStringFromCGRect(rect));
+    return rect.size.height;
+    
+}
+
+//- (float)calculateTextHeight:(NSString*)text
+//{
+//    UIFont *font = [UIFont systemFontOfSize:12.0f];
+//    CGSize titleSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(320, MAXFLOAT) lineBreakMode:UILineBreakModeWordWrap];
+//    NSLog(@"titleSize = %@",NSStringFromCGSize(titleSize));
+//    return titleSize.height;
+//}
+
 - (void)showVideo {
     
 //    NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.umeng.com/social";             //分享内嵌文字
@@ -248,7 +284,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self showVideo];
+    //[self showVideo];
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
 }
 
 #pragma mark - UMSocialDataDelegate

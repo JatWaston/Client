@@ -18,6 +18,8 @@
 		161139061A1F51E70024B34E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161138EE1A1F51E70024B34E /* UIKit.framework */; };
 		1611390E1A1F51E80024B34E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1611390C1A1F51E80024B34E /* InfoPlist.strings */; };
 		161139101A1F51E80024B34E /* FunnyVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1611390F1A1F51E80024B34E /* FunnyVideoTests.m */; };
+		163F00681A26E2710063CA8D /* icon_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 163F00661A26E2710063CA8D /* icon_more.png */; };
+		163F00691A26E2710063CA8D /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 163F00671A26E2710063CA8D /* icon_more@2x.png */; };
 		165F337A1A25DA90001D372A /* icon_like_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F336E1A25DA90001D372A /* icon_like_disabled.png */; };
 		165F337B1A25DA90001D372A /* icon_like_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F336F1A25DA90001D372A /* icon_like_disabled@2x.png */; };
 		165F337C1A25DA90001D372A /* icon_like_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F33701A25DA90001D372A /* icon_like_pressed.png */; };
@@ -30,6 +32,11 @@
 		165F33831A25DA90001D372A /* icon_unlike_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F33771A25DA90001D372A /* icon_unlike_pressed@2x.png */; };
 		165F33841A25DA90001D372A /* icon_unlike_unpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F33781A25DA90001D372A /* icon_unlike_unpressed.png */; };
 		165F33851A25DA90001D372A /* icon_unlike_unpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F33791A25DA90001D372A /* icon_unlike_unpressed@2x.png */; };
+		165F33981A26DA70001D372A /* TOWebViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 165F33871A26DA70001D372A /* TOWebViewControllerLocalizable.strings */; };
+		165F33991A26DA70001D372A /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F338F1A26DA70001D372A /* TOActivityChrome.m */; };
+		165F339A1A26DA70001D372A /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33911A26DA70001D372A /* TOActivitySafari.m */; };
+		165F339B1A26DA70001D372A /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33931A26DA70001D372A /* TOWebViewController.m */; };
+		165F339C1A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33951A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m */; };
 		1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA191A2345F300EC5F14 /* AppDelegate.m */; };
 		1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA4D1A23461500EC5F14 /* RootViewController.m */; };
 		16BBE2041A24AA7700C0ACB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */; };
@@ -156,6 +163,8 @@
 		1611390B1A1F51E80024B34E /* FunnyVideoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FunnyVideoTests-Info.plist"; sourceTree = "<group>"; };
 		1611390D1A1F51E80024B34E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1611390F1A1F51E80024B34E /* FunnyVideoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunnyVideoTests.m; sourceTree = "<group>"; };
+		163F00661A26E2710063CA8D /* icon_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_more.png; sourceTree = "<group>"; };
+		163F00671A26E2710063CA8D /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
 		165F336E1A25DA90001D372A /* icon_like_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_like_disabled.png; sourceTree = "<group>"; };
 		165F336F1A25DA90001D372A /* icon_like_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_like_disabled@2x.png"; sourceTree = "<group>"; };
 		165F33701A25DA90001D372A /* icon_like_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_like_pressed.png; sourceTree = "<group>"; };
@@ -168,6 +177,22 @@
 		165F33771A25DA90001D372A /* icon_unlike_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_unlike_pressed@2x.png"; sourceTree = "<group>"; };
 		165F33781A25DA90001D372A /* icon_unlike_unpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_unlike_unpressed.png; sourceTree = "<group>"; };
 		165F33791A25DA90001D372A /* icon_unlike_unpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_unlike_unpressed@2x.png"; sourceTree = "<group>"; };
+		165F33881A26DA70001D372A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		165F33891A26DA70001D372A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		165F338A1A26DA70001D372A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		165F338B1A26DA70001D372A /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		165F338C1A26DA70001D372A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		165F338D1A26DA70001D372A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		165F338E1A26DA70001D372A /* TOActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityChrome.h; sourceTree = "<group>"; };
+		165F338F1A26DA70001D372A /* TOActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityChrome.m; sourceTree = "<group>"; };
+		165F33901A26DA70001D372A /* TOActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivitySafari.h; sourceTree = "<group>"; };
+		165F33911A26DA70001D372A /* TOActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivitySafari.m; sourceTree = "<group>"; };
+		165F33921A26DA70001D372A /* TOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOWebViewController.h; sourceTree = "<group>"; };
+		165F33931A26DA70001D372A /* TOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOWebViewController.m; sourceTree = "<group>"; };
+		165F33941A26DA70001D372A /* UIImage+TOWebViewControllerIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TOWebViewControllerIcons.h"; sourceTree = "<group>"; };
+		165F33951A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TOWebViewControllerIcons.m"; sourceTree = "<group>"; };
+		165F33961A26DA70001D372A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		165F33971A26DA70001D372A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		1697FA181A2345F300EC5F14 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1697FA191A2345F300EC5F14 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1697FA4C1A23461500EC5F14 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -482,6 +507,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		165F33861A26DA70001D372A /* TOWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				165F33871A26DA70001D372A /* TOWebViewControllerLocalizable.strings */,
+				165F338E1A26DA70001D372A /* TOActivityChrome.h */,
+				165F338F1A26DA70001D372A /* TOActivityChrome.m */,
+				165F33901A26DA70001D372A /* TOActivitySafari.h */,
+				165F33911A26DA70001D372A /* TOActivitySafari.m */,
+				165F33921A26DA70001D372A /* TOWebViewController.h */,
+				165F33931A26DA70001D372A /* TOWebViewController.m */,
+				165F33941A26DA70001D372A /* UIImage+TOWebViewControllerIcons.h */,
+				165F33951A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m */,
+			);
+			path = TOWebViewController;
+			sourceTree = "<group>";
+		};
 		1697FA161A2345F300EC5F14 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +564,7 @@
 		1697FA1B1A2345F300EC5F14 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				165F33861A26DA70001D372A /* TOWebViewController */,
 				16DB4B381A2437700081EF68 /* UMSocial */,
 				18BB57BF1A237E2C001C85B2 /* REFrostedViewController */,
 				18BB57771A237D9B001C85B2 /* UMLib */,
@@ -642,6 +684,8 @@
 		18BB56FB1A237081001C85B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				163F00661A26E2710063CA8D /* icon_more.png */,
+				163F00671A26E2710063CA8D /* icon_more@2x.png */,
 				165F336E1A25DA90001D372A /* icon_like_disabled.png */,
 				165F336F1A25DA90001D372A /* icon_like_disabled@2x.png */,
 				165F33701A25DA90001D372A /* icon_like_pressed.png */,
@@ -957,6 +1001,12 @@
 			knownRegions = (
 				en,
 				"zh-Hans",
+				de,
+				es,
+				ja,
+				ko,
+				pl,
+				"zh-Hant",
 			);
 			mainGroup = 161138DE1A1F51E70024B34E;
 			productRefGroup = 161138E81A1F51E70024B34E /* Products */;
@@ -983,10 +1033,12 @@
 				16BBE20B1A24ABB900C0ACB3 /* tab_home@2x.png in Resources */,
 				16BBE2091A24ABB900C0ACB3 /* tab_cross@2x.png in Resources */,
 				16DB4B791A243E490081EF68 /* UMS_social_demo.png in Resources */,
+				163F00681A26E2710063CA8D /* icon_more.png in Resources */,
 				165F33851A25DA90001D372A /* icon_unlike_unpressed@2x.png in Resources */,
 				165F337B1A25DA90001D372A /* icon_like_disabled@2x.png in Resources */,
 				16DB4B661A2437700081EF68 /* UMSCommentInputController.xib in Resources */,
 				16BBE2181A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png in Resources */,
+				163F00691A26E2710063CA8D /* icon_more@2x.png in Resources */,
 				165F337C1A25DA90001D372A /* icon_like_pressed.png in Resources */,
 				165F33831A25DA90001D372A /* icon_unlike_pressed@2x.png in Resources */,
 				16DB4B6C1A2437700081EF68 /* UMSShareListController.xib in Resources */,
@@ -995,6 +1047,7 @@
 				16DB4B691A2437700081EF68 /* UMShareEditViewControlleriPad.xib in Resources */,
 				165F337E1A25DA90001D372A /* icon_like_unpressed.png in Resources */,
 				16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */,
+				165F33981A26DA70001D372A /* TOWebViewControllerLocalizable.strings in Resources */,
 				16BBE21C1A24B22B00C0ACB3 /* share1@2x.png in Resources */,
 				16DB4B681A2437700081EF68 /* UMShareEditViewController.xib in Resources */,
 				165F33811A25DA90001D372A /* icon_unlike_disabled@2x.png in Resources */,
@@ -1042,11 +1095,14 @@
 				18BB57B61A237DB7001C85B2 /* UIColor+Colours.m in Sources */,
 				18BB57631A237D87001C85B2 /* FMDatabase.m in Sources */,
 				18BB574C1A237D79001C85B2 /* UIScrollView+MJRefresh.m in Sources */,
+				165F339A1A26DA70001D372A /* TOActivitySafari.m in Sources */,
+				165F339C1A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */,
 				18BB57B21A237DB7001C85B2 /* NSString+FontAwesome.m in Sources */,
 				18BB57671A237D87001C85B2 /* FMResultSet.m in Sources */,
 				18BB572B1A237D73001C85B2 /* SDWebImageDownloaderOperation.m in Sources */,
 				18BB57481A237D79001C85B2 /* MJRefreshConst.m in Sources */,
+				165F339B1A26DA70001D372A /* TOWebViewController.m in Sources */,
 				18BB57561A237D7F001C85B2 /* MBProgressHUD.m in Sources */,
 				18BB57661A237D87001C85B2 /* FMDatabaseQueue.m in Sources */,
 				18BB574D1A237D79001C85B2 /* UIView+MJExtension.m in Sources */,
@@ -1055,6 +1111,7 @@
 				18BB57B91A237DB7001C85B2 /* UIViewController+Compatibility.m in Sources */,
 				18BB57CF1A237E2C001C85B2 /* UIImage+REFrostedViewController.m in Sources */,
 				18BB57471A237D79001C85B2 /* MJRefreshBaseView.m in Sources */,
+				165F33991A26DA70001D372A /* TOActivityChrome.m in Sources */,
 				1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */,
 				18BB57CC1A237E2C001C85B2 /* RECommonFunctions.m in Sources */,
 				18BB57B81A237DB7001C85B2 /* UILabel+ContentSize.m in Sources */,
@@ -1127,6 +1184,21 @@
 				1611390D1A1F51E80024B34E /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		165F33871A26DA70001D372A /* TOWebViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				165F33881A26DA70001D372A /* de */,
+				165F33891A26DA70001D372A /* en */,
+				165F338A1A26DA70001D372A /* es */,
+				165F338B1A26DA70001D372A /* ja */,
+				165F338C1A26DA70001D372A /* ko */,
+				165F338D1A26DA70001D372A /* pl */,
+				165F33961A26DA70001D372A /* zh-Hans */,
+				165F33971A26DA70001D372A /* zh-Hant */,
+			);
+			name = TOWebViewControllerLocalizable.strings;
 			sourceTree = "<group>";
 		};
 		16DB4B3A1A2437700081EF68 /* UMSocialLocalizable.strings */ = {

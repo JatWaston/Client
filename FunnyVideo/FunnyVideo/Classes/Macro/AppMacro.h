@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
     #define kDefaultCatalog 1000
 #endif
 
-//#define kTestURL
+#define kTestURL
 
 #ifdef kTestURL
     #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"

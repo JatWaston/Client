@@ -8,17 +8,17 @@
 
 #import "JWImageTableViewCell.h"
 #import "UIImageView+WebCache.h"
+#import "UIColor+Colours.h"
 
 @interface JWImageTableViewCell()
 {
     UIImageView *_titleImageView;
     UILabel *_titleLabel;
     UIImageView *_imageView;
-    UILabel *_descriptionLabel;
+    UILabel *_title;
     UIButton *_likeBtn;
     UIButton *_unlikeBtn;
     UIButton *_shareBtn;
-    
 }
 
 @end
@@ -33,6 +33,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundView = nil;
         self.backgroundColor = [UIColor clearColor];
@@ -42,7 +43,7 @@
         view.backgroundColor = [UIColor whiteColor];
         [self addSubview:view];
         
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, 310, 100)];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 310, 100)];
         _imageView.backgroundColor = [UIColor colorWithRed:212/255.0f green:212/255.0f blue:212/255.0f alpha:1.0f];
         _imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_imageView];
@@ -51,28 +52,58 @@
         lineView.backgroundColor = [UIColor grayColor];
         [self addSubview:lineView];
         
-        UIImage *likeImage = [UIImage imageNamed:@"like"];
-        UIImage *unlikeImage = [UIImage imageNamed:@"unlike"];
-        UIImage *shareImage = [UIImage imageNamed:@"share1"];
+        UIImage *like_unpress = [UIImage imageNamed:@"icon_like_unpressed"];
+        UIImage *like_press = [UIImage imageNamed:@"icon_like_pressed"];
+        UIImage *like_disabled = [UIImage imageNamed:@"icon_like_disabled"];
+        
+        UIImage *unlike_unpress = [UIImage imageNamed:@"icon_unlike_unpressed"];
+        UIImage *unlike_press = [UIImage imageNamed:@"icon_unlike_pressed"];
+        UIImage *unlike_disabled = [UIImage imageNamed:@"icon_unlike_disabled"];
+        
+        UIImage *shareImage = [UIImage imageNamed:@"icon_more"];
         
         UIButton *likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        likeBtn.frame = CGRectMake(10, 115, 28, 28);
-        [likeBtn setImage:likeImage forState:UIControlStateNormal];
+        //likeBtn.backgroundColor = [UIColor skyBlueColor];
+        likeBtn.frame = CGRectMake(10, 113, 80, 30);
+        likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+        likeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        [likeBtn setImage:like_unpress forState:UIControlStateNormal];
+        [likeBtn setImage:like_press forState:UIControlStateHighlighted];
+        [likeBtn setImage:like_press forState:UIControlStateSelected];
+        [likeBtn setImage:like_disabled forState:UIControlStateDisabled];
+        //likeBtn.titleLabel.font = font;
+        [likeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [likeBtn setTitle:@"1000" forState:UIControlStateNormal];
         [self addSubview:likeBtn];
         
         UIButton *unlikeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        unlikeBtn.frame = CGRectMake(80, 115, 28, 28);
-        [unlikeBtn setImage:unlikeImage forState:UIControlStateNormal];
+        //unlikeBtn.backgroundColor = [UIColor skyBlueColor];
+        unlikeBtn.frame = CGRectMake(100, 113, 80, 30);
+        unlikeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        unlikeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        [unlikeBtn setImage:unlike_unpress forState:UIControlStateNormal];
+        [unlikeBtn setImage:unlike_press forState:UIControlStateHighlighted];
+        [unlikeBtn setImage:unlike_press forState:UIControlStateSelected];
+        [unlikeBtn setImage:unlike_disabled forState:UIControlStateDisabled];
+        //unlikeBtn.titleLabel.font = font;
+        [unlikeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [unlikeBtn setTitle:@"1000" forState:UIControlStateNormal];
         [self addSubview:unlikeBtn];
         
         UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        shareBtn.frame = CGRectMake(280, 115, 30, 30);
+        //shareBtn.backgroundColor = [UIColor skyBlueColor];
+        shareBtn.frame = CGRectMake(220, 113, 80, 30);
+        shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [shareBtn setImage:shareImage forState:UIControlStateNormal];
+        //shareBtn.titleLabel.textColor = [UIColor blackColor];
+        [shareBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [shareBtn setTitle:@"1000" forState:UIControlStateNormal];
         [self addSubview:shareBtn];
-//
-//        _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-//        _descriptionLabel.backgroundColor = [UIColor clearColor];
-//        [self addSubview:_descriptionLabel];
+
+        _title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+        _title.backgroundColor = [UIColor clearColor];
+        [self addSubview:_title];
     }
     
     return self;
