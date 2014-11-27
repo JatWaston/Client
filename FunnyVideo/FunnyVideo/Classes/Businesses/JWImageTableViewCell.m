@@ -106,7 +106,7 @@
         [_unlikeBtn setImage:unlike_press forState:UIControlStateHighlighted];
         [_unlikeBtn setImage:unlike_press forState:UIControlStateSelected];
         [_unlikeBtn setImage:unlike_disabled forState:UIControlStateDisabled];
-        //unlikeBtn.titleLabel.font = font;
+
         [_unlikeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_unlikeBtn setTitle:@"1000" forState:UIControlStateNormal];
         [self addSubview:_unlikeBtn];
@@ -143,7 +143,7 @@
     
     offsetHeight += 100+1;
     
-    _lineView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 0.3f);
+    _lineView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 0.5f);
     
     offsetHeight += 1;
     
