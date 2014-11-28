@@ -67,6 +67,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self setLayoutCompatibleWithLowerVersion];
     if (CURRENT_SYSTEM_VERSION < 7.0f) {

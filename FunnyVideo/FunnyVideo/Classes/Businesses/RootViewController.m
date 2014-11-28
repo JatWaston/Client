@@ -262,9 +262,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //[self showVideo];
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
-    NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
-    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+    
+    NSURL *movieUrl = [NSURL URLWithString:[info valueForKey:@"videoURL"]];
+    movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=208711122&type=flv&ep=dyaVHUiLX8oC5SvXgT8bbnizciYOXPwK%2FhiEgNNgAtQmTOG%2F&token=2490&ctype=12&ev=1&oip=3707376978&sid=5417169420889129da6a1"];
+    _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
+    [self presentMoviePlayerViewControllerAnimated:_player];
+    
+//    NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
+//    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
 }
 
 #pragma mark - UMSocialDataDelegate
