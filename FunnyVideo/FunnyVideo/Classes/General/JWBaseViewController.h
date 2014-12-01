@@ -26,5 +26,6 @@ typedef NS_ENUM(NSUInteger, JWTableRefreshStyle)
 
 - (void)requestURLWithPath:(NSString*)urlPath forceRequest:(BOOL)isForce showHUD:(BOOL)show;
 - (void)handleResult:(NSDictionary*)result;
+- (void)followRollingScrollView:(UIView *)scrollView;
 
 @end

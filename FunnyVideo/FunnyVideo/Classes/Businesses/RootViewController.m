@@ -68,6 +68,7 @@
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self initAdmobAd];
     
+    [self followRollingScrollView:self.contentTableView];
     [self requestWithCatalog:_catalog];
     
 }
@@ -236,11 +237,10 @@
 {
     static NSString *cellStr = @"cellStr";
     JWImageTableViewCell *cell = (JWImageTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
-    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     if (cell == nil) {
         cell = [[JWImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
     }
-    
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     [cell initCellData:info];
     return cell;
 }
@@ -253,8 +253,18 @@
     //return 160.0f;
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     NSString *title = [info valueForKey:@"title"];
-    float heigth = [[UtilManager shareManager] heightForText:title rectSize:CGSizeMake(self.view.frame.size.width, 1000) fontSize:kCellTitleFontSize];
-    return heigth + 100 + 55;
+//    float imgWidth = [[info valueForKey:@"coverImgWidth"] floatValue]/2.0f;
+//    float imgHeight = [[info valueForKey:@"coverImgHeight"] floatValue]/2.0f;
+//    if (imgWidth >= self.view.frame.size.width) {
+//        float scale = imgWidth/imgHeight;
+//        imgWidth = self.view.frame.size.width;
+//        imgHeight = imgWidth/scale;
+//    }
+    float heigth = [[UtilManager shareManager] heightForText:title rectSize:CGSizeMake(self.view.frame.size.width - 135.0f, 1000) font:kCellTitleFont];
+    if (heigth < 85.0f) {
+        heigth = 85.0f;
+    }
+    return heigth + 55;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -264,7 +274,7 @@
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     
     NSURL *movieUrl = [NSURL URLWithString:[info valueForKey:@"videoURL"]];
-    movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=208711122&type=flv&ep=dyaVHUiLX8oC5SvXgT8bbnizciYOXPwK%2FhiEgNNgAtQmTOG%2F&token=2490&ctype=12&ev=1&oip=3707376978&sid=5417169420889129da6a1"];
+//    movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=208711122&type=flv&ep=dyaVHUiLX8oC5SvXgT8bbnizciYOXPwK%2FhiEgNNgAtQmTOG%2F&token=2490&ctype=12&ev=1&oip=3707376978&sid=5417169420889129da6a1"];
     _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
     [self presentMoviePlayerViewControllerAnimated:_player];
     
@@ -301,7 +311,7 @@
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad
 {
     NSLog(@"Received GADInterstitial successfully");
-    [ad presentFromRootViewController:self];
+    //[ad presentFromRootViewController:self];
 }
 
 

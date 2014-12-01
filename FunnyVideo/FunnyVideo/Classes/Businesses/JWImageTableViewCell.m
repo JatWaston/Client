@@ -50,28 +50,29 @@
         
         
         _title = [[UILabel alloc] initWithFrame:CGRectZero];
-        _title.font = [UIFont systemFontOfSize:kCellTitleFontSize];
+        _title.font = kCellTitleFont;
         _title.numberOfLines = 0;
         _title.lineBreakMode = NSLineBreakByWordWrapping;
         _title.backgroundColor = [UIColor clearColor];
+        _title.textColor = kCellTitleColor;
         //_title.textColor = [UIColor grayColor];
-        [self addSubview:_title];
+        [view addSubview:_title];
 
         _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         _imageView.backgroundColor = [UIColor colorWithRed:212/255.0f green:212/255.0f blue:212/255.0f alpha:1.0f];
-        _imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        [self addSubview:_imageView];
+        //_imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        [view addSubview:_imageView];
         
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f];
         _timeLabel.textColor = [UIColor whiteColor];
         _timeLabel.textAlignment = NSTextAlignmentCenter;
         _timeLabel.font = [UIFont systemFontOfSize:12.0f];
-        [self addSubview:_timeLabel];
+        [_imageView addSubview:_timeLabel];
         
         _lineView = [[UIView alloc] initWithFrame:CGRectZero];
         _lineView.backgroundColor = [UIColor grayColor];
-        [self addSubview:_lineView];
+        [view addSubview:_lineView];
         
         UIImage *like_unpress = [UIImage imageNamed:@"icon_like_unpressed"];
         UIImage *like_press = [UIImage imageNamed:@"icon_like_pressed"];
@@ -93,9 +94,10 @@
         [_likeBtn setImage:like_press forState:UIControlStateSelected];
         [_likeBtn setImage:like_disabled forState:UIControlStateDisabled];
         //likeBtn.titleLabel.font = font;
-        [_likeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_likeBtn setTitle:@"1000" forState:UIControlStateNormal];
-        [self addSubview:_likeBtn];
+        [_likeBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
+        //[_likeBtn setTitle:@"1000" forState:UIControlStateNormal];
+        _likeBtn.titleLabel.font = kToolButtonFont;
+        [view addSubview:_likeBtn];
         
         _unlikeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //unlikeBtn.backgroundColor = [UIColor skyBlueColor];
@@ -106,10 +108,10 @@
         [_unlikeBtn setImage:unlike_press forState:UIControlStateHighlighted];
         [_unlikeBtn setImage:unlike_press forState:UIControlStateSelected];
         [_unlikeBtn setImage:unlike_disabled forState:UIControlStateDisabled];
-
-        [_unlikeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_unlikeBtn setTitle:@"1000" forState:UIControlStateNormal];
-        [self addSubview:_unlikeBtn];
+        _unlikeBtn.titleLabel.font = kToolButtonFont;
+        [_unlikeBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
+        //[_unlikeBtn setTitle:@"1000" forState:UIControlStateNormal];
+        [view addSubview:_unlikeBtn];
         
         _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //shareBtn.backgroundColor = [UIColor skyBlueColor];
@@ -118,9 +120,10 @@
         _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [_shareBtn setImage:shareImage forState:UIControlStateNormal];
         //shareBtn.titleLabel.textColor = [UIColor blackColor];
-        [_shareBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
-        [self addSubview:_shareBtn];
+        _shareBtn.titleLabel.font = kToolButtonFont;
+        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
+        //[_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
+        [view addSubview:_shareBtn];
         
         
     }
@@ -131,17 +134,28 @@
 - (void)initCellData:(NSDictionary*)info
 {
     _title.text = [info valueForKey:@"title"];
-    float heigth = [[UtilManager shareManager] heightForText:_title.text rectSize:CGSizeMake(self.frame.size.width, 1000) fontSize:kCellTitleFontSize];
-    _title.frame = CGRectMake(0, 6, self.frame.size.width, heigth);
+    float offsetHeight = 2.0f;
+    float heigth = [[UtilManager shareManager] heightForText:_title.text
+                                                    rectSize:CGSizeMake(self.frame.size.width-135.0f, 1000)
+                                                        font:kCellTitleFont];
+    if (heigth > 85.0f) {
+        offsetHeight = (heigth-85.0f)/2.0f;
+    } else {
+        heigth = 85.0f;
+    }
+    _title.frame = CGRectMake(135.0f, 0, self.frame.size.width-135.0f, heigth);
     
-    float offsetHeight = heigth+6+2;
-    _imageView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 100);
+    float imgWidth = 135.0f;
+    float imgHeight = 85.0f;
+    //float viewWidth = [UIScreen mainScreen].bounds.size.width;
+    
+    _imageView.frame = CGRectMake(0, offsetHeight, imgWidth, imgHeight);
     [_imageView sd_setImageWithURL:[info valueForKey:@"coverImgURL"]];
     
-    _timeLabel.frame = CGRectMake(self.frame.size.width-40, offsetHeight+100-20, 40, 20);
+    _timeLabel.frame = CGRectMake(imgWidth-40, imgHeight-20, 40, 20);
     _timeLabel.text = [info valueForKey:@"videoTime"];
     
-    offsetHeight += 100+1;
+    offsetHeight += imgHeight+1;
     
     _lineView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 0.5f);
     

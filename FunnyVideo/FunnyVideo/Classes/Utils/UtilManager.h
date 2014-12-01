@@ -15,6 +15,6 @@
 
 - (BOOL)isiPhone5;
 - (NSString*)additionlParamURL:(NSString*)url;
-- (CGFloat)heightForText:(NSString *)text rectSize:(CGSize)frameSize fontSize:(float)fontSize;
+- (CGFloat)heightForText:(NSString *)text rectSize:(CGSize)frameSize font:(UIFont*)font;
 
 @end
