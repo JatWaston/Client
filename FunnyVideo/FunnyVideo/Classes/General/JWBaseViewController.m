@@ -92,18 +92,19 @@
 
 - (void)applicationWillEnterForeground
 {
-    if (self.isHidden) {
-        self.overLay.alpha=0;
-        CGRect navBarFrame=NavBarFrame;
-        CGRect scrollViewFrame=self.scrollView.frame;
-        
-        navBarFrame.origin.y = 20;
-        scrollViewFrame.origin.y += 44;
-        scrollViewFrame.size.height -= 44;
-        NavBarFrame = navBarFrame;
-        self.scrollView.frame=scrollViewFrame;
-        self.isHidden = NO;
-    }
+    [self hiddenNavigationBar:NO];
+//    if (self.isHidden) {
+//        self.overLay.alpha=0;
+//        CGRect navBarFrame=NavBarFrame;
+//        CGRect scrollViewFrame=self.scrollView.frame;
+//        
+//        navBarFrame.origin.y = 20;
+//        scrollViewFrame.origin.y += 44;
+//        scrollViewFrame.size.height -= 44;
+//        NavBarFrame = navBarFrame;
+//        self.scrollView.frame=scrollViewFrame;
+//        self.isHidden = NO;
+//    }
 }
 
 #pragma mark - 兼容其他手势
@@ -121,48 +122,90 @@
     //    CGFloat detai = self.lastContentset - translation.y;
     //显示
     if (translation.y >= 5) {
-        if (self.isHidden) {
-            
-            self.overLay.alpha=0;
-            CGRect navBarFrame=NavBarFrame;
-            CGRect scrollViewFrame=self.scrollView.frame;
-            
-            navBarFrame.origin.y = 20;
-            scrollViewFrame.origin.y += 44;
-            scrollViewFrame.size.height -= 44;
-            
-            [UIView animateWithDuration:0.2 animations:^{
-                NavBarFrame = navBarFrame;
-                self.scrollView.frame=scrollViewFrame;
-            }];
-            self.isHidden= NO;
-        }
+        [self hiddenNavigationBar:NO];
+//        if (self.isHidden) {
+//            self.overLay.alpha=0;
+//            CGRect navBarFrame=NavBarFrame;
+//            CGRect scrollViewFrame=self.scrollView.frame;
+//            
+//            navBarFrame.origin.y = 20;
+//            scrollViewFrame.origin.y += 44;
+//            scrollViewFrame.size.height -= 44;
+//            
+//            [UIView animateWithDuration:0.2 animations:^{
+//                NavBarFrame = navBarFrame;
+//                self.scrollView.frame=scrollViewFrame;
+//            }];
+//            self.isHidden= NO;
+//        }
     }
     
     //隐藏
     if (translation.y <= -20) {
-        if (!self.isHidden) {
-            CGRect frame =NavBarFrame;
-            CGRect scrollViewFrame=self.scrollView.frame;
-            frame.origin.y = -24;
-            scrollViewFrame.origin.y -= 44;
-            scrollViewFrame.size.height += 44;
-            
-            [UIView animateWithDuration:0.2 animations:^{
-                NavBarFrame = frame;
-                self.scrollView.frame=scrollViewFrame;
-            } completion:^(BOOL finished) {
-                self.overLay.alpha=1;
-            }];
-            self.isHidden=YES;
-        }
+        [self hiddenNavigationBar:YES];
+//        if (!self.isHidden) {
+//            CGRect frame =NavBarFrame;
+//            CGRect scrollViewFrame=self.scrollView.frame;
+//            frame.origin.y = -24;
+//            scrollViewFrame.origin.y -= 44;
+//            scrollViewFrame.size.height += 44;
+//            
+//            [UIView animateWithDuration:0.2 animations:^{
+//                NavBarFrame = frame;
+//                self.scrollView.frame=scrollViewFrame;
+//            } completion:^(BOOL finished) {
+//                self.overLay.alpha=1;
+//            }];
+//            self.isHidden=YES;
+//        }
     }
-    
-    
-    
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)hiddenNavigationBar:(BOOL)hidden {
+    switch (hidden) {
+        case YES:
+            if (!self.isHidden) {
+                CGRect frame =NavBarFrame;
+                CGRect scrollViewFrame=self.scrollView.frame;
+                frame.origin.y = -24;
+                scrollViewFrame.origin.y -= 44;
+                scrollViewFrame.size.height += 44;
+                
+                [UIView animateWithDuration:0.2 animations:^{
+                    NavBarFrame = frame;
+                    self.scrollView.frame=scrollViewFrame;
+                } completion:^(BOOL finished) {
+                    self.overLay.alpha=1;
+                }];
+                self.isHidden=YES;
+            }
+
+            break;
+        case NO:
+            if (self.isHidden) {
+                self.overLay.alpha=0;
+                CGRect navBarFrame=NavBarFrame;
+                CGRect scrollViewFrame=self.scrollView.frame;
+                
+                navBarFrame.origin.y = 20;
+                scrollViewFrame.origin.y += 44;
+                scrollViewFrame.size.height -= 44;
+                
+                [UIView animateWithDuration:0.2 animations:^{
+                    NavBarFrame = navBarFrame;
+                    self.scrollView.frame=scrollViewFrame;
+                }];
+                self.isHidden= NO;
+            }
+
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self.navigationController.navigationBar bringSubviewToFront:self.overLay];
 }
 
