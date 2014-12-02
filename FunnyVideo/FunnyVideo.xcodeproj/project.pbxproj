@@ -39,6 +39,7 @@
 		165F339C1A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33951A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m */; };
 		1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA191A2345F300EC5F14 /* AppDelegate.m */; };
 		1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA4D1A23461500EC5F14 /* RootViewController.m */; };
+		16B71A7A1A2DA2AD00263889 /* JokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B71A791A2DA2AD00263889 /* JokeViewController.m */; };
 		16BBE2041A24AA7700C0ACB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */; };
 		16BBE2091A24ABB900C0ACB3 /* tab_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2051A24ABB900C0ACB3 /* tab_cross@2x.png */; };
 		16BBE20A1A24ABB900C0ACB3 /* tab_daily@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2061A24ABB900C0ACB3 /* tab_daily@2x.png */; };
@@ -197,6 +198,8 @@
 		1697FA191A2345F300EC5F14 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1697FA4C1A23461500EC5F14 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1697FA4D1A23461500EC5F14 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		16B71A781A2DA2AD00263889 /* JokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeViewController.h; sourceTree = "<group>"; };
+		16B71A791A2DA2AD00263889 /* JokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeViewController.m; sourceTree = "<group>"; };
 		16BBE2021A24AA7700C0ACB3 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		16BBE2051A24ABB900C0ACB3 /* tab_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_cross@2x.png"; sourceTree = "<group>"; };
@@ -557,6 +560,8 @@
 				18BB57011A2373C6001C85B2 /* JWMPMoviePlayerViewController.m */,
 				1697FA4C1A23461500EC5F14 /* RootViewController.h */,
 				1697FA4D1A23461500EC5F14 /* RootViewController.m */,
+				16B71A781A2DA2AD00263889 /* JokeViewController.h */,
+				16B71A791A2DA2AD00263889 /* JokeViewController.m */,
 			);
 			path = Businesses;
 			sourceTree = "<group>";
@@ -1140,6 +1145,7 @@
 				18BB572F1A237D73001C85B2 /* UIImage+GIF.m in Sources */,
 				18BB57261A237D73001C85B2 /* NSData+ImageContentType.m in Sources */,
 				18BB57311A237D73001C85B2 /* UIImage+WebP.m in Sources */,
+				16B71A7A1A2DA2AD00263889 /* JokeViewController.m in Sources */,
 				18BB57B71A237DB7001C85B2 /* UIImage+Util.m in Sources */,
 				18BB57651A237D87001C85B2 /* FMDatabasePool.m in Sources */,
 				18BB578D1A237DAA001C85B2 /* UtilManager.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "JokeViewController.h"
 #import "SettingViewController.h"
 #import "JWBaseTabBarController.h"
 
@@ -48,6 +49,9 @@
     RootViewController *mainViewController = [[RootViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskAll tableViewStyle:UITableViewStylePlain];
     UINavigationController *navMainViewController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     
+    JokeViewController *jokeViewController = [[JokeViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskAll tableViewStyle:UITableViewStylePlain];
+    UINavigationController *navJokeViewController = [[UINavigationController alloc] initWithRootViewController:jokeViewController];
+    
     
     SettingViewController *settingViewController = [[SettingViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskNone tableViewStyle:UITableViewStyleGrouped];
     UINavigationController *navSettingViewController = [[UINavigationController alloc] initWithRootViewController:settingViewController];
@@ -58,7 +62,7 @@
     tab.tabBar.tintColor = [UIColor skyBlueColor];
     tab.tabBar.barTintColor = [UIColor blackColor];
     
-    NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navSettingViewController, nil];
+    NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navJokeViewController,navSettingViewController, nil];
     [tab setViewControllers:controllers animated:NO];
     self.window.rootViewController = tab;
     self.window.backgroundColor = [UIColor whiteColor];
