@@ -207,6 +207,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.navigationController.navigationBar bringSubviewToFront:self.overLay];
+    self.overLay.alpha = 0;
+//    CGRect navBarFrame = NavBarFrame;
+//    if (navBarFrame.origin.y == 20) {
+//        [self hiddenNavigationBar:YES];
+//    }
 }
 
 - (void)viewDidLoad

@@ -25,6 +25,11 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
     JWAppStorePlatform,
 };
 
+typedef NS_ENUM(NSUInteger,JWContentType) {
+    JWVideoType = 0, //视频
+    JWJokeType = 1,  //笑话
+};
+
 
 //渠道
 //#define APP_STORE
@@ -41,12 +46,14 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
     #define kDefaultCatalog 1000
 #endif
 
-#define kTestURL
+//#define kTestURL
 
 #ifdef kTestURL
     #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
+    #define kJokeContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/getJoke.php"
 #else
-    #define kDailyContentURL @"http://192.168.1.6/~apple/PHP/SAE/Service/Video/Service/dailyContent.php"
+    #define kDailyContentURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/dailyContent.php"
+    #define kJokeContentURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/getJoke.php"
 #endif
 
 

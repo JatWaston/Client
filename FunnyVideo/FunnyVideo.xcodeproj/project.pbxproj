@@ -137,6 +137,8 @@
 		18BB57D31A237E3E001C85B2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BB57D21A237E3E001C85B2 /* libz.dylib */; };
 		18BB57D51A237E46001C85B2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BB57D41A237E46001C85B2 /* libsqlite3.dylib */; };
 		18BB57D81A238135001C85B2 /* JWImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57D71A238135001C85B2 /* JWImageTableViewCell.m */; };
+		18F4F70C1A2DF03C00F14729 /* JokeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */; };
+		18F4F70E1A2DF57100F14729 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F4F70D1A2DF57100F14729 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -393,6 +395,9 @@
 		18BB57D41A237E46001C85B2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		18BB57D61A238135001C85B2 /* JWImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWImageTableViewCell.h; sourceTree = "<group>"; };
 		18BB57D71A238135001C85B2 /* JWImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWImageTableViewCell.m; sourceTree = "<group>"; };
+		18F4F70A1A2DF03C00F14729 /* JokeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeTableViewCell.h; sourceTree = "<group>"; };
+		18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeTableViewCell.m; sourceTree = "<group>"; };
+		18F4F70D1A2DF57100F14729 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F4F70E1A2DF57100F14729 /* AdSupport.framework in Frameworks */,
 				16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */,
 				16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */,
 				161138ED1A1F51E70024B34E /* CoreGraphics.framework in Frameworks */,
@@ -456,6 +462,7 @@
 		161138E91A1F51E70024B34E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18F4F70D1A2DF57100F14729 /* AdSupport.framework */,
 				16DB4B7C1A243F650081EF68 /* libstdc++.dylib */,
 				16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */,
 				16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */,
@@ -562,6 +569,8 @@
 				1697FA4D1A23461500EC5F14 /* RootViewController.m */,
 				16B71A781A2DA2AD00263889 /* JokeViewController.h */,
 				16B71A791A2DA2AD00263889 /* JokeViewController.m */,
+				18F4F70A1A2DF03C00F14729 /* JokeTableViewCell.h */,
+				18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */,
 			);
 			path = Businesses;
 			sourceTree = "<group>";
@@ -1094,6 +1103,7 @@
 				18BB57291A237D73001C85B2 /* SDWebImageDecoder.m in Sources */,
 				18BB57D81A238135001C85B2 /* JWImageTableViewCell.m in Sources */,
 				18BB57B31A237DB7001C85B2 /* NSString+MD5.m in Sources */,
+				18F4F70C1A2DF03C00F14729 /* JokeTableViewCell.m in Sources */,
 				18BB57331A237D73001C85B2 /* UIImageView+WebCache.m in Sources */,
 				18BB57D11A237E2C001C85B2 /* UIViewController+REFrostedViewController.m in Sources */,
 				18BB578B1A237DAA001C85B2 /* JWCacheManager.m in Sources */,
@@ -1297,6 +1307,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1316,6 +1327,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1327,6 +1339,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1346,6 +1359,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};

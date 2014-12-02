@@ -103,8 +103,11 @@
 #ifdef APP_STORE
     store = JWAppStorePlatform;
 #endif
-    NSString *md5 = [[NSString stringWithFormat:@"%d%d%d%@",(int)_catalog,(int)_type,(int)_currentPage,kValidStr] MD5];
-    NSString *requestURL = [kDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?catalog=%d&type=%d&page=%d&valid=%@&pageSize=%d&store=%d",(int)_catalog,(int)_type,(int)_currentPage,md5,kRequestPageSize,(int)store]];
+    NSString *version = [[UtilManager shareManager] appVersion];
+    NSString *devicePlatform = [[UtilManager shareManager] devicePlatform];
+    NSString *udid = [[UtilManager shareManager] deviceUDID];
+    NSString *md5 = [[NSString stringWithFormat:@"%@%d%d%@",version,(int)store,(int)_currentPage,kValidStr] MD5];
+    NSString *requestURL = [kDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?version=%@&device=%@&udid=%@&page=%d&valid=%@&pageSize=%d&store=%d&content=%d",version,devicePlatform,udid,(int)_currentPage,md5,kRequestPageSize,(int)store,(int)JWVideoType]];
     return requestURL;
 }
 
@@ -209,7 +212,7 @@
 //    //如果得到分享完成回调，需要设置delegate为self
 //    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
 //    return;
-    NSURL *movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=200019946&type=flv&ep=diaVHECPVcoE4yPfjz8bbi3gfX4KXPwK9h%2BEiNtmBtQnSeG%2F&token=3190&ctype=12&ev=1&oip=2015647293&sid=441692344600712912995"];
+    NSURL *movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=841752822475812b1bcf7"];
     _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
     [self presentMoviePlayerViewControllerAnimated:_player];
 }
@@ -274,13 +277,16 @@
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     
     NSURL *movieUrl = [NSURL URLWithString:[info valueForKey:@"videoURL"]];
-//    movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=208711122&type=flv&ep=dyaVHUiLX8oC5SvXgT8bbnizciYOXPwK%2FhiEgNNgAtQmTOG%2F&token=2490&ctype=12&ev=1&oip=3707376978&sid=5417169420889129da6a1"];
-    _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
-    [self presentMoviePlayerViewControllerAnimated:_player];
-    
-//    NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
-//    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
-//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+    if (movieUrl == nil) {
+        NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
+        TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+        
+    } else {
+//        movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=841752822475812b1bcf7"];
+        _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
+        [self presentMoviePlayerViewControllerAnimated:_player];
+    }
 }
 
 #pragma mark - UMSocialDataDelegate

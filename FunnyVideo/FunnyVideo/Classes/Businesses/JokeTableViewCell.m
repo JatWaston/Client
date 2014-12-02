@@ -1,35 +1,27 @@
 //
-//  JWImageTableViewCell.m
-//  TenTu
+//  JokeTableViewCell.m
+//  FunnyVideo
 //
-//  Created by JatWaston on 14-11-16.
+//  Created by zhengzhilin on 14/12/2.
 //  Copyright (c) 2014年 JatWaston. All rights reserved.
 //
 
-#import "JWImageTableViewCell.h"
-#import "UIImageView+WebCache.h"
-#import "UIColor+Colours.h"
+#import "JokeTableViewCell.h"
 #import "UtilManager.h"
 
-@interface JWImageTableViewCell()
+@interface JokeTableViewCell()
 {
-    UIImageView *_imageView;
-    UILabel *_title;
+    UILabel *_content;
+    //UILabel *_title;
     UIButton *_likeBtn;
     UIButton *_unlikeBtn;
     UIButton *_shareBtn;
     UIView *_lineView;
-    
-    UILabel *_timeLabel;
 }
 
 @end
 
-@implementation JWImageTableViewCell
-
-- (void)awakeFromNib {
-    // Initialization code
-}
+@implementation JokeTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -47,26 +39,14 @@
         [self addSubview:view];
         
         
-        _title = [[UILabel alloc] initWithFrame:CGRectZero];
-        _title.font = kCellTitleFont;
-        _title.numberOfLines = 0;
-        _title.lineBreakMode = NSLineBreakByWordWrapping;
-        _title.backgroundColor = [UIColor clearColor];
-        _title.textColor = kCellTitleColor;
-        //_title.textColor = [UIColor grayColor];
-        [view addSubview:_title];
-
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _imageView.backgroundColor = [UIColor colorWithRed:212/255.0f green:212/255.0f blue:212/255.0f alpha:1.0f];
-        //_imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        [view addSubview:_imageView];
+        _content = [[UILabel alloc] initWithFrame:CGRectZero];
+        _content.font = kCellTitleFont;
+        _content.numberOfLines = 0;
+        _content.lineBreakMode = NSLineBreakByWordWrapping;
+        _content.backgroundColor = [UIColor clearColor];
+        _content.textColor = kCellTitleColor;
+        [view addSubview:_content];
         
-        _timeLabel = [[UILabel alloc] init];
-        _timeLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f];
-        _timeLabel.textColor = [UIColor whiteColor];
-        _timeLabel.textAlignment = NSTextAlignmentCenter;
-        _timeLabel.font = [UIFont systemFontOfSize:12.0f];
-        [_imageView addSubview:_timeLabel];
         
         _lineView = [[UIView alloc] initWithFrame:CGRectZero];
         _lineView.backgroundColor = [UIColor grayColor];
@@ -129,31 +109,16 @@
     return self;
 }
 
-- (void)initCellData:(NSDictionary*)info
-{
-    _title.text = [info valueForKey:@"title"];
+- (void)initCellData:(NSDictionary*)info {
+    _content.text = [info valueForKey:@"content"];
     float offsetHeight = 2.0f;
-    float heigth = [[UtilManager shareManager] heightForText:_title.text
-                                                    rectSize:CGSizeMake(self.frame.size.width-135.0f, 1000)
+    float heigth = [[UtilManager shareManager] heightForText:_content.text
+                                                    rectSize:CGSizeMake(self.frame.size.width-10, 1000)
                                                         font:kCellTitleFont];
-    if (heigth > 85.0f) {
-        offsetHeight = (heigth-85.0f)/2.0f;
-    } else {
-        heigth = 85.0f;
-    }
-    _title.frame = CGRectMake(135.0f, 0, self.frame.size.width-135.0f, heigth);
     
-    float imgWidth = 135.0f;
-    float imgHeight = 85.0f;
-    //float viewWidth = [UIScreen mainScreen].bounds.size.width;
+    _content.frame = CGRectMake(5, 2.0f, self.frame.size.width-10, heigth);
     
-    _imageView.frame = CGRectMake(0, offsetHeight, imgWidth, imgHeight);
-    [_imageView sd_setImageWithURL:[info valueForKey:@"coverImgURL"]];
-    
-    _timeLabel.frame = CGRectMake(imgWidth-40, imgHeight-20, 40, 20);
-    _timeLabel.text = [info valueForKey:@"videoTime"];
-    
-    offsetHeight += imgHeight+1;
+    offsetHeight += heigth+1;
     
     _lineView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 0.5f);
     
@@ -167,6 +132,10 @@
     _unlikeBtn.frame = CGRectMake(100, offsetHeight, 80, 30);
     _shareBtn.frame = CGRectMake(220, offsetHeight, 80, 30);
     
+}
+
+- (void)awakeFromNib {
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

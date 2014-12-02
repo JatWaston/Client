@@ -7,6 +7,8 @@
 //
 
 #import "UtilManager.h"
+#import <AdSupport/AdSupport.h>
+#import <sys/utsname.h>
 
 typedef NS_ENUM(NSInteger, NSDevicePlatform)
 {
@@ -67,6 +69,27 @@ static BOOL _iPhone5Device = NO;
     //NSLog(@"rect = %@",NSStringFromCGRect(rect));
     return rect.size.height;
     
+}
+
+- (NSString*)deviceUDID {
+    NSString *adId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    return adId;
+}
+
+- (NSString*)appVersion {
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    return [info valueForKey:@"CFBundleVersion"];
+}
+
+- (NSString*)deviceSystemVersion {
+    return [[UIDevice currentDevice] systemVersion];
+}
+
+- (NSString*)devicePlatform {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    return platform;
 }
 
 @end

@@ -19,10 +19,15 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaHandler.h"
 
+#import "UtilManager.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UtilManager shareManager] appVersion];
+    [[UtilManager shareManager] deviceUDID];
+    [[UtilManager shareManager] devicePlatform];
     
     [UMSocialData setAppKey:kUmengKey];
     //设置微信AppId，设置分享url，默认使用友盟的网址

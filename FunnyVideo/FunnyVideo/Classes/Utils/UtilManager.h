@@ -17,4 +17,9 @@
 - (NSString*)additionlParamURL:(NSString*)url;
 - (CGFloat)heightForText:(NSString *)text rectSize:(CGSize)frameSize font:(UIFont*)font;
 
+- (NSString*)deviceUDID;
+- (NSString*)appVersion;
+- (NSString*)devicePlatform;
+- (NSString*)deviceSystemVersion;
+
 @end
