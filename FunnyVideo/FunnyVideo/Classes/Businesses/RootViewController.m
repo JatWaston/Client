@@ -24,6 +24,8 @@
 #import "TOWebViewController.h"
 #import "UtilManager.h"
 
+#import "JWCacheManager.h"
+
 #define kRequestPageSize 10
 
 
@@ -36,8 +38,10 @@
     
     NSUInteger _catalog;
     NSUInteger _type;
+    
 }
 
+- (void)loadDataFromCache;
 - (void)initAdmobAd;
 
 @end
@@ -69,8 +73,17 @@
     [self initAdmobAd];
     
     [self followRollingScrollView:self.contentTableView];
+    [self loadDataFromCache];
     [self requestWithCatalog:_catalog];
     
+}
+
+- (void)loadDataFromCache
+{
+    _isRefreshing = YES;
+    NSMutableDictionary *resultDic = [[NSMutableDictionary alloc] init];
+    [JWCacheManager readDictonary:kVideoContentCachePath key:kCacheRootKey dictionary:resultDic];
+    [self handleResult:resultDic];
 }
 
 - (void)requestWithCatalog:(NSUInteger)catalog
@@ -116,9 +129,12 @@
     [self.contentTableView headerEndRefreshing];
     [self.contentTableView footerEndRefreshing];
     NSLog(@"result = %@",result);
-    if ([[result valueForKey:kCode] integerValue] == 0)
+    if (result && [[result valueForKey:kCode] integerValue] == 0)
     {
         NSArray *array = [result valueForKey:kData];
+        if (array && _isRefreshing) {
+            [JWCacheManager writeDictionaryWithContent:result name:kVideoContentCachePath key:kCacheRootKey];
+        }
         NSLog(@"count = %d",(int)[array count]);
         if (_isRefreshing) {
             if ([array count] > 0) {

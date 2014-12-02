@@ -22,6 +22,7 @@
 #import "MBProgressHUD+Add.h"
 
 #import "UtilManager.h"
+#import "JWCacheManager.h"
 
 #define kRequestPageSize 10
 
@@ -35,6 +36,7 @@
 }
 
 - (void)initAdmobAd;
+- (void)loadDataFromCache;
 
 @end
 
@@ -64,9 +66,19 @@
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self initAdmobAd];
     
+    
     [self followRollingScrollView:self.contentTableView];
+    [self loadDataFromCache];
     [self requestWithCatalog:_catalog];
     
+}
+
+- (void)loadDataFromCache
+{
+    _isRefreshing = YES;
+    NSMutableDictionary *resultDic = [[NSMutableDictionary alloc] init];
+    [JWCacheManager readDictonary:kJokeContentCachePath key:kCacheRootKey dictionary:resultDic];
+    [self handleResult:resultDic];
 }
 
 - (void)requestWithCatalog:(NSUInteger)catalog
@@ -112,9 +124,12 @@
     [self.contentTableView headerEndRefreshing];
     [self.contentTableView footerEndRefreshing];
     NSLog(@"result = %@",result);
-    if ([[result valueForKey:kCode] integerValue] == 0)
+    if (result && [[result valueForKey:kCode] integerValue] == 0)
     {
         NSArray *array = [result valueForKey:kData];
+        if (array && _isRefreshing) {
+            [JWCacheManager writeDictionaryWithContent:result name:kJokeContentCachePath key:kCacheRootKey];
+        }
         NSLog(@"count = %d",(int)[array count]);
         if (_isRefreshing) {
             if ([array count] > 0) {

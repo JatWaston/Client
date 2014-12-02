@@ -10,7 +10,8 @@
 #define DuoJoke_AppMacro_h
 
 #define kCatalogCachePath       @"Catalog"
-#define kCatalogDetailCachePath @"CatalogDetail"
+#define kVideoContentCachePath  @"Video"
+#define kJokeContentCachePath   @"Joke"
 #define kCacheRootKey           @"JW"
 
 #define kValidStr @"Video"
