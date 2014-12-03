@@ -11,9 +11,13 @@
 #import "UIColor+Colours.h"
 #import "UtilManager.h"
 
+#define kPlayImageWidth  45.0f
+#define kPlayImageHeight 45.0f
+
 @interface JWImageTableViewCell()
 {
     UIImageView *_imageView;
+    UIButton *_playButton;
     UILabel *_title;
     UIButton *_likeBtn;
     UIButton *_unlikeBtn;
@@ -58,8 +62,17 @@
 
         _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         _imageView.backgroundColor = [UIColor colorWithRed:212/255.0f green:212/255.0f blue:212/255.0f alpha:1.0f];
+        //_imageView.userInteractionEnabled = YES;
         //_imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [view addSubview:_imageView];
+        
+        UIImage *playNormalImg = [UIImage imageNamed:@"fun_play_normal"];
+        UIImage *playPressImg = [UIImage imageNamed:@"fun_play_hover"];
+        _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_playButton setImage:playNormalImg forState:UIControlStateNormal];
+        [_playButton setImage:playPressImg forState:UIControlStateHighlighted];
+        [_imageView addSubview:_playButton];
+        
         
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f];
@@ -149,6 +162,9 @@
     
     _imageView.frame = CGRectMake(0, offsetHeight, imgWidth, imgHeight);
     [_imageView sd_setImageWithURL:[info valueForKey:@"coverImgURL"]];
+    
+    _playButton.frame = CGRectMake((imgWidth-kPlayImageWidth)/2.0f, (imgHeight-kPlayImageHeight)/2.0f, kPlayImageWidth, kPlayImageHeight);
+    //_playImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     
     _timeLabel.frame = CGRectMake(imgWidth-40, imgHeight-20, 40, 20);
     _timeLabel.text = [info valueForKey:@"videoTime"];

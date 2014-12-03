@@ -18,6 +18,8 @@
 		161139061A1F51E70024B34E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161138EE1A1F51E70024B34E /* UIKit.framework */; };
 		1611390E1A1F51E80024B34E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1611390C1A1F51E80024B34E /* InfoPlist.strings */; };
 		161139101A1F51E80024B34E /* FunnyVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1611390F1A1F51E80024B34E /* FunnyVideoTests.m */; };
+		1621CD561A2EC5B5000D588B /* fun_play_hover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1621CD541A2EC5B5000D588B /* fun_play_hover@2x.png */; };
+		1621CD571A2EC5B5000D588B /* fun_play_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1621CD551A2EC5B5000D588B /* fun_play_normal@2x.png */; };
 		163F00681A26E2710063CA8D /* icon_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 163F00661A26E2710063CA8D /* icon_more.png */; };
 		163F00691A26E2710063CA8D /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 163F00671A26E2710063CA8D /* icon_more@2x.png */; };
 		165F337A1A25DA90001D372A /* icon_like_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F336E1A25DA90001D372A /* icon_like_disabled.png */; };
@@ -166,6 +168,8 @@
 		1611390B1A1F51E80024B34E /* FunnyVideoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FunnyVideoTests-Info.plist"; sourceTree = "<group>"; };
 		1611390D1A1F51E80024B34E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1611390F1A1F51E80024B34E /* FunnyVideoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunnyVideoTests.m; sourceTree = "<group>"; };
+		1621CD541A2EC5B5000D588B /* fun_play_hover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fun_play_hover@2x.png"; sourceTree = "<group>"; };
+		1621CD551A2EC5B5000D588B /* fun_play_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fun_play_normal@2x.png"; sourceTree = "<group>"; };
 		163F00661A26E2710063CA8D /* icon_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_more.png; sourceTree = "<group>"; };
 		163F00671A26E2710063CA8D /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
 		165F336E1A25DA90001D372A /* icon_like_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_like_disabled.png; sourceTree = "<group>"; };
@@ -698,6 +702,8 @@
 		18BB56FB1A237081001C85B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1621CD541A2EC5B5000D588B /* fun_play_hover@2x.png */,
+				1621CD551A2EC5B5000D588B /* fun_play_normal@2x.png */,
 				163F00661A26E2710063CA8D /* icon_more.png */,
 				163F00671A26E2710063CA8D /* icon_more@2x.png */,
 				165F336E1A25DA90001D372A /* icon_like_disabled.png */,
@@ -1041,6 +1047,7 @@
 				165F33841A25DA90001D372A /* icon_unlike_unpressed.png in Resources */,
 				165F337F1A25DA90001D372A /* icon_like_unpressed@2x.png in Resources */,
 				165F33821A25DA90001D372A /* icon_unlike_pressed.png in Resources */,
+				1621CD561A2EC5B5000D588B /* fun_play_hover@2x.png in Resources */,
 				16DB4B711A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				18BB57461A237D79001C85B2 /* MJRefresh.bundle in Resources */,
 				18BB57821A237D9B001C85B2 /* umFeedback.bundle in Resources */,
@@ -1053,6 +1060,7 @@
 				16DB4B661A2437700081EF68 /* UMSCommentInputController.xib in Resources */,
 				16BBE2181A24B22B00C0ACB3 /* 20141125064409365_easyicon_net_128.png in Resources */,
 				163F00691A26E2710063CA8D /* icon_more@2x.png in Resources */,
+				1621CD571A2EC5B5000D588B /* fun_play_normal@2x.png in Resources */,
 				165F337C1A25DA90001D372A /* icon_like_pressed.png in Resources */,
 				165F33831A25DA90001D372A /* icon_unlike_pressed@2x.png in Resources */,
 				16DB4B6C1A2437700081EF68 /* UMSShareListController.xib in Resources */,
@@ -1307,7 +1315,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: SUI LAN CHUNG (75GWPCB33P)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1327,7 +1335,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1339,7 +1347,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: SUI LAN CHUNG (75GWPCB33P)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1359,7 +1367,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
