@@ -292,8 +292,9 @@
     //[self showVideo];
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     
-    NSURL *movieUrl = [NSURL URLWithString:[info valueForKey:@"videoURL"]];
-    if (movieUrl == nil) {
+    NSString *url = [info valueForKey:@"videoURL"];
+    NSURL *movieUrl = [NSURL URLWithString:url];
+    if (movieUrl == nil || url.length <= 0) {
         NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
         TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
