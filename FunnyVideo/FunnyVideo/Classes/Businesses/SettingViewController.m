@@ -10,10 +10,18 @@
 #import "UMFeedback.h"
 #import "SDImageCache.h"
 
+#import "UMSocialSnsService.h"
+#import "UMSocialSnsPlatformManager.h"
+
+#import "SettingCell.h"
+#import "UtilManager.h"
+#import "Toast+UIView.h"
+
 @interface SettingViewController()
 
 - (void)shareToFriends;
 - (void)clearCache;
+- (NSString*)cacheSize;
 - (void)feedback;
 - (void)checkVersionUpdate;
 - (void)rateForApp;
@@ -36,25 +44,77 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *section0 = [NSArray arrayWithObjects:@"分享给朋友", nil];
-    NSArray *section1 = [NSArray arrayWithObjects:@"清除缓存",@"反馈问题",@"检查更新", nil];
-    NSArray *section2 = [NSArray arrayWithObjects:@"给我评分", nil];
+    
+    NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
+    
+    NSDictionary *clearCashe = [NSDictionary dictionaryWithObjectsAndKeys:@"清除图片缓存",kTitleKey,[self cacheSize],kDescriptionKey, nil];
+    NSDictionary *feedBack = [NSDictionary dictionaryWithObjectsAndKeys:@"反馈问题",kTitleKey,@"",kDescriptionKey, nil];
+    NSString *ver = [NSString stringWithFormat:@"v%@",[[UtilManager shareManager] appVersion]];
+    NSDictionary *version = [NSDictionary dictionaryWithObjectsAndKeys:@"检查更新",kTitleKey,ver,kDescriptionKey, nil];
+    
+    NSDictionary *rateApp = [NSDictionary dictionaryWithObjectsAndKeys:@"给我评分",kTitleKey,@"",kDescriptionKey, nil];
+    
+    
+    
+    
+    NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
+    NSArray *section1 = [NSArray arrayWithObjects:clearCashe,feedBack,version, nil];
+    NSArray *section2 = [NSArray arrayWithObjects:rateApp, nil];
     [_items addObject:section0];
     [_items addObject:section1];
     [_items addObject:section2];
     [self.contentTableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.contentTableView) {
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        [cell updateDescription:[self cacheSize]];
+    }
+
+}
+
 - (void)shareToFriends
 {
-    NSLog(@"%s",__func__);
+    NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://www.umeng.com/social";             //分享内嵌文字
+    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
+    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+    //如果得到分享完成回调，需要设置delegate为self
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+    return;
+
 }
 
 - (void)clearCache
 {
+    NSString *size = [self cacheSize];
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-        
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        [cell updateDescription:@"0K"];
+        NSString *message = [NSString stringWithFormat:@"已为你清除%@空间",size];
+        [self.view makeToast:message duration:0.2f position:@"bottom"];
     }];
+}
+
+- (NSString*)cacheSize
+{
+    int cacheSize = (int)[[SDImageCache sharedImageCache] getSize];
+    NSLog(@"size = %d",cacheSize);
+    if (cacheSize >= 1024*1024*1024.0f)
+    {
+        return [NSString stringWithFormat:@"%.1fG",cacheSize/(1024*1024*1024.0f)];
+    }
+    else if (cacheSize >= 1024*1024.0f)
+    {
+        return [NSString stringWithFormat:@"%.1fM",cacheSize/(1024*1024.0f)];
+    }
+    else if (cacheSize >= 1024.0f)
+    {
+        return [NSString stringWithFormat:@"%.1fK",cacheSize/1024.0f];
+    }
+    return [NSString stringWithFormat:@"%d Byte",cacheSize];
 }
 
 - (void)feedback
@@ -78,7 +138,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"sections = %d",[_items count]);
+    NSLog(@"sections = %d",(int)[_items count]);
     return [_items count];
 }
 
@@ -90,11 +150,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellStr = @"cellStr";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellStr];
+    SettingCell *cell = (SettingCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        cell = [[SettingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
     }
-    cell.textLabel.text = [[_items objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+    NSDictionary *info = [[_items objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]];
+    [cell updateData:info];
     return cell;
 }
 

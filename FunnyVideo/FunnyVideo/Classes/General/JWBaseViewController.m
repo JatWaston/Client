@@ -93,18 +93,6 @@
 - (void)applicationWillEnterForeground
 {
     [self hiddenNavigationBar:NO];
-//    if (self.isHidden) {
-//        self.overLay.alpha=0;
-//        CGRect navBarFrame=NavBarFrame;
-//        CGRect scrollViewFrame=self.scrollView.frame;
-//        
-//        navBarFrame.origin.y = 20;
-//        scrollViewFrame.origin.y += 44;
-//        scrollViewFrame.size.height -= 44;
-//        NavBarFrame = navBarFrame;
-//        self.scrollView.frame=scrollViewFrame;
-//        self.isHidden = NO;
-//    }
 }
 
 #pragma mark - 兼容其他手势
@@ -118,46 +106,14 @@
 {
     CGPoint translation = [panGesture translationInView:[self.scrollView superview]];
     
-    //    NSLog(@"%f",translation.y);
-    //    CGFloat detai = self.lastContentset - translation.y;
     //显示
     if (translation.y >= 5) {
         [self hiddenNavigationBar:NO];
-//        if (self.isHidden) {
-//            self.overLay.alpha=0;
-//            CGRect navBarFrame=NavBarFrame;
-//            CGRect scrollViewFrame=self.scrollView.frame;
-//            
-//            navBarFrame.origin.y = 20;
-//            scrollViewFrame.origin.y += 44;
-//            scrollViewFrame.size.height -= 44;
-//            
-//            [UIView animateWithDuration:0.2 animations:^{
-//                NavBarFrame = navBarFrame;
-//                self.scrollView.frame=scrollViewFrame;
-//            }];
-//            self.isHidden= NO;
-//        }
     }
     
     //隐藏
     if (translation.y <= -20) {
         [self hiddenNavigationBar:YES];
-//        if (!self.isHidden) {
-//            CGRect frame =NavBarFrame;
-//            CGRect scrollViewFrame=self.scrollView.frame;
-//            frame.origin.y = -24;
-//            scrollViewFrame.origin.y -= 44;
-//            scrollViewFrame.size.height += 44;
-//            
-//            [UIView animateWithDuration:0.2 animations:^{
-//                NavBarFrame = frame;
-//                self.scrollView.frame=scrollViewFrame;
-//            } completion:^(BOOL finished) {
-//                self.overLay.alpha=1;
-//            }];
-//            self.isHidden=YES;
-//        }
     }
 }
 

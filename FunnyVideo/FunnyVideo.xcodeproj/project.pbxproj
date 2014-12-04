@@ -77,6 +77,13 @@
 		16DB4B791A243E490081EF68 /* UMS_social_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B781A243E490081EF68 /* UMS_social_demo.png */; };
 		16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */; };
 		16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7C1A243F650081EF68 /* libstdc++.dylib */; };
+		18A106D41A309E5E00D83BBC /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A106D31A309E5E00D83BBC /* SettingCell.m */; };
+		18A106D71A309EC600D83BBC /* icon_setting_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A106D51A309EC600D83BBC /* icon_setting_arrow.png */; };
+		18A106D81A309EC600D83BBC /* icon_setting_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A106D61A309EC600D83BBC /* icon_setting_arrow@2x.png */; };
+		18A106DC1A30A34A00D83BBC /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A106DB1A30A34A00D83BBC /* Toast+UIView.m */; };
+		18A106DF1A30AC8800D83BBC /* JWWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A106DE1A30AC8800D83BBC /* JWWebViewController.m */; };
+		18A107171A30BA4200D83BBC /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A107161A30BA4200D83BBC /* VideoViewController.m */; };
+		18A1071A1A30BAF900D83BBC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A107191A30BAF900D83BBC /* HomeViewController.m */; };
 		18BB57021A2373C6001C85B2 /* JWMPMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57011A2373C6001C85B2 /* JWMPMoviePlayerViewController.m */; };
 		18BB57251A237D73001C85B2 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57051A237D73001C85B2 /* MKAnnotationView+WebCache.m */; };
 		18BB57261A237D73001C85B2 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57071A237D73001C85B2 /* NSData+ImageContentType.m */; };
@@ -260,6 +267,18 @@
 		16DB4B781A243E490081EF68 /* UMS_social_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UMS_social_demo.png; sourceTree = "<group>"; };
 		16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		16DB4B7C1A243F650081EF68 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		18A106D21A309E5E00D83BBC /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
+		18A106D31A309E5E00D83BBC /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
+		18A106D51A309EC600D83BBC /* icon_setting_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting_arrow.png; sourceTree = "<group>"; };
+		18A106D61A309EC600D83BBC /* icon_setting_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_setting_arrow@2x.png"; sourceTree = "<group>"; };
+		18A106DA1A30A34A00D83BBC /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
+		18A106DB1A30A34A00D83BBC /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		18A106DD1A30AC8800D83BBC /* JWWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWWebViewController.h; sourceTree = "<group>"; };
+		18A106DE1A30AC8800D83BBC /* JWWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWWebViewController.m; sourceTree = "<group>"; };
+		18A107151A30BA4200D83BBC /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		18A107161A30BA4200D83BBC /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		18A107181A30BAF900D83BBC /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		18A107191A30BAF900D83BBC /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		18BB57001A2373C6001C85B2 /* JWMPMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWMPMoviePlayerViewController.h; sourceTree = "<group>"; };
 		18BB57011A2373C6001C85B2 /* JWMPMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWMPMoviePlayerViewController.m; sourceTree = "<group>"; };
 		18BB57041A237D73001C85B2 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -563,6 +582,10 @@
 		1697FA1A1A2345F300EC5F14 /* Businesses */ = {
 			isa = PBXGroup;
 			children = (
+				18A107151A30BA4200D83BBC /* VideoViewController.h */,
+				18A107161A30BA4200D83BBC /* VideoViewController.m */,
+				18A106D21A309E5E00D83BBC /* SettingCell.h */,
+				18A106D31A309E5E00D83BBC /* SettingCell.m */,
 				16BBE2021A24AA7700C0ACB3 /* SettingViewController.h */,
 				16BBE2031A24AA7700C0ACB3 /* SettingViewController.m */,
 				18BB57D61A238135001C85B2 /* JWImageTableViewCell.h */,
@@ -575,6 +598,8 @@
 				16B71A791A2DA2AD00263889 /* JokeViewController.m */,
 				18F4F70A1A2DF03C00F14729 /* JokeTableViewCell.h */,
 				18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */,
+				18A107181A30BAF900D83BBC /* HomeViewController.h */,
+				18A107191A30BAF900D83BBC /* HomeViewController.m */,
 			);
 			path = Businesses;
 			sourceTree = "<group>";
@@ -582,6 +607,7 @@
 		1697FA1B1A2345F300EC5F14 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				18A106D91A30A34A00D83BBC /* Toast */,
 				165F33861A26DA70001D372A /* TOWebViewController */,
 				16DB4B381A2437700081EF68 /* UMSocial */,
 				18BB57BF1A237E2C001C85B2 /* REFrostedViewController */,
@@ -691,6 +717,15 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		18A106D91A30A34A00D83BBC /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				18A106DA1A30A34A00D83BBC /* Toast+UIView.h */,
+				18A106DB1A30A34A00D83BBC /* Toast+UIView.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		18BB56FA1A237081001C85B2 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,6 +737,8 @@
 		18BB56FB1A237081001C85B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				18A106D51A309EC600D83BBC /* icon_setting_arrow.png */,
+				18A106D61A309EC600D83BBC /* icon_setting_arrow@2x.png */,
 				1621CD541A2EC5B5000D588B /* fun_play_hover@2x.png */,
 				1621CD551A2EC5B5000D588B /* fun_play_normal@2x.png */,
 				163F00661A26E2710063CA8D /* icon_more.png */,
@@ -901,6 +938,8 @@
 				18BB57941A237DB1001C85B2 /* JWNavigationController.m */,
 				16BBE20D1A24ADAB00C0ACB3 /* JWBaseTabBarController.h */,
 				16BBE20E1A24ADAB00C0ACB3 /* JWBaseTabBarController.m */,
+				18A106DD1A30AC8800D83BBC /* JWWebViewController.h */,
+				18A106DE1A30AC8800D83BBC /* JWWebViewController.m */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1050,6 +1089,7 @@
 				1621CD561A2EC5B5000D588B /* fun_play_hover@2x.png in Resources */,
 				16DB4B711A2437700081EF68 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				18BB57461A237D79001C85B2 /* MJRefresh.bundle in Resources */,
+				18A106D81A309EC600D83BBC /* icon_setting_arrow@2x.png in Resources */,
 				18BB57821A237D9B001C85B2 /* umFeedback.bundle in Resources */,
 				16BBE20B1A24ABB900C0ACB3 /* tab_home@2x.png in Resources */,
 				16BBE2091A24ABB900C0ACB3 /* tab_cross@2x.png in Resources */,
@@ -1081,6 +1121,7 @@
 				16DB4B6A1A2437700081EF68 /* UMSLoginViewController.xib in Resources */,
 				165F337D1A25DA90001D372A /* icon_like_pressed@2x.png in Resources */,
 				16DB4B671A2437700081EF68 /* UMSCommentInputControlleriPad.xib in Resources */,
+				18A106D71A309EC600D83BBC /* icon_setting_arrow.png in Resources */,
 				16BBE2171A24B22B00C0ACB3 /* 20141125064247949_easyicon_net_256.png in Resources */,
 				16BBE21D1A24B22B00C0ACB3 /* unlike@2x.png in Resources */,
 				16BBE21A1A24B22B00C0ACB3 /* play@2x.png in Resources */,
@@ -1111,16 +1152,20 @@
 				18BB57291A237D73001C85B2 /* SDWebImageDecoder.m in Sources */,
 				18BB57D81A238135001C85B2 /* JWImageTableViewCell.m in Sources */,
 				18BB57B31A237DB7001C85B2 /* NSString+MD5.m in Sources */,
+				18A106DC1A30A34A00D83BBC /* Toast+UIView.m in Sources */,
 				18F4F70C1A2DF03C00F14729 /* JokeTableViewCell.m in Sources */,
 				18BB57331A237D73001C85B2 /* UIImageView+WebCache.m in Sources */,
 				18BB57D11A237E2C001C85B2 /* UIViewController+REFrostedViewController.m in Sources */,
 				18BB578B1A237DAA001C85B2 /* JWCacheManager.m in Sources */,
+				18A106D41A309E5E00D83BBC /* SettingCell.m in Sources */,
+				18A106DF1A30AC8800D83BBC /* JWWebViewController.m in Sources */,
 				18BB57B61A237DB7001C85B2 /* UIColor+Colours.m in Sources */,
 				18BB57631A237D87001C85B2 /* FMDatabase.m in Sources */,
 				18BB574C1A237D79001C85B2 /* UIScrollView+MJRefresh.m in Sources */,
 				165F339A1A26DA70001D372A /* TOActivitySafari.m in Sources */,
 				165F339C1A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */,
+				18A107171A30BA4200D83BBC /* VideoViewController.m in Sources */,
 				18BB57B21A237DB7001C85B2 /* NSString+FontAwesome.m in Sources */,
 				18BB57671A237D87001C85B2 /* FMResultSet.m in Sources */,
 				18BB572B1A237D73001C85B2 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1136,6 +1181,7 @@
 				18BB57471A237D79001C85B2 /* MJRefreshBaseView.m in Sources */,
 				165F33991A26DA70001D372A /* TOActivityChrome.m in Sources */,
 				1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */,
+				18A1071A1A30BAF900D83BBC /* HomeViewController.m in Sources */,
 				18BB57CC1A237E2C001C85B2 /* RECommonFunctions.m in Sources */,
 				18BB57B81A237DB7001C85B2 /* UILabel+ContentSize.m in Sources */,
 				18BB572A1A237D73001C85B2 /* SDWebImageDownloader.m in Sources */,
@@ -1315,7 +1361,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SUI LAN CHUNG (75GWPCB33P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1347,7 +1393,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SUI LAN CHUNG (75GWPCB33P)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",

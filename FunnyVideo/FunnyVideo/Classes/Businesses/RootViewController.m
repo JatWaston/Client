@@ -25,11 +25,14 @@
 #import "UtilManager.h"
 
 #import "JWCacheManager.h"
+#import "JWWebViewController.h"
+
+#import "VideoViewController.h"
 
 #define kRequestPageSize 10
 
 
-@interface RootViewController () <GADBannerViewDelegate,GADInterstitialDelegate>
+@interface RootViewController () <GADBannerViewDelegate,GADInterstitialDelegate,UIAlertViewDelegate>
 {
     JWMPMoviePlayerViewController *_player;
     
@@ -38,11 +41,13 @@
     
     NSUInteger _catalog;
     NSUInteger _type;
-    
 }
+
+@property (nonatomic, strong) NSIndexPath *selectIndexPath;
 
 - (void)loadDataFromCache;
 - (void)initAdmobAd;
+- (void)showPlayVideoErrorAlert;
 
 @end
 
@@ -65,8 +70,9 @@
     _type = 8001;
     _currentPage = 1;
     _isRefreshing = YES;
+
   
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
     self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-50);
     self.contentTableView.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0f];
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -77,6 +83,11 @@
     [self requestWithCatalog:_catalog];
     
 }
+
+//- (void)showVideo {
+//    VideoViewController *controller = [[VideoViewController alloc] init];
+//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:controller] animated:YES completion:nil];
+//}
 
 - (void)loadDataFromCache
 {
@@ -200,10 +211,12 @@
                 case MPMovieFinishReasonPlaybackEnded:{
                     /* The movie ended normally */
                     NSLog(@"The movie ended normally");
-                    break; }
+                    break;
+                }
                 case MPMovieFinishReasonPlaybackError:{
                     /* An error happened and the movie ended */
                     NSLog(@"An error happened and the movie ended");
+                    [self showPlayVideoErrorAlert];
                     break;
                 }
                 case MPMovieFinishReasonUserExited:{
@@ -218,20 +231,27 @@
     
 }
 
-
-
-- (void)showVideo {
+- (void)showPlayVideoErrorAlert {
     
-//    NSString *shareText = @"友盟社会化组件可以让移动应用快速具备社会化分享、登录、评论、喜欢等功能，并提供实时、全面的社会化数据统计分析服务。 http://www.umeng.com/social";             //分享内嵌文字
-//    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
-//    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
-//    //如果得到分享完成回调，需要设置delegate为self
-//    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
-//    return;
-    NSURL *movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=841752822475812b1bcf7"];
-    _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
-    [self presentMoviePlayerViewControllerAnimated:_player];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"当前视频播放出错，是否在网页中播放该视频？"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"否"
+                                                  otherButtonTitles:@"播放", nil];
+        [alertView show];
+    });
+
 }
+
+
+
+//- (void)showVideo {
+//    
+//    NSURL *movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=841752822475812b1bcf7"];
+//    _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
+//    [self presentMoviePlayerViewControllerAnimated:_player];
+//}
 
 
 - (void)didReceiveMemoryWarning {
@@ -288,15 +308,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectIndexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //[self showVideo];
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     
     NSString *url = [info valueForKey:@"videoURL"];
+    url = @"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=84175";
     NSURL *movieUrl = [NSURL URLWithString:url];
+    movieUrl = nil;
     if (movieUrl == nil || url.length <= 0) {
         NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
+        //url = [NSURL URLWithString:@"http://v.youku.com/v_show/id_XNDU1NjkyNDY4.html"];
+        //JWWebViewController *webViewController = [[JWWebViewController alloc] initWithURL:url];
         TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+        //[self.navigationController pushViewController:webViewController animated:YES];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
         
     } else {
@@ -341,6 +367,19 @@
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSLog(@"GADInterstitial error:%@",[error localizedFailureReason]);
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {
+        NSDictionary *info = [_items objectAtIndex:[self.selectIndexPath row]];
+        NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
+        TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+    }
+    
 }
 
 @end

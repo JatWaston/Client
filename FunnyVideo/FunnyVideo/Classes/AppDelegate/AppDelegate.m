@@ -19,12 +19,15 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaHandler.h"
 
+#import "HomeViewController.h"
+
 #import "UtilManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#if 1
     [[UtilManager shareManager] appVersion];
     [[UtilManager shareManager] deviceUDID];
     [[UtilManager shareManager] devicePlatform];
@@ -40,7 +43,7 @@
     [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
     //设置支持没有客户端情况下使用SSO授权
     [UMSocialQQHandler setSupportWebView:YES];
-    
+#endif
 
     
     
@@ -48,7 +51,7 @@
     // Override point for customization after application launch.
     
 
-    
+#if 1
     [[UINavigationBar appearance] setBarTintColor:[UIColor skyBlueColor]]; //设置UINavigationBar的颜色
     
     RootViewController *mainViewController = [[RootViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskAll tableViewStyle:UITableViewStylePlain];
@@ -69,6 +72,11 @@
     
     NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navJokeViewController,navSettingViewController, nil];
     [tab setViewControllers:controllers animated:NO];
+#endif
+    
+    //HomeViewController *homeViewController = [[HomeViewController alloc] init];
+    
+    
     self.window.rootViewController = tab;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
