@@ -12,7 +12,7 @@
 
 + (JWVersionUpdateManager*)defaultManager;
 
-- (void)checkVersionUpdate:(NSURL*)updateURL requestComplete:(void (^)(NSData *data, NSError *error))completeHandle;
+- (void)checkVersionUpdate:(NSString*)updateURL requestComplete:(void (^)(NSData *data, NSError *error))completeHandle;
 - (void)showUpdateAlertView:(NSDictionary*)messageInfo;
 
 @end

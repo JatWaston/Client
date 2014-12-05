@@ -17,6 +17,8 @@
 #import "UtilManager.h"
 #import "Toast+UIView.h"
 
+#import "JWVersionUpdateManager.h"
+
 @interface SettingViewController()
 
 - (void)shareToFriends;
@@ -126,6 +128,12 @@
 - (void)checkVersionUpdate
 {
     NSLog(@"%s",__func__);
+    NSString *requestURL = [[UtilManager shareManager] addParamsForURL:kVersionUpdateURL];
+    [[JWVersionUpdateManager defaultManager] checkVersionUpdate:requestURL requestComplete:^(NSData *data, NSError *error) {
+        NSDictionary *info = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
+        NSLog(@"info = %@",info);
+        [[JWVersionUpdateManager defaultManager] showUpdateAlertView:info];
+    }];
 }
 
 - (void)rateForApp
