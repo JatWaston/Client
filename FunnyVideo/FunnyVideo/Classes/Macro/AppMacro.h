@@ -47,12 +47,14 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
     #define kDefaultCatalog 1000
 #endif
 
-//#define kTestURL
+#define kTestURL
 
 #ifdef kTestURL
     #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
+    #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/checkVersionUpdate.php"
 #else
     #define kDailyContentURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/dailyContent.php"
+    #define kVersionUpdateURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/checkVersionUpdate.php"
 #endif
 
 

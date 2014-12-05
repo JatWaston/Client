@@ -123,15 +123,14 @@
 - (NSString*)builtURLWithPage:(NSUInteger)page catalog:(NSUInteger)catalog validKey:(NSString*)vaild
 {
     _catalog = catalog;
-    NSUInteger store = JW91SttorePlatform;
-#ifdef APP_STORE
-    store = JWAppStorePlatform;
-#endif
+    JWStorePlatform store = [[UtilManager shareManager] storePlatform];
     NSString *version = [[UtilManager shareManager] appVersion];
-    NSString *devicePlatform = [[UtilManager shareManager] devicePlatform];
-    NSString *udid = [[UtilManager shareManager] deviceUDID];
     NSString *md5 = [[NSString stringWithFormat:@"%@%d%d%@",version,(int)store,(int)_currentPage,kValidStr] MD5];
-    NSString *requestURL = [kDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?version=%@&device=%@&udid=%@&page=%d&valid=%@&pageSize=%d&store=%d&content=%d",version,devicePlatform,udid,(int)_currentPage,md5,kRequestPageSize,(int)store,(int)JWVideoType]];
+    NSString *requestURL = [kDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?page=%d&valid=%@&pageSize=%d&content=%d",(int)_currentPage,md5,kRequestPageSize,(int)JWVideoType]];
+    
+    requestURL = [[UtilManager shareManager] addParamsForURL:requestURL];
+    NSLog(@"url = %@",requestURL);
+    
     return requestURL;
 }
 

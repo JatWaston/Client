@@ -22,4 +22,8 @@
 - (NSString*)devicePlatform;
 - (NSString*)deviceSystemVersion;
 
+- (NSString*)addParamsForURL:(NSString*)url;
+- (NSString *)urlEncodeUnicode:(NSString *)url; //url编码
+- (JWStorePlatform)storePlatform;
+
 @end

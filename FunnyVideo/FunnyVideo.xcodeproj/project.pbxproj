@@ -39,6 +39,7 @@
 		165F339A1A26DA70001D372A /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33911A26DA70001D372A /* TOActivitySafari.m */; };
 		165F339B1A26DA70001D372A /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33931A26DA70001D372A /* TOWebViewController.m */; };
 		165F339C1A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 165F33951A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m */; };
+		1660E9F71A31681A00611CFC /* JWVersionUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1660E9F61A31681A00611CFC /* JWVersionUpdateManager.m */; };
 		1697FA381A2345F300EC5F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA191A2345F300EC5F14 /* AppDelegate.m */; };
 		1697FA4E1A23461500EC5F14 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1697FA4D1A23461500EC5F14 /* RootViewController.m */; };
 		16B71A7A1A2DA2AD00263889 /* JokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B71A791A2DA2AD00263889 /* JokeViewController.m */; };
@@ -207,6 +208,8 @@
 		165F33951A26DA70001D372A /* UIImage+TOWebViewControllerIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TOWebViewControllerIcons.m"; sourceTree = "<group>"; };
 		165F33961A26DA70001D372A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		165F33971A26DA70001D372A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		1660E9F51A31681A00611CFC /* JWVersionUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWVersionUpdateManager.h; sourceTree = "<group>"; };
+		1660E9F61A31681A00611CFC /* JWVersionUpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWVersionUpdateManager.m; sourceTree = "<group>"; };
 		1697FA181A2345F300EC5F14 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1697FA191A2345F300EC5F14 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1697FA4C1A23461500EC5F14 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -940,6 +943,8 @@
 				16BBE20E1A24ADAB00C0ACB3 /* JWBaseTabBarController.m */,
 				18A106DD1A30AC8800D83BBC /* JWWebViewController.h */,
 				18A106DE1A30AC8800D83BBC /* JWWebViewController.m */,
+				1660E9F51A31681A00611CFC /* JWVersionUpdateManager.h */,
+				1660E9F61A31681A00611CFC /* JWVersionUpdateManager.m */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1209,6 +1214,7 @@
 				18BB572F1A237D73001C85B2 /* UIImage+GIF.m in Sources */,
 				18BB57261A237D73001C85B2 /* NSData+ImageContentType.m in Sources */,
 				18BB57311A237D73001C85B2 /* UIImage+WebP.m in Sources */,
+				1660E9F71A31681A00611CFC /* JWVersionUpdateManager.m in Sources */,
 				16B71A7A1A2DA2AD00263889 /* JokeViewController.m in Sources */,
 				18BB57B71A237DB7001C85B2 /* UIImage+Util.m in Sources */,
 				18BB57651A237D87001C85B2 /* FMDatabasePool.m in Sources */,

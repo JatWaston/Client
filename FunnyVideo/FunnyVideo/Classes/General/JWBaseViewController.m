@@ -118,7 +118,7 @@
 }
 
 - (void)hiddenNavigationBar:(BOOL)hidden {
-    switch (hidden) {
+    switch ((Boolean)hidden) {
         case YES:
             if (!self.isHidden) {
                 CGRect frame =NavBarFrame;
