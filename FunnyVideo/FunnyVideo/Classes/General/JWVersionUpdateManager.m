@@ -9,11 +9,20 @@
 #import "JWVersionUpdateManager.h"
 #import "JWNetworking.h"
 
-@interface JWVersionUpdateManager() {
+typedef NS_ENUM(NSUInteger,JWUpdateAlertViewTag)
+{
+    JWNoneUpdate = 0,
+    JWForceUpdate,
+    JWNormalUpdate,
+};
+
+
+@interface JWVersionUpdateManager() <UIAlertViewDelegate> {
     BOOL _isRequesting;
 }
 
 @property (nonatomic, strong) JWNetworking *networking;
+@property (nonatomic, strong) NSString *storeURL;
 
 @property (nonatomic, copy) void (^requestCompleteHandle)(NSData *data, NSError *error);
 
@@ -54,13 +63,68 @@
 }
 
 - (void)showUpdateAlertView:(NSDictionary*)messageInfo {
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"有可更新的版本"
-                                                        message:@"更新内容"
-                                                       delegate:[JWVersionUpdateManager defaultManager]
-                                              cancelButtonTitle:@"取消"
-                                              otherButtonTitles:@"更新", nil];
-    [alertView show];
+    NSArray *array = nil;
+    if (messageInfo) {
+        array = [messageInfo valueForKey:@"data"];
+    }
+    if (array == nil || [array count] == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@""
+                                                            message:@"当前已经是最新版本了"
+                                                           delegate:[JWVersionUpdateManager defaultManager]
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil];
+        alertView.tag = JWNoneUpdate;
+        [alertView show];
+    } else {
+        NSDictionary *info = [array objectAtIndex:0];
+        NSString *title = [info valueForKey:@""];
+        NSString *message = [info valueForKey:@""];
+        BOOL forceUpdate = [[info valueForKey:@""] boolValue];
+        self.storeURL = [info valueForKey:@""];
+        
+        UIAlertView *alertView = nil;
+        switch (forceUpdate) {
+            case YES:
+                alertView = [[UIAlertView alloc] initWithTitle:title
+                                                       message:message
+                                                      delegate:[JWVersionUpdateManager defaultManager]
+                                             cancelButtonTitle:@"更新"
+                                             otherButtonTitles:nil];
+                alertView.tag = JWForceUpdate;
+                break;
+            case NO:
+                alertView = [[UIAlertView alloc] initWithTitle:title
+                                                       message:message
+                                                      delegate:[JWVersionUpdateManager defaultManager]
+                                             cancelButtonTitle:@"取消"
+                                             otherButtonTitles:@"更新",nil];
+                alertView.tag = JWNormalUpdate;
+                break;
+            default:
+                break;
+        }
+        [alertView show];
+    }
+
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (alertView.tag) {
+        case JWNoneUpdate:
+            break;
+        case JWForceUpdate:
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.storeURL]];
+            break;
+        case JWNormalUpdate:
+            if (buttonIndex == 1) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.storeURL]];
+            }
+            break;
+        default:
+            break;
+    }
 }
 
 @end
