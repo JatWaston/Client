@@ -77,10 +77,10 @@ typedef NS_ENUM(NSUInteger,JWUpdateAlertViewTag)
         [alertView show];
     } else {
         NSDictionary *info = [array objectAtIndex:0];
-        NSString *title = [info valueForKey:@""];
-        NSString *message = [info valueForKey:@""];
-        BOOL forceUpdate = [[info valueForKey:@""] boolValue];
-        self.storeURL = [info valueForKey:@""];
+        NSString *title = [info valueForKey:@"更新信息"];
+        NSString *message = [info valueForKey:@"updateMessage"];
+        BOOL forceUpdate = NO;//[[info valueForKey:@""] boolValue];
+        self.storeURL = @"http://www.baidu.com/";//[info valueForKey:@""];
         
         UIAlertView *alertView = nil;
         switch (forceUpdate) {
