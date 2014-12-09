@@ -202,7 +202,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch ([indexPath section]) {
-        case 0:
+        case 2:
             switch ([indexPath row]) {
                 case 0:
                     [self shareToFriends];
@@ -211,7 +211,7 @@
                     break;
             }
             break;
-        case 1:
+        case 0:
             switch ([indexPath row]) {
                 case 0:
                     [self clearCache];
@@ -226,7 +226,7 @@
                     break;
             }
             break;
-        case 2:
+        case 1:
             switch ([indexPath row]) {
                 case 0:
                     [self rateForApp];

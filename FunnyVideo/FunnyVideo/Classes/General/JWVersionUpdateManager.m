@@ -2,7 +2,7 @@
 //  JWVersionUpdateManager.m
 //  FunnyVideo
 //
-//  Created by zhengzhilin on 14-12-5.
+//  Created by JatWaston on 14-12-5.
 //  Copyright (c) 2014年 JatWaston. All rights reserved.
 //
 

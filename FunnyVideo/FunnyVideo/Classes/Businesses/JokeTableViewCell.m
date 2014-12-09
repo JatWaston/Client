@@ -2,7 +2,7 @@
 //  JokeTableViewCell.m
 //  FunnyVideo
 //
-//  Created by zhengzhilin on 14/12/2.
+//  Created by JatWaston on 14/12/2.
 //  Copyright (c) 2014年 JatWaston. All rights reserved.
 //
 

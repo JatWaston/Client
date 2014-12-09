@@ -2,7 +2,7 @@
 //  JWReportManager.m
 //  FunnyVideo
 //
-//  Created by zhengzhilin on 14-12-9.
+//  Created by JatWaston on 14-12-9.
 //  Copyright (c) 2014年 JatWaston. All rights reserved.
 //
 

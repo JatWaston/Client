@@ -2,7 +2,7 @@
 //  VideoViewController.h
 //  VideoDemo
 //
-//  Created by zhengzhilin on 14/12/4.
+//  Created by JatWaston on 14/12/4.
 //  Copyright (c) 2014年 JatWaston. All rights reserved.
 //
 
