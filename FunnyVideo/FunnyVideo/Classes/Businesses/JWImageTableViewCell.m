@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIColor+Colours.h"
 #import "UtilManager.h"
+#import "JWToolBarView.h"
 
 #define kPlayImageWidth  45.0f
 #define kPlayImageHeight 45.0f
@@ -25,6 +26,7 @@
     UIView *_lineView;
     
     UILabel *_timeLabel;
+    JWToolBarView *_toolView;
 }
 
 @end
@@ -85,6 +87,10 @@
         _lineView.backgroundColor = [UIColor grayColor];
         [view addSubview:_lineView];
         
+        _toolView = [[JWToolBarView alloc] initWithFrame:CGRectZero];
+        [view addSubview:_toolView];
+        
+#if 0
         UIImage *like_unpress = [UIImage imageNamed:@"icon_like_unpressed"];
         UIImage *like_press = [UIImage imageNamed:@"icon_like_pressed"];
         UIImage *like_disabled = [UIImage imageNamed:@"icon_like_disabled"];
@@ -135,6 +141,7 @@
         [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
         //[_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
         [view addSubview:_shareBtn];
+#endif
         
         
     }
@@ -175,13 +182,15 @@
     
     offsetHeight += 1;
     
-    [_likeBtn setTitle:[info valueForKey:@"likeCount"] forState:UIControlStateNormal];
-    [_unlikeBtn setTitle:[info valueForKey:@"unlikeCount"] forState:UIControlStateNormal];
-    [_shareBtn setTitle:[info valueForKey:@"shareCount"] forState:UIControlStateNormal];
+    _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 30);
     
-    _likeBtn.frame = CGRectMake(10, offsetHeight, 80, 30);
-    _unlikeBtn.frame = CGRectMake(100, offsetHeight, 80, 30);
-    _shareBtn.frame = CGRectMake(220, offsetHeight, 80, 30);
+    [_toolView fillingData:info];
+    
+
+//
+//    _likeBtn.frame = CGRectMake(10, offsetHeight, 80, 30);
+//    _unlikeBtn.frame = CGRectMake(100, offsetHeight, 80, 30);
+//    _shareBtn.frame = CGRectMake(220, offsetHeight, 80, 30);
     
 }
 

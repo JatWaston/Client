@@ -56,6 +56,8 @@
 		16BBE21B1A24B22B00C0ACB3 /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2141A24B22B00C0ACB3 /* share@2x.png */; };
 		16BBE21C1A24B22B00C0ACB3 /* share1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2151A24B22B00C0ACB3 /* share1@2x.png */; };
 		16BBE21D1A24B22B00C0ACB3 /* unlike@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16BBE2161A24B22B00C0ACB3 /* unlike@2x.png */; };
+		16BD11281A37184C00C6D9C5 /* JWToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BD11271A37184C00C6D9C5 /* JWToolBarView.m */; };
+		16BD112B1A371F2600C6D9C5 /* JWReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BD112A1A371F2600C6D9C5 /* JWReportManager.m */; };
 		16DB4B631A2437700081EF68 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B3A1A2437700081EF68 /* UMSocialLocalizable.strings */; };
 		16DB4B641A2437700081EF68 /* libUMSocial_Sdk_4.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B481A2437700081EF68 /* libUMSocial_Sdk_4.2.a */; };
 		16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B4A1A2437700081EF68 /* UMSCommentDetailController.xib */; };
@@ -231,6 +233,10 @@
 		16BBE2141A24B22B00C0ACB3 /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		16BBE2151A24B22B00C0ACB3 /* share1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share1@2x.png"; sourceTree = "<group>"; };
 		16BBE2161A24B22B00C0ACB3 /* unlike@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unlike@2x.png"; sourceTree = "<group>"; };
+		16BD11261A37184C00C6D9C5 /* JWToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWToolBarView.h; sourceTree = "<group>"; };
+		16BD11271A37184C00C6D9C5 /* JWToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWToolBarView.m; sourceTree = "<group>"; };
+		16BD11291A371F2600C6D9C5 /* JWReportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWReportManager.h; sourceTree = "<group>"; };
+		16BD112A1A371F2600C6D9C5 /* JWReportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWReportManager.m; sourceTree = "<group>"; };
 		16DB4B3B1A2437700081EF68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		16DB4B3D1A2437700081EF68 /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
 		16DB4B3E1A2437700081EF68 /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
@@ -603,6 +609,10 @@
 				18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */,
 				18A107181A30BAF900D83BBC /* HomeViewController.h */,
 				18A107191A30BAF900D83BBC /* HomeViewController.m */,
+				16BD11261A37184C00C6D9C5 /* JWToolBarView.h */,
+				16BD11271A37184C00C6D9C5 /* JWToolBarView.m */,
+				16BD11291A371F2600C6D9C5 /* JWReportManager.h */,
+				16BD112A1A371F2600C6D9C5 /* JWReportManager.m */,
 			);
 			path = Businesses;
 			sourceTree = "<group>";
@@ -1205,6 +1215,7 @@
 				18BB57491A237D79001C85B2 /* MJRefreshFooterView.m in Sources */,
 				18BB57971A237DB1001C85B2 /* JWBaseTableViewController.m in Sources */,
 				18BB57271A237D73001C85B2 /* SDImageCache.m in Sources */,
+				16BD112B1A371F2600C6D9C5 /* JWReportManager.m in Sources */,
 				18BB57CD1A237E2C001C85B2 /* REFrostedContainerViewController.m in Sources */,
 				18BB57D01A237E2C001C85B2 /* UIView+REFrostedViewController.m in Sources */,
 				18BB574B1A237D79001C85B2 /* UIScrollView+MJExtension.m in Sources */,
@@ -1218,6 +1229,7 @@
 				16B71A7A1A2DA2AD00263889 /* JokeViewController.m in Sources */,
 				18BB57B71A237DB7001C85B2 /* UIImage+Util.m in Sources */,
 				18BB57651A237D87001C85B2 /* FMDatabasePool.m in Sources */,
+				16BD11281A37184C00C6D9C5 /* JWToolBarView.m in Sources */,
 				18BB578D1A237DAA001C85B2 /* UtilManager.m in Sources */,
 				18BB57991A237DB1001C85B2 /* JWNavigationController.m in Sources */,
 				18BB57CE1A237E2C001C85B2 /* REFrostedViewController.m in Sources */,

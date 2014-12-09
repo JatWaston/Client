@@ -22,6 +22,7 @@
 #import "HomeViewController.h"
 
 #import "UtilManager.h"
+#import "FMDatabase.h"
 
 @implementation AppDelegate
 
@@ -49,7 +50,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
+    [self createDatabase];
 
 #if 1
     [[UINavigationBar appearance] setBarTintColor:[UIColor skyBlueColor]]; //设置UINavigationBar的颜色
@@ -81,6 +82,22 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)createDatabase
+{
+    NSString *documentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *dbPath = [documentsPath stringByAppendingPathComponent:@"record.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if ([db open])
+    {
+        NSString *sql = @"CREATE TABLE IF NOT EXISTS `recordList` (`id` VARCHAR(33) NOT NULL, `likeCount` INT NOT NULL,`like` VARCHAR(1) NOT NULL, `unlikeCount` INT NOT NULL,`unlike` VARCHAR(1) NOT NULL, PRIMARY KEY(`id`))";
+        BOOL res = [db executeUpdate:sql];
+        if (!res)
+        {
+            NSLog(@"create table error.");
+        }
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

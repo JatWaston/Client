@@ -19,7 +19,13 @@
 
 #import "JWVersionUpdateManager.h"
 
-@interface SettingViewController()
+#import "GADBannerView.h"
+#import "GADAdSize.h"
+
+@interface SettingViewController() <GADBannerViewDelegate>
+{
+    GADBannerView *_adBannerView;
+}
 
 - (void)shareToFriends;
 - (void)clearCache;
@@ -47,7 +53,7 @@
 {
     [super viewDidLoad];
     
-    NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
+    //NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
     
     NSDictionary *clearCashe = [NSDictionary dictionaryWithObjectsAndKeys:@"清除图片缓存",kTitleKey,[self cacheSize],kDescriptionKey, nil];
     NSDictionary *feedBack = [NSDictionary dictionaryWithObjectsAndKeys:@"反馈问题",kTitleKey,@"",kDescriptionKey, nil];
@@ -59,20 +65,43 @@
     
     
     
-    NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
+    //NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
     NSArray *section1 = [NSArray arrayWithObjects:clearCashe,feedBack,version, nil];
     NSArray *section2 = [NSArray arrayWithObjects:rateApp, nil];
-    [_items addObject:section0];
+    //[_items addObject:section0];
     [_items addObject:section1];
     [_items addObject:section2];
     [self.contentTableView reloadData];
+    
+    [self initAdmobAd];
+}
+
+- (void)initAdmobAd
+{
+    //横幅
+    CGPoint origin = CGPointMake(0.0,
+                                 self.view.frame.size.height -
+                                 CGSizeFromGADAdSize(kGADAdSizeBanner).height-64-49);
+    _adBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
+    //_adBannerView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
+    _adBannerView.adUnitID = kAdmobBannerKey;
+    _adBannerView.delegate = self;
+    _adBannerView.rootViewController = self;
+    [self.view addSubview:_adBannerView];
+    [_adBannerView loadRequest:[GADRequest request]];
+    
+    //插屏
+//    _interstitialView = [[GADInterstitial alloc] init];
+//    _interstitialView.adUnitID = kAdmobInterstitialKey;
+//    _interstitialView.delegate = self;
+//    [_interstitialView loadRequest:[GADRequest request]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if (self.contentTableView) {
-        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         [cell updateDescription:[self cacheSize]];
     }
 
@@ -93,7 +122,7 @@
 {
     NSString *size = [self cacheSize];
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         [cell updateDescription:@"0K"];
         NSString *message = [NSString stringWithFormat:@"已为你清除%@空间",size];
         [self.view makeToast:message duration:0.2f position:@"bottom"];
