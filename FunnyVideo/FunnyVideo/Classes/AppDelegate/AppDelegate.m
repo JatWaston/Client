@@ -24,15 +24,14 @@
 #import "UtilManager.h"
 #import "FMDatabase.h"
 
+#import "MobClick.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-#if 1
-    [[UtilManager shareManager] appVersion];
-    [[UtilManager shareManager] deviceUDID];
-    [[UtilManager shareManager] devicePlatform];
-    
+    [MobClick startWithAppkey:kUmengKey reportPolicy:BATCH channelId:kChannel];
+#if 0
     [UMSocialData setAppKey:kUmengKey];
     //设置微信AppId，设置分享url，默认使用友盟的网址
     [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
@@ -53,7 +52,7 @@
     [self createDatabase];
 
 #if 1
-    [[UINavigationBar appearance] setBarTintColor:[UIColor skyBlueColor]]; //设置UINavigationBar的颜色
+    [[UINavigationBar appearance] setBarTintColor:kNavigationBarColor]; //设置UINavigationBar的颜色
     
     RootViewController *mainViewController = [[RootViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskAll tableViewStyle:UITableViewStylePlain];
     UINavigationController *navMainViewController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
@@ -68,8 +67,8 @@
     
     JWBaseTabBarController *tab = [[JWBaseTabBarController alloc] init];
     //tintColor 文字和图片的颜色
-    tab.tabBar.tintColor = [UIColor skyBlueColor];
-    tab.tabBar.barTintColor = [UIColor blackColor];
+    tab.tabBar.tintColor = kTabBarTextTintColor;
+    tab.tabBar.barTintColor = kTabBarTintColor;
     
     NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navJokeViewController,navSettingViewController, nil];
     [tab setViewControllers:controllers animated:NO];

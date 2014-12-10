@@ -22,6 +22,9 @@
 #import "GADBannerView.h"
 #import "GADAdSize.h"
 
+#define kRateiOSAppStoreURLFormate @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=929114250"
+#define kRateiOS7AppStoreURLFormate @"itms-apps://itunes.apple.com/app/id929114250"
+
 @interface SettingViewController() <GADBannerViewDelegate>
 {
     GADBannerView *_adBannerView;
@@ -168,6 +171,12 @@
 - (void)rateForApp
 {
     NSLog(@"%s",__func__);
+    if (CURRENT_SYSTEM_VERSION >= 7.0f) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kRateiOS7AppStoreURLFormate]];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kRateiOSAppStoreURLFormate]];
+    }
+    
 }
 
 #pragma mark -

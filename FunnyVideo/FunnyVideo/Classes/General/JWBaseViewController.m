@@ -180,8 +180,9 @@
     if (CURRENT_SYSTEM_VERSION < 7.0f) {
         [[UINavigationBar appearance] setTintColor:[UIColor orangeColor]];
     } else {
-        [[UINavigationBar appearance] setBarTintColor:[UIColor skyBlueColor]];
+        [[UINavigationBar appearance] setBarTintColor:kNavigationBarColor];
         [self.navigationController.navigationBar setTranslucent:YES];
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:kNavBarTextColor, NSFontAttributeName:kNavBarTextFont};
     }
 }
 

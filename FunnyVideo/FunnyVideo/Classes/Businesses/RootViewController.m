@@ -58,7 +58,7 @@
     self = [super initWithRefreshStyle:refreshStyle tableViewStyle:style];
     if (self) {
         self.title = @"视频";
-        self.tabBarItem.image = [UIImage imageNamed:@"tab_daily"];
+        self.tabBarItem.image = [UIImage imageNamed:@"icon_video"];
     }
     return self;
 }
