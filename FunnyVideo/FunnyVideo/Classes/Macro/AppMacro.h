@@ -48,13 +48,24 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
 #endif
 
 #define kTestURL
+#define kOuterNet
 
 #ifdef kTestURL
-    #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
-    #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/checkVersionUpdate.php"
+    #ifdef kOuterNet
+        #define kDailyContentURL @"http://funnyjoke.sinaapp.com/dailyContent.php"
+        #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
+    #else
+        #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
+        #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/checkVersionUpdate.php"
+    #endif
 #else
-    #define kDailyContentURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/dailyContent.php"
-    #define kVersionUpdateURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/checkVersionUpdate.php"
+    #ifdef kOuterNet
+        #define kDailyContentURL @"http://funnyjoke.sinaapp.com/dailyContent.php"
+        #define kVersionUpdateURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/checkVersionUpdate.php"
+    #else
+        #define kDailyContentURL @"http://funnyjoke.sinaapp.com/dailyContent.php"
+        #define kVersionUpdateURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/checkVersionUpdate.php"
+    #endif
 #endif
 
 
