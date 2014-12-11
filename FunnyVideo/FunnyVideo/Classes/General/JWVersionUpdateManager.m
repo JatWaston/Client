@@ -83,7 +83,7 @@ typedef NS_ENUM(NSUInteger,JWUpdateAlertViewTag)
         self.storeURL = [info valueForKey:@"downloadURL"];
         
         UIAlertView *alertView = nil;
-        switch (forceUpdate) {
+        switch ((Boolean)forceUpdate) {
             case YES:
                 alertView = [[UIAlertView alloc] initWithTitle:title
                                                        message:message
