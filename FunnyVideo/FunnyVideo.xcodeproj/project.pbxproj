@@ -1395,7 +1395,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1428,7 +1428,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3de76c90-73ae-43e8-b5df-2d789ba366a8";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
