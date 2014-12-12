@@ -27,8 +27,6 @@
 #import "JWCacheManager.h"
 #import "JWWebViewController.h"
 
-#import "VideoViewController.h"
-
 #define kRequestPageSize 10
 
 

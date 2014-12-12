@@ -38,11 +38,14 @@
         [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     }
     
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+    shadow.shadowOffset = CGSizeMake(0, 0);
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7) {
         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bar_background.png"] forBarMetrics:UIBarMetricsDefault];
         self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:kNavBarTextColor,
                                                    NSFontAttributeName:kNavBarTextFont,
-                                                   UITextAttributeTextShadowOffset:@0};
+                                                   NSShadowAttributeName:shadow};
         
     }
     else

@@ -526,11 +526,18 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 	CGFloat remainingHeight = bounds.size.height - totalSize.height - kPadding - 4 * margin; 
 	CGSize maxSize = CGSizeMake(maxWidth, remainingHeight);
-	CGSize detailsLabelSize = [detailsLabel.text sizeWithFont:detailsLabel.font 
-								constrainedToSize:maxSize lineBreakMode:detailsLabel.lineBreakMode];
-	totalSize.width = MAX(totalSize.width, detailsLabelSize.width);
-	totalSize.height += detailsLabelSize.height;
-	if (detailsLabelSize.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
+    NSDictionary *attrbute = @{NSFontAttributeName:detailsLabel.font};
+    CGRect rect = [detailsLabel.text boundingRectWithSize:maxSize
+                                      options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
+                                   attributes:attrbute
+                                      context:nil];
+//	CGSize detailsLabelSize = [detailsLabel.text sizeWithFont:detailsLabel.font
+//								constrainedToSize:maxSize lineBreakMode:detailsLabel.lineBreakMode];
+//	totalSize.width = MAX(totalSize.width, detailsLabelSize.width);
+//	totalSize.height += detailsLabelSize.height;
+    totalSize.width = MAX(totalSize.width, rect.size.width);
+    totalSize.height += rect.size.height;
+	if (rect.size.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
 		totalSize.height += kPadding;
 	}
 	
@@ -555,13 +562,13 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	label.frame = labelF;
 	yPos += labelF.size.height;
 	
-	if (detailsLabelSize.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
+	if (rect.size.height > 0.f && (indicatorF.size.height > 0.f || labelSize.height > 0.f)) {
 		yPos += kPadding;
 	}
 	CGRect detailsLabelF;
 	detailsLabelF.origin.y = yPos;
-	detailsLabelF.origin.x = roundf((bounds.size.width - detailsLabelSize.width) / 2) + xPos;
-	detailsLabelF.size = detailsLabelSize;
+	rect.origin.x = roundf((bounds.size.width - rect.size.width) / 2) + xPos;
+	detailsLabelF.size = rect.size;
 	detailsLabel.frame = detailsLabelF;
 	
 	// Enforce minsize and quare rules

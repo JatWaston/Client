@@ -8,6 +8,8 @@
 
 #import "JWReportManager.h"
 
+#define kReportURL @""
+
 @implementation JWReportManager
 
 + (JWReportManager*)defaultManager {
@@ -17,6 +19,19 @@
     }
     return _manager;
 }
+
+- (void)updateVideoPlayCount {
+    
+}
+
+- (void)updateVideoLikeCount {
+    
+}
+
+- (void)updateVideoUnlikeCount {
+    
+}
+
 
 
 @end

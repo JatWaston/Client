@@ -12,4 +12,8 @@
 
 + (JWReportManager*)defaultManager;
 
+- (void)updateVideoPlayCount;
+- (void)updateVideoLikeCount;
+- (void)updateVideoUnlikeCount;
+
 @end

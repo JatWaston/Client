@@ -19,7 +19,6 @@
 #import "UMSocialQQHandler.h"
 #import "UMSocialSinaHandler.h"
 
-#import "HomeViewController.h"
 
 #import "UtilManager.h"
 #import "FMDatabase.h"
@@ -73,8 +72,6 @@
     NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navJokeViewController,navSettingViewController, nil];
     [tab setViewControllers:controllers animated:NO];
 #endif
-    
-    //HomeViewController *homeViewController = [[HomeViewController alloc] init];
     
     
     self.window.rootViewController = tab;

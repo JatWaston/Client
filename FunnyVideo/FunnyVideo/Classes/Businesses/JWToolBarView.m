@@ -122,6 +122,7 @@ static FMDatabase *_db = nil;
         {
             _likeBtn.enabled = NO;
             _unlikeBtn.selected = YES;
+            _unlikeBtn.userInteractionEnabled = NO;
             self.unlikeCount = [_unlikeBtn.titleLabel.text integerValue]+1;
             title = [NSString stringWithFormat:@"%d",(int)[_unlikeBtn.titleLabel.text integerValue]+1];
             [_unlikeBtn setTitle:title forState:UIControlStateSelected];
@@ -133,6 +134,7 @@ static FMDatabase *_db = nil;
         {
             _unlikeBtn.enabled = NO;
             _likeBtn.selected = YES;
+            _likeBtn.userInteractionEnabled = NO;
             self.likeCount = [_likeBtn.titleLabel.text integerValue]+1;
             title = [NSString stringWithFormat:@"%d",(int)[_likeBtn.titleLabel.text integerValue]+1];
             [_likeBtn setTitle:title forState:UIControlStateSelected];

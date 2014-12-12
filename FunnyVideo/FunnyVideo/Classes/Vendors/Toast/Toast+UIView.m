@@ -241,8 +241,14 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
         
         // size the title label according to the length of the text
         CGSize maxSizeTitle = CGSizeMake((self.bounds.size.width * CSToastMaxWidth) - imageWidth, self.bounds.size.height * CSToastMaxHeight);
-        CGSize expectedSizeTitle = [title sizeWithFont:titleLabel.font constrainedToSize:maxSizeTitle lineBreakMode:titleLabel.lineBreakMode]; 
-        titleLabel.frame = CGRectMake(0.0, 0.0, expectedSizeTitle.width, expectedSizeTitle.height);
+        NSDictionary *attrbute = @{NSFontAttributeName:titleLabel.font};
+        CGRect rect = [title boundingRectWithSize:maxSizeTitle
+                                         options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
+                                      attributes:attrbute
+                                         context:nil];
+//        CGSize expectedSizeTitle = [title sizeWithFont:titleLabel.font constrainedToSize:maxSizeTitle lineBreakMode:titleLabel.lineBreakMode];
+//        titleLabel.frame = CGRectMake(0.0, 0.0, expectedSizeTitle.width, expectedSizeTitle.height);
+        titleLabel.frame = CGRectMake(0.0, 0.0, rect.size.width, rect.size.height);
     }
     
     if (message != nil) {
@@ -257,8 +263,14 @@ static const NSString * CSToastActivityViewKey  = @"CSToastActivityViewKey";
         
         // size the message label according to the length of the text
         CGSize maxSizeMessage = CGSizeMake((self.bounds.size.width * CSToastMaxWidth) - imageWidth, self.bounds.size.height * CSToastMaxHeight);
-        CGSize expectedSizeMessage = [message sizeWithFont:messageLabel.font constrainedToSize:maxSizeMessage lineBreakMode:messageLabel.lineBreakMode]; 
-        messageLabel.frame = CGRectMake(0.0, 0.0, expectedSizeMessage.width, expectedSizeMessage.height);
+        NSDictionary *attrbute = @{NSFontAttributeName:messageLabel.font};
+        CGRect rect = [message boundingRectWithSize:maxSizeMessage
+                                          options:(NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin)
+                                       attributes:attrbute
+                                          context:nil];
+//        CGSize expectedSizeMessage = [message sizeWithFont:messageLabel.font constrainedToSize:maxSizeMessage lineBreakMode:messageLabel.lineBreakMode];
+//        messageLabel.frame = CGRectMake(0.0, 0.0, expectedSizeMessage.width, expectedSizeMessage.height);
+        messageLabel.frame = CGRectMake(0.0, 0.0, rect.size.width, rect.size.height);
     }
     
     // titleLabel frame values
