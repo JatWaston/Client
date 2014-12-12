@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface JWToolBarView : UIView
+
+@property (nonatomic,assign) JWContentType type;
 
 - (void)fillingData:(NSDictionary*)info;
 

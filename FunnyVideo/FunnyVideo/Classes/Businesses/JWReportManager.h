@@ -12,8 +12,8 @@
 
 + (JWReportManager*)defaultManager;
 
-- (void)updateVideoPlayCount;
-- (void)updateVideoLikeCount;
-- (void)updateVideoUnlikeCount;
+- (void)updatePlayCountWithRecord:(NSString*)recordId contentType:(JWContentType)type;
+- (void)updateLikeCountWithRecord:(NSString*)recordId contentType:(JWContentType)type;
+- (void)updateUnlikeCountWithRecord:(NSString*)recordId contentType:(JWContentType)type;
 
 @end

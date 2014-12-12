@@ -55,6 +55,7 @@
         [view addSubview:_lineView];
         
         _toolView = [[JWToolBarView alloc] initWithFrame:CGRectZero];
+        _toolView.type = JWJokeType;
         [view addSubview:_toolView];
 #if 0
         

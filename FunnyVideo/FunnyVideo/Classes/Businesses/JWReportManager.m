@@ -20,15 +20,15 @@
     return _manager;
 }
 
-- (void)updateVideoPlayCount {
+- (void)updatePlayCountWithRecord:(NSString*)recordId contentType:(JWContentType)type {
     
 }
 
-- (void)updateVideoLikeCount {
+- (void)updateLikeCountWithRecord:(NSString*)recordId contentType:(JWContentType)type {
     
 }
 
-- (void)updateVideoUnlikeCount {
+- (void)updateUnlikeCountWithRecord:(NSString*)recordId contentType:(JWContentType)type {
     
 }
 

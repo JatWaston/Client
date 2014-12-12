@@ -8,6 +8,7 @@
 
 #import "JWToolBarView.h"
 #import "FMDatabase.h"
+#import "JWReportManager.h"
 
 typedef NS_ENUM(NSUInteger,JWToolButtonTag) {
     JWToolButtonLike = 1, //喜欢
@@ -128,6 +129,7 @@ static FMDatabase *_db = nil;
             [_unlikeBtn setTitle:title forState:UIControlStateSelected];
             //_unlikeBtn.titleLabel.text = title;
             sql = [NSString stringWithFormat:@"INSERT INTO recordList (id,likeCount,like,unlikeCount,unlike) VALUES ('%@',%d,'0',%d,'1')",self.infoID,(int)self.likeCount,(int)self.unlikeCount];
+            [[JWReportManager defaultManager] updateUnlikeCountWithRecord:self.infoID contentType:self.type];
         }
             break;
         case JWToolButtonLike:
@@ -140,6 +142,7 @@ static FMDatabase *_db = nil;
             [_likeBtn setTitle:title forState:UIControlStateSelected];
             //_likeBtn.titleLabel.text = title;
             sql = [NSString stringWithFormat:@"INSERT INTO recordList (id,likeCount,like,unlikeCount,unlike) VALUES ('%@',%d,'1',%d,'0')",self.infoID,(int)self.likeCount,(int)self.unlikeCount];
+            [[JWReportManager defaultManager] updateLikeCountWithRecord:self.infoID contentType:self.type];
         }
             break;
         default:
