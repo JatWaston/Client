@@ -12,7 +12,7 @@
 @interface JWBaseTableViewController : JWBaseViewController <UITableViewDataSource, UITableViewDelegate>
 {
     BOOL _isRefreshing;
-    BOOL _currentPage;
+    int _currentPage;
     NSMutableArray *_items;
 }
 
