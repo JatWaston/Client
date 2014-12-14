@@ -26,6 +26,7 @@
 
 #import "JWCacheManager.h"
 #import "JWWebViewController.h"
+#import "JWReportManager.h"
 
 #define kRequestPageSize 10
 
@@ -39,6 +40,8 @@
     
     NSUInteger _catalog;
     NSUInteger _type;
+    
+    NSUInteger _playVideoCount;
 }
 
 @property (nonatomic, strong) NSIndexPath *selectIndexPath;
@@ -64,6 +67,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _playVideoCount = 0;
     _catalog = 8000;
     _type = 8001;
     _currentPage = 1;
@@ -71,7 +75,7 @@
 
   
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
-    self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-50);
+    self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-kAdBananerHeight);
     self.contentTableView.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0f];
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self initAdmobAd];
@@ -178,6 +182,7 @@
 
 - (void)initAdmobAd
 {
+#ifdef kShowAd
     //横幅
     CGPoint origin = CGPointMake(0.0,
                                  self.view.frame.size.height -
@@ -195,6 +200,7 @@
     _interstitialView.adUnitID = kAdmobInterstitialKey;
     _interstitialView.delegate = self;
     [_interstitialView loadRequest:[GADRequest request]];
+#endif
 }
 
 - (void)moviePlayerNotificationHandler:(NSNotification*)notification
@@ -219,6 +225,16 @@
                 case MPMovieFinishReasonUserExited:{
                     /* The user exited the player */
                     NSLog(@"The user exited the player");
+                    ++_playVideoCount;
+                    if (_interstitialView && _interstitialView.isReady && _playVideoCount >= 2) {
+                        _playVideoCount = 0;
+                        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC));
+                        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                            [_interstitialView presentFromRootViewController:self];
+                            [self loadInterstitiaAD];
+                        });
+                        
+                    }
                     break;
                 }
             }
@@ -296,7 +312,7 @@
 //        imgWidth = self.view.frame.size.width;
 //        imgHeight = imgWidth/scale;
 //    }
-    float heigth = [[UtilManager shareManager] heightForText:title rectSize:CGSizeMake(self.view.frame.size.width - 135.0f, 1000) font:kCellTitleFont];
+    float heigth = [[UtilManager shareManager] heightForText:title rectSize:CGSizeMake(self.view.frame.size.width - 135.0f, MAXFLOAT) font:kCellTitleFont];
     if (heigth < 85.0f) {
         heigth = 85.0f;
     }
@@ -305,10 +321,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     self.selectIndexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //[self showVideo];
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    
+    [[JWReportManager defaultManager] updatePlayCountWithRecord:[info valueForKey:@"id"] contentType:JWVideoType];
     
     NSString *url = [info valueForKey:@"videoURL"];
 //    url = @"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=84175";

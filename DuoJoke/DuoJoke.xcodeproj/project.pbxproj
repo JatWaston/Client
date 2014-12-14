@@ -1228,8 +1228,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DuoJoke/DuoJoke-Prefix.pch";
 				INFOPLIST_FILE = "DuoJoke/DuoJoke-Info.plist";
@@ -1242,7 +1242,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "33f2e27d-22c6-4141-a61b-5993b5e67b2d";
+				PROVISIONING_PROFILE = "e2179129-5d0f-47ac-bd16-8dd916abd14b";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -33,6 +33,8 @@
     
     NSUInteger _catalog;
     NSUInteger _type;
+    
+    NSUInteger _requestCount;
 }
 
 - (void)initAdmobAd;
@@ -56,12 +58,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _requestCount = 0;
     _catalog = 8000;
     _type = 8001;
     _currentPage = 1;
     _isRefreshing = YES;
     
-    self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-50);
+    self.contentTableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-kAdBananerHeight);
     self.contentTableView.backgroundColor = [UIColor colorWithRed:234.0f/255.0f green:234.0f/255.0f blue:234.0f/255.0f alpha:1.0f];
     self.contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self initAdmobAd];
@@ -157,14 +160,25 @@
 
 - (void)footerRereshing
 {
+    _requestCount++;
+    [self showInterstitialAd];
     [super footerRereshing];
     NSLog(@"footerRereshing");
     NSString *url = [self builtURLWithPage:_currentPage catalog:_catalog validKey:kValidStr];
     [self requestURLWithPath:url forceRequest:YES showHUD:NO];
 }
 
+- (void)showInterstitialAd {
+    if (_requestCount >= 4 && _interstitialView && _interstitialView.isReady) {
+        _requestCount = 0;
+        [_interstitialView presentFromRootViewController:self];
+        [self loadInterstitiaAD];
+    }
+}
+
 - (void)initAdmobAd
 {
+#ifdef kShowAd
     //横幅
     CGPoint origin = CGPointMake(0.0,
                                  self.view.frame.size.height -
@@ -182,6 +196,8 @@
     _interstitialView.adUnitID = kAdmobInterstitialKey;
     _interstitialView.delegate = self;
     [_interstitialView loadRequest:[GADRequest request]];
+    
+#endif
 }
 
 
@@ -223,8 +239,9 @@
 {
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
     NSString *content = [info valueForKey:@"content"];
-    float heigth = [[UtilManager shareManager] heightForText:content rectSize:CGSizeMake(self.view.frame.size.width - 10.0f, 1000) font:kCellTitleFont];
-    return heigth + 55.0f;
+    CGSize titleSize = [content sizeWithFont:kCellTitleFont constrainedToSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+//    float heigth = [[UtilManager shareManager] heightForText:content rectSize:CGSizeMake(self.view.frame.size.width - 10.0f, MAXFLOAT) font:kCellTitleFont];
+    return titleSize.height + 55.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

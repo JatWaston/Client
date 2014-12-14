@@ -22,8 +22,8 @@
 #import "GADBannerView.h"
 #import "GADAdSize.h"
 
-#define kRateiOSAppStoreURLFormate @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=929114250"
-#define kRateiOS7AppStoreURLFormate @"itms-apps://itunes.apple.com/app/id929114250"
+#define kRateiOSAppStoreURLFormate @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=951382676"
+#define kRateiOS7AppStoreURLFormate @"itms-apps://itunes.apple.com/app/id951382676"
 
 @interface SettingViewController() <GADBannerViewDelegate>
 {
@@ -63,17 +63,23 @@
     NSString *ver = [NSString stringWithFormat:@"v%@",[[UtilManager shareManager] appVersion]];
     NSDictionary *version = [NSDictionary dictionaryWithObjectsAndKeys:@"检查更新",kTitleKey,ver,kDescriptionKey, nil];
     
+#ifdef APP_STORE
     NSDictionary *rateApp = [NSDictionary dictionaryWithObjectsAndKeys:@"给我评分",kTitleKey,@"",kDescriptionKey, nil];
+#endif
     
     
     
     
     //NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
     NSArray *section1 = [NSArray arrayWithObjects:clearCashe,feedBack,version, nil];
+#ifdef APP_STORE
     NSArray *section2 = [NSArray arrayWithObjects:rateApp, nil];
+#endif
     //[_items addObject:section0];
     [_items addObject:section1];
+#ifdef APP_STORE
     [_items addObject:section2];
+#endif
     [self.contentTableView reloadData];
     
     [self initAdmobAd];
@@ -81,6 +87,7 @@
 
 - (void)initAdmobAd
 {
+#ifdef kShowAd
     //横幅
     CGPoint origin = CGPointMake(0.0,
                                  self.view.frame.size.height -
@@ -98,6 +105,7 @@
 //    _interstitialView.adUnitID = kAdmobInterstitialKey;
 //    _interstitialView.delegate = self;
 //    [_interstitialView loadRequest:[GADRequest request]];
+#endif
 }
 
 - (void)viewDidAppear:(BOOL)animated {

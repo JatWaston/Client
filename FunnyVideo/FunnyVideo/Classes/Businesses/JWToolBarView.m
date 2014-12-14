@@ -61,7 +61,7 @@ static FMDatabase *_db = nil;
         _likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //likeBtn.backgroundColor = [UIColor skyBlueColor];
         //likeBtn.frame = CGRectMake(10, heightOffset, 80, 30);
-        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
         _likeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [_likeBtn setImage:like_unpress forState:UIControlStateNormal];
         [_likeBtn setImage:like_press forState:UIControlStateHighlighted];

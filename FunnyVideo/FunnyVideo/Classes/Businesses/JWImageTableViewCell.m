@@ -155,7 +155,7 @@
     _title.text = [info valueForKey:@"title"];
     float offsetHeight = 2.0f;
     float heigth = [[UtilManager shareManager] heightForText:_title.text
-                                                    rectSize:CGSizeMake(self.frame.size.width-135.0f, 1000)
+                                                    rectSize:CGSizeMake(self.frame.size.width-135.0f, MAXFLOAT)
                                                         font:kCellTitleFont];
     if (heigth > 85.0f) {
         offsetHeight = (heigth-85.0f)/2.0f;

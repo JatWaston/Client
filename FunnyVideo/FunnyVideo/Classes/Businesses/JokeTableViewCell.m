@@ -37,7 +37,7 @@
         view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         view.layer.borderWidth = 0.5f;
         view.layer.borderColor = [UIColor grayColor].CGColor;
-        view.backgroundColor = [UIColor whiteColor];
+        view.backgroundColor = [UIColor clearColor];
         [self addSubview:view];
         
         
@@ -119,14 +119,16 @@
 
 - (void)initCellData:(NSDictionary*)info {
     _content.text = [info valueForKey:@"content"];
+//    float heigth = [[UtilManager shareManager] heightForText:_content.text
+//                                                    rectSize:CGSizeMake(self.frame.size.width-10, MAXFLOAT)
+//                                                        font:kCellTitleFont];
+    CGSize titleSize = [_content.text sizeWithFont:kCellTitleFont constrainedToSize:CGSizeMake(self.frame.size.width-10, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    
+    _content.frame = CGRectMake(5, 2.0f, self.frame.size.width-10, titleSize.height);
+    
     float offsetHeight = 2.0f;
-    float heigth = [[UtilManager shareManager] heightForText:_content.text
-                                                    rectSize:CGSizeMake(self.frame.size.width-10, 1000)
-                                                        font:kCellTitleFont];
     
-    _content.frame = CGRectMake(5, 2.0f, self.frame.size.width-10, heigth);
-    
-    offsetHeight += heigth+1;
+    offsetHeight += titleSize.height+1;
     
     _lineView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 0.5f);
     

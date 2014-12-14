@@ -78,10 +78,18 @@
 		16DB4B721A2437700081EF68 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B5E1A2437700081EF68 /* libSocialWechat.a */; };
 		16DB4B731A2437700081EF68 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B5F1A2437700081EF68 /* libWeChatSDK.a */; };
 		16DB4B751A2438CE0081EF68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B741A2438CE0081EF68 /* Security.framework */; };
-		16DB4B771A2438E10081EF68 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */; };
 		16DB4B791A243E490081EF68 /* UMS_social_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DB4B781A243E490081EF68 /* UMS_social_demo.png */; };
 		16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */; };
 		16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7C1A243F650081EF68 /* libstdc++.dylib */; };
+		1879E51E1A3D716200AA8323 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5151A3D716200AA8323 /* EventKit.framework */; };
+		1879E51F1A3D716200AA8323 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5161A3D716200AA8323 /* EventKitUI.framework */; };
+		1879E5201A3D716200AA8323 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5171A3D716200AA8323 /* SystemConfiguration.framework */; };
+		1879E5211A3D716200AA8323 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5181A3D716200AA8323 /* MessageUI.framework */; };
+		1879E5221A3D716200AA8323 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5191A3D716200AA8323 /* CoreTelephony.framework */; };
+		1879E5231A3D716200AA8323 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E51A1A3D716200AA8323 /* AdSupport.framework */; };
+		1879E5241A3D716200AA8323 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E51B1A3D716200AA8323 /* StoreKit.framework */; };
+		1879E5251A3D716200AA8323 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E51C1A3D716200AA8323 /* AudioToolbox.framework */; };
+		1879E5261A3D716200AA8323 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E51D1A3D716200AA8323 /* AVFoundation.framework */; };
 		18A106D41A309E5E00D83BBC /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A106D31A309E5E00D83BBC /* SettingCell.m */; };
 		18A106D71A309EC600D83BBC /* icon_setting_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A106D51A309EC600D83BBC /* icon_setting_arrow.png */; };
 		18A106D81A309EC600D83BBC /* icon_setting_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18A106D61A309EC600D83BBC /* icon_setting_arrow@2x.png */; };
@@ -150,7 +158,6 @@
 		18BB57D51A237E46001C85B2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BB57D41A237E46001C85B2 /* libsqlite3.dylib */; };
 		18BB57D81A238135001C85B2 /* JWImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BB57D71A238135001C85B2 /* JWImageTableViewCell.m */; };
 		18F4F70C1A2DF03C00F14729 /* JokeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */; };
-		18F4F70E1A2DF57100F14729 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F4F70D1A2DF57100F14729 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,10 +281,18 @@
 		16DB4B611A2437700081EF68 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		16DB4B621A2437700081EF68 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		16DB4B741A2438CE0081EF68 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		16DB4B781A243E490081EF68 /* UMS_social_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UMS_social_demo.png; sourceTree = "<group>"; };
 		16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		16DB4B7C1A243F650081EF68 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		1879E5151A3D716200AA8323 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		1879E5161A3D716200AA8323 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		1879E5171A3D716200AA8323 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1879E5181A3D716200AA8323 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1879E5191A3D716200AA8323 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1879E51A1A3D716200AA8323 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		1879E51B1A3D716200AA8323 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1879E51C1A3D716200AA8323 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1879E51D1A3D716200AA8323 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		18A106D21A309E5E00D83BBC /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
 		18A106D31A309E5E00D83BBC /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		18A106D51A309EC600D83BBC /* icon_setting_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_setting_arrow.png; sourceTree = "<group>"; };
@@ -427,7 +442,6 @@
 		18BB57D71A238135001C85B2 /* JWImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWImageTableViewCell.m; sourceTree = "<group>"; };
 		18F4F70A1A2DF03C00F14729 /* JokeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeTableViewCell.h; sourceTree = "<group>"; };
 		18F4F70B1A2DF03C00F14729 /* JokeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeTableViewCell.m; sourceTree = "<group>"; };
-		18F4F70D1A2DF57100F14729 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,14 +449,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F4F70E1A2DF57100F14729 /* AdSupport.framework in Frameworks */,
 				16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */,
 				16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */,
 				161138ED1A1F51E70024B34E /* CoreGraphics.framework in Frameworks */,
-				16DB4B771A2438E10081EF68 /* SystemConfiguration.framework in Frameworks */,
+				1879E5221A3D716200AA8323 /* CoreTelephony.framework in Frameworks */,
 				16DB4B751A2438CE0081EF68 /* Security.framework in Frameworks */,
+				1879E5201A3D716200AA8323 /* SystemConfiguration.framework in Frameworks */,
 				16DB4B731A2437700081EF68 /* libWeChatSDK.a in Frameworks */,
+				1879E51F1A3D716200AA8323 /* EventKitUI.framework in Frameworks */,
 				16DB4B641A2437700081EF68 /* libUMSocial_Sdk_4.2.a in Frameworks */,
+				1879E5241A3D716200AA8323 /* StoreKit.framework in Frameworks */,
+				1879E5261A3D716200AA8323 /* AVFoundation.framework in Frameworks */,
 				16DB4B701A2437700081EF68 /* TencentOpenAPI.framework in Frameworks */,
 				18BB57D51A237E46001C85B2 /* libsqlite3.dylib in Frameworks */,
 				16DB4B721A2437700081EF68 /* libSocialWechat.a in Frameworks */,
@@ -451,7 +468,11 @@
 				18BB57811A237D9B001C85B2 /* libUMFeedback.a in Frameworks */,
 				18BB57761A237D8D001C85B2 /* libGoogleAdMobAds.a in Frameworks */,
 				161138EF1A1F51E70024B34E /* UIKit.framework in Frameworks */,
+				1879E51E1A3D716200AA8323 /* EventKit.framework in Frameworks */,
 				16DB4B6E1A2437700081EF68 /* libSocialSina.a in Frameworks */,
+				1879E5231A3D716200AA8323 /* AdSupport.framework in Frameworks */,
+				1879E5251A3D716200AA8323 /* AudioToolbox.framework in Frameworks */,
+				1879E5211A3D716200AA8323 /* MessageUI.framework in Frameworks */,
 				161138EB1A1F51E70024B34E /* Foundation.framework in Frameworks */,
 				18BB57801A237D9B001C85B2 /* libMobClickLibrary.a in Frameworks */,
 			);
@@ -492,10 +513,9 @@
 		161138E91A1F51E70024B34E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18F4F70D1A2DF57100F14729 /* AdSupport.framework */,
+				1879E5141A3D714900AA8323 /* AdSupport */,
 				16DB4B7C1A243F650081EF68 /* libstdc++.dylib */,
 				16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */,
-				16DB4B761A2438E10081EF68 /* SystemConfiguration.framework */,
 				16DB4B741A2438CE0081EF68 /* Security.framework */,
 				18BB57D41A237E46001C85B2 /* libsqlite3.dylib */,
 				18BB57D21A237E3E001C85B2 /* libz.dylib */,
@@ -722,6 +742,22 @@
 				16DB4B621A2437700081EF68 /* WXApiObject.h */,
 			);
 			path = Wechat;
+			sourceTree = "<group>";
+		};
+		1879E5141A3D714900AA8323 /* AdSupport */ = {
+			isa = PBXGroup;
+			children = (
+				1879E5151A3D716200AA8323 /* EventKit.framework */,
+				1879E5161A3D716200AA8323 /* EventKitUI.framework */,
+				1879E5171A3D716200AA8323 /* SystemConfiguration.framework */,
+				1879E5181A3D716200AA8323 /* MessageUI.framework */,
+				1879E5191A3D716200AA8323 /* CoreTelephony.framework */,
+				1879E51A1A3D716200AA8323 /* AdSupport.framework */,
+				1879E51B1A3D716200AA8323 /* StoreKit.framework */,
+				1879E51C1A3D716200AA8323 /* AudioToolbox.framework */,
+				1879E51D1A3D716200AA8323 /* AVFoundation.framework */,
+			);
+			name = AdSupport;
 			sourceTree = "<group>";
 		};
 		18A106D91A30A34A00D83BBC /* Toast */ = {
@@ -1059,7 +1095,19 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = JatWaston;
 				TargetAttributes = {
+					161138E61A1F51E70024B34E = {
+						DevelopmentTeam = N7D8BU5MWS;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
 					161139011A1F51E70024B34E = {
+						DevelopmentTeam = N7D8BU5MWS;
 						TestTargetID = 161138E61A1F51E70024B34E;
 					};
 				};
@@ -1313,7 +1361,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1331,6 +1380,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "dfd3dc36-57bf-440b-8f29-69e552fcc8a9";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
@@ -1352,7 +1402,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kid Reborn (N7D8BU5MWS)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1363,6 +1414,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "cc5bb4d7-278f-422c-81a7-9da998a5ace2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7s armv7";
@@ -1375,7 +1427,9 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1407,8 +1461,9 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kid Reborn (K3F642VHP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kid Reborn (K3F642VHP3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FunnyVideo/Classes/Vendors/UMSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -1428,7 +1483,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "dfd3dc36-57bf-440b-8f29-69e552fcc8a9";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1438,6 +1493,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FunnyVideo.app/FunnyVideo";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1451,6 +1508,7 @@
 				);
 				INFOPLIST_FILE = "FunnyVideoTests/FunnyVideoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1460,6 +1518,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FunnyVideo.app/FunnyVideo";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1469,6 +1529,7 @@
 				GCC_PREFIX_HEADER = "FunnyVideo/FunnyVideo-Prefix.pch";
 				INFOPLIST_FILE = "FunnyVideoTests/FunnyVideoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

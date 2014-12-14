@@ -31,6 +31,14 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
     JWJokeType = 1,  //笑话
 };
 
+#define kShowAd
+
+#ifdef kShowAd
+    #define kAdBananerHeight 50
+#else
+    #define kAdBananerHeight 0
+#endif
+
 
 //渠道
 //#define APP_STORE
@@ -41,30 +49,27 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
     #define kChannel @"91 Store"
 #endif
 
-#ifdef APP_STORE
-    #define kDefaultCatalog 1000
-#else
-    #define kDefaultCatalog 1000
-#endif
-
 #define kTestURL
 #define kOuterNet
 
 #ifdef kTestURL
     #ifdef kOuterNet
-        #define kDailyContentURL @"http://funnyjoke.sinaapp.com/dailyContent.php"
+        #define kDailyContentURL  @"http://funnyjoke.sinaapp.com/dailyContent.php"
         #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
+        #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
     #else
         #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
         #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/checkVersionUpdate.php"
     #endif
 #else
     #ifdef kOuterNet
-        #define kDailyContentURL @"http://funnyjoke.sinaapp.com/dailyContent.php"
-        #define kVersionUpdateURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/checkVersionUpdate.php"
+        #define kDailyContentURL  @"http://funnyjoke.sinaapp.com/dailyContent.php"
+        #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
+        #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
     #else
-        #define kDailyContentURL @"http://funnyjoke.sinaapp.com/dailyContent.php"
-        #define kVersionUpdateURL @"http://192.168.1.9/~apple/PHP/SAE/Service/Video/Service/checkVersionUpdate.php"
+        #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/FunnyVideo/funnyjoke/1/dailyContent.php"
+        #define kVersionUpdateURL @"http://192.168.1.10/~apple/PHP/SAE/Service/FunnyVideo/funnyjoke/1/checkVersionUpdate.php"
+        #define kReportURL        @"http://192.168.1.10/~apple/PHP/SAE/Service/FunnyVideo/funnyjoke/1/report.php"
     #endif
 #endif
 
