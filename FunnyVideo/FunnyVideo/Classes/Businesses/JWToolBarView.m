@@ -156,8 +156,10 @@ static FMDatabase *_db = nil;
     self.likeCount = (NSUInteger)[[info valueForKey:@"likeCount"] integerValue];
     self.unlikeCount = (NSUInteger)[[info valueForKey:@"unlikeCount"] integerValue];
     
+    _likeBtn.userInteractionEnabled = YES;
     _likeBtn.enabled = YES;
     _likeBtn.selected = NO;
+    _unlikeBtn.userInteractionEnabled = YES;
     _unlikeBtn.enabled = YES;
     _unlikeBtn.selected = NO;
     [_likeBtn setTitle:[info valueForKey:@"likeCount"] forState:UIControlStateNormal];
@@ -193,6 +195,10 @@ static FMDatabase *_db = nil;
             [_likeBtn setTitle:title forState:UIControlStateSelected];
         }
     }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"");
 }
 
 @end

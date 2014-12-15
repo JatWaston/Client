@@ -58,8 +58,9 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
         #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
         #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
     #else
-        #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/dailyContent.php"
-        #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/Video/Service/checkVersionUpdate.php"
+        #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/dailyContent.php"
+        #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/checkVersionUpdate.php"
+        #define kReportURL        @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/report.php"
     #endif
 #else
     #ifdef kOuterNet
