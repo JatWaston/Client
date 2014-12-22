@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "JokeViewController.h"
+#import "ImageViewController.h"
 #import "SettingViewController.h"
 #import "JWBaseTabBarController.h"
 
@@ -59,6 +60,9 @@
     JokeViewController *jokeViewController = [[JokeViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskAll tableViewStyle:UITableViewStylePlain];
     UINavigationController *navJokeViewController = [[UINavigationController alloc] initWithRootViewController:jokeViewController];
     
+    ImageViewController *imageViewController = [[ImageViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskAll tableViewStyle:UITableViewStylePlain];
+    UINavigationController *navImageViewController = [[UINavigationController alloc] initWithRootViewController:imageViewController];
+    
     
     SettingViewController *settingViewController = [[SettingViewController alloc] initWithRefreshStyle:JWTableRefreshStyleMaskNone tableViewStyle:UITableViewStyleGrouped];
     UINavigationController *navSettingViewController = [[UINavigationController alloc] initWithRootViewController:settingViewController];
@@ -69,7 +73,7 @@
     tab.tabBar.tintColor = kTabBarTextTintColor;
     tab.tabBar.barTintColor = kTabBarTintColor;
     
-    NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navJokeViewController,navSettingViewController, nil];
+    NSArray *controllers = [NSArray arrayWithObjects:navMainViewController,navImageViewController,navJokeViewController,navSettingViewController, nil];
     [tab setViewControllers:controllers animated:NO];
 #endif
     

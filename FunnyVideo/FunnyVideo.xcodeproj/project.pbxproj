@@ -80,6 +80,9 @@
 		16DB4B751A2438CE0081EF68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B741A2438CE0081EF68 /* Security.framework */; };
 		16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */; };
 		16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7C1A243F650081EF68 /* libstdc++.dylib */; };
+		182997611A4857A500B28B18 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182997601A4857A500B28B18 /* ImageViewController.m */; };
+		182997631A48590600B28B18 /* icon_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182997621A48590600B28B18 /* icon_image@2x.png */; };
+		182997661A485BCD00B28B18 /* FunnyImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182997651A485BCD00B28B18 /* FunnyImageTableViewCell.m */; };
 		1879E51E1A3D716200AA8323 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5151A3D716200AA8323 /* EventKit.framework */; };
 		1879E51F1A3D716200AA8323 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5161A3D716200AA8323 /* EventKitUI.framework */; };
 		1879E5201A3D716200AA8323 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5171A3D716200AA8323 /* SystemConfiguration.framework */; };
@@ -282,6 +285,11 @@
 		16DB4B741A2438CE0081EF68 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		16DB4B7C1A243F650081EF68 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		1829975F1A4857A500B28B18 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		182997601A4857A500B28B18 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		182997621A48590600B28B18 /* icon_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_image@2x.png"; sourceTree = "<group>"; };
+		182997641A485BCD00B28B18 /* FunnyImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunnyImageTableViewCell.h; sourceTree = "<group>"; };
+		182997651A485BCD00B28B18 /* FunnyImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunnyImageTableViewCell.m; sourceTree = "<group>"; };
 		1879E5151A3D716200AA8323 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		1879E5161A3D716200AA8323 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		1879E5171A3D716200AA8323 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -625,6 +633,10 @@
 				16BD11271A37184C00C6D9C5 /* JWToolBarView.m */,
 				16BD11291A371F2600C6D9C5 /* JWReportManager.h */,
 				16BD112A1A371F2600C6D9C5 /* JWReportManager.m */,
+				1829975F1A4857A500B28B18 /* ImageViewController.h */,
+				182997601A4857A500B28B18 /* ImageViewController.m */,
+				182997641A485BCD00B28B18 /* FunnyImageTableViewCell.h */,
+				182997651A485BCD00B28B18 /* FunnyImageTableViewCell.m */,
 			);
 			path = Businesses;
 			sourceTree = "<group>";
@@ -778,6 +790,7 @@
 		18BB56FB1A237081001C85B2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				182997621A48590600B28B18 /* icon_image@2x.png */,
 				162E2CB41A38097D0053DF5B /* icon_joke@2x.png */,
 				162E2CB51A38097D0053DF5B /* icon_video@2x.png */,
 				18A106D51A309EC600D83BBC /* icon_setting_arrow.png */,
@@ -1171,6 +1184,7 @@
 				162E2CB61A38097D0053DF5B /* icon_joke@2x.png in Resources */,
 				16DB4B631A2437700081EF68 /* UMSocialLocalizable.strings in Resources */,
 				16DB4B6B1A2437700081EF68 /* UMSnsAccountViewController.xib in Resources */,
+				182997631A48590600B28B18 /* icon_image@2x.png in Resources */,
 				162E2CB71A38097D0053DF5B /* icon_video@2x.png in Resources */,
 				16DB4B6D1A2437700081EF68 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				165F337A1A25DA90001D372A /* icon_like_disabled.png in Resources */,
@@ -1228,6 +1242,7 @@
 				18BB57481A237D79001C85B2 /* MJRefreshConst.m in Sources */,
 				165F339B1A26DA70001D372A /* TOWebViewController.m in Sources */,
 				18BB57561A237D7F001C85B2 /* MBProgressHUD.m in Sources */,
+				182997661A485BCD00B28B18 /* FunnyImageTableViewCell.m in Sources */,
 				18BB57661A237D87001C85B2 /* FMDatabaseQueue.m in Sources */,
 				18BB574D1A237D79001C85B2 /* UIView+MJExtension.m in Sources */,
 				18BB572C1A237D73001C85B2 /* SDWebImageManager.m in Sources */,
@@ -1247,6 +1262,7 @@
 				18BB57281A237D73001C85B2 /* SDWebImageCompat.m in Sources */,
 				18BB572D1A237D73001C85B2 /* SDWebImagePrefetcher.m in Sources */,
 				18BB57341A237D73001C85B2 /* UIView+WebCacheOperation.m in Sources */,
+				182997611A4857A500B28B18 /* ImageViewController.m in Sources */,
 				18BB57301A237D73001C85B2 /* UIImage+MultiFormat.m in Sources */,
 				18BB57641A237D87001C85B2 /* FMDatabaseAdditions.m in Sources */,
 				18BB57981A237DB1001C85B2 /* JWBaseViewController.m in Sources */,

@@ -48,7 +48,7 @@
 {
     self = [super initWithRefreshStyle:refreshStyle tableViewStyle:style];
     if (self) {
-        self.title = @"搞笑段子";
+        self.title = @"段子";
         self.tabBarItem.image = [UIImage imageNamed:@"icon_joke"];
     }
     return self;
