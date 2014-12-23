@@ -16,4 +16,17 @@
 //友盟
 #define kUmengKey @"54734b2bfd98c55de9000374"
 
+//腾讯开放平台
+
+#define kTencentID @"1103823305"
+#define kTencentKey @"K9Z86FBLllHJB3yX"
+
+//微信开放平台
+#define kWeChatKey @""
+#define kWeChatSecret @""
+
+//sina微博开放平台
+
+
+
 #endif

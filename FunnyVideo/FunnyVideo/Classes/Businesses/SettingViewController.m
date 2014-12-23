@@ -56,7 +56,7 @@
 {
     [super viewDidLoad];
     
-    //NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
+    NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
     
     NSDictionary *clearCashe = [NSDictionary dictionaryWithObjectsAndKeys:@"清除图片缓存",kTitleKey,[self cacheSize],kDescriptionKey, nil];
     NSDictionary *feedBack = [NSDictionary dictionaryWithObjectsAndKeys:@"反馈问题",kTitleKey,@"",kDescriptionKey, nil];
@@ -70,7 +70,7 @@
     
     
     
-    //NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
+    NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
     NSArray *section1 = [NSArray arrayWithObjects:clearCashe,feedBack,version, nil];
 #ifdef APP_STORE
     NSArray *section2 = [NSArray arrayWithObjects:rateApp, nil];
@@ -80,6 +80,7 @@
 #ifdef APP_STORE
     [_items addObject:section2];
 #endif
+    [_items addObject:section0];
     [self.contentTableView reloadData];
     
     [self initAdmobAd];
@@ -120,9 +121,9 @@
 
 - (void)shareToFriends
 {
-    NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://www.umeng.com/social";             //分享内嵌文字
-    UIImage *shareImage = [UIImage imageNamed:@"UMS_social_demo"];          //分享内嵌图片
-    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+    NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://app.91.com/Soft/Detail.aspx?Platform=iPhone&f_id=10476958";             //分享内嵌文字
+    UIImage *shareImage = [UIImage imageNamed:@"Icon"];          //分享内嵌图片
+    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
     //如果得到分享完成回调，需要设置delegate为self
     [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
     return;
@@ -219,7 +220,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch ([indexPath section]) {
-        case 2:
+        case 1:
             switch ([indexPath row]) {
                 case 0:
                     [self shareToFriends];
@@ -243,7 +244,7 @@
                     break;
             }
             break;
-        case 1:
+        case 2:
             switch ([indexPath row]) {
                 case 0:
                     [self rateForApp];
