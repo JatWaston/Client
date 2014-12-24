@@ -22,8 +22,8 @@
 #define kTencentKey @"K9Z86FBLllHJB3yX"
 
 //微信开放平台
-#define kWeChatKey @""
-#define kWeChatSecret @""
+#define kWeChatKey @"wx28e6d60e1d84da68"
+#define kWeChatSecret @"85dc608b1ec6b3af349a231d154106b7"
 
 //sina微博开放平台
 

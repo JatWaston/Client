@@ -34,13 +34,13 @@
 #if 1
     [UMSocialData setAppKey:kUmengKey];
     //设置微信AppId，设置分享url，默认使用友盟的网址
-    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
+    [UMSocialWechatHandler setWXAppId:kWeChatKey appSecret:kWeChatSecret url:kShareURL];
     
     //打开新浪微博的SSO开关
     [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
     //设置分享到QQ空间的应用Id，和分享url 链接
-    [UMSocialQQHandler setQQWithAppId:kTencentID appKey:kTencentKey url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:kTencentID appKey:kTencentKey url:kShareURL];
     //设置支持没有客户端情况下使用SSO授权
     [UMSocialQQHandler setSupportWebView:YES];
 #endif

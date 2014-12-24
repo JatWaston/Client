@@ -9,10 +9,13 @@
 #import "JWToolBarView.h"
 #import "FMDatabase.h"
 #import "JWReportManager.h"
+#import "UMSocialSnsService.h"
+#import "UMSocialSnsPlatformManager.h"
 
 typedef NS_ENUM(NSUInteger,JWToolButtonTag) {
     JWToolButtonLike = 1, //喜欢
     JWToolButtonUnlike,   //不喜欢
+    JWToolButtonShare,    //分享
 };
 
 static FMDatabase *_db = nil;
@@ -22,6 +25,7 @@ static FMDatabase *_db = nil;
     UIButton *_likeBtn;
     UIButton *_unlikeBtn;
     UIButton *_shareBtn;
+    UIButton *_commentBtn;
 }
 
 @property (nonatomic, strong) NSString *infoID;
@@ -46,13 +50,19 @@ static FMDatabase *_db = nil;
             }
         }
         
-        UIImage *like_unpress = [UIImage imageNamed:@"icon_like_unpressed"];
-        UIImage *like_press = [UIImage imageNamed:@"icon_like_pressed"];
-        UIImage *like_disabled = [UIImage imageNamed:@"icon_like_disabled"];
+        UIImage *like_unpress = [UIImage imageNamed:@"mainCellDingN"];
+        UIImage *like_press = [UIImage imageNamed:@"mainCellDingClick"];
+        UIImage *like_disabled = [UIImage imageNamed:@"mainCellDing"];
         
-        UIImage *unlike_unpress = [UIImage imageNamed:@"icon_unlike_unpressed"];
-        UIImage *unlike_press = [UIImage imageNamed:@"icon_unlike_pressed"];
-        UIImage *unlike_disabled = [UIImage imageNamed:@"icon_unlike_disabled"];
+        UIImage *unlike_unpress = [UIImage imageNamed:@"mainCellCaiN"];
+        UIImage *unlike_press = [UIImage imageNamed:@"mainCellCaiClick"];
+        UIImage *unlike_disabled = [UIImage imageNamed:@"mainCellCai"];
+        
+        UIImage *share_unpress = [UIImage imageNamed:@"mainCellShareN"];
+        UIImage *share_press = [UIImage imageNamed:@"mainCellShareClick"];
+        UIImage *share_disabled = [UIImage imageNamed:@"mainCellShare"];
+        
+        
         
         //UIImage *shareImage = [UIImage imageNamed:@"icon_more"];
         
@@ -95,21 +105,26 @@ static FMDatabase *_db = nil;
         [_unlikeBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_unlikeBtn];
         
-//        _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        //shareBtn.backgroundColor = [UIColor skyBlueColor];
-//        //shareBtn.frame = CGRectMake(220, heightOffset, 80, 30);
-//        _shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-//        _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-//        [_shareBtn setImage:shareImage forState:UIControlStateNormal];
-//        _shareBtn.titleLabel.font = kToolButtonFont;
-//        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
-//        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
-//        //[_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
-//        [self addSubview:_shareBtn];
+        _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        //shareBtn.backgroundColor = [UIColor skyBlueColor];
+        //shareBtn.frame = CGRectMake(220, heightOffset, 80, 30);
+        _shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        [_shareBtn setImage:share_unpress forState:UIControlStateNormal];
+        [_shareBtn setImage:share_press forState:UIControlStateHighlighted];
+        [_shareBtn setImage:share_press forState:UIControlStateSelected];
+        [_shareBtn setImage:share_disabled forState:UIControlStateDisabled];
+        _shareBtn.titleLabel.font = kToolButtonFont;
+        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
+        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
+        //[_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
+        [_shareBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
+        _shareBtn.tag = JWToolButtonShare;
+        [self addSubview:_shareBtn];
         
         _likeBtn.frame = CGRectMake(30, 0, 80, 30);
-        _unlikeBtn.frame = CGRectMake(200, 0, 80, 30);
-        //_shareBtn.frame = CGRectMake(220, 0, 80, 30);
+        _unlikeBtn.frame = CGRectMake(120, 0, 80, 30);
+        _shareBtn.frame = CGRectMake(210, 0, 80, 30);
     }
     return self;
 }
@@ -130,6 +145,7 @@ static FMDatabase *_db = nil;
             //_unlikeBtn.titleLabel.text = title;
             sql = [NSString stringWithFormat:@"INSERT INTO recordList (id,likeCount,like,unlikeCount,unlike) VALUES ('%@',%d,'0',%d,'1')",self.infoID,(int)self.likeCount,(int)self.unlikeCount];
             [[JWReportManager defaultManager] updateUnlikeCountWithRecord:self.infoID contentType:self.type];
+            [_db executeUpdate:sql];
         }
             break;
         case JWToolButtonLike:
@@ -143,12 +159,29 @@ static FMDatabase *_db = nil;
             //_likeBtn.titleLabel.text = title;
             sql = [NSString stringWithFormat:@"INSERT INTO recordList (id,likeCount,like,unlikeCount,unlike) VALUES ('%@',%d,'1',%d,'0')",self.infoID,(int)self.likeCount,(int)self.unlikeCount];
             [[JWReportManager defaultManager] updateLikeCountWithRecord:self.infoID contentType:self.type];
+            [_db executeUpdate:sql];
+        }
+            break;
+        case JWToolButtonShare:
+        {
+            //[self shareToFriends];
         }
             break;
         default:
             break;
     }
-    [_db executeUpdate:sql];
+    
+}
+
+- (void)shareToFriends
+{
+    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
+    NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://app.91.com/Soft/Detail.aspx?Platform=iPhone&f_id=10476958";             //分享内嵌文字
+    UIImage *shareImage = [UIImage imageNamed:@"Icon"];          //分享内嵌图片
+    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+    //如果得到分享完成回调，需要设置delegate为self
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+    return;
 }
 
 - (void)fillingData:(NSDictionary*)info {
@@ -166,11 +199,13 @@ static FMDatabase *_db = nil;
     [_likeBtn setTitle:[info valueForKey:@"likeCount"] forState:UIControlStateSelected];
     [_likeBtn setTitle:[info valueForKey:@"likeCount"] forState:UIControlStateDisabled];
     _likeBtn.titleLabel.text = [info valueForKey:@"likeCount"];
+    
     [_unlikeBtn setTitle:[info valueForKey:@"unlikeCount"] forState:UIControlStateNormal];
     [_unlikeBtn setTitle:[info valueForKey:@"unlikeCount"] forState:UIControlStateSelected];
     [_unlikeBtn setTitle:[info valueForKey:@"unlikeCount"] forState:UIControlStateDisabled];
     _unlikeBtn.titleLabel.text = [info valueForKey:@"unlikeCount"];
-    //[_shareBtn setTitle:[info valueForKey:@"shareCount"] forState:UIControlStateNormal];
+    
+    [_shareBtn setTitle:[info valueForKey:@"shareCount"] forState:UIControlStateNormal];
     [self initlizeButtonState:info];
 }
 

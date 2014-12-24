@@ -39,6 +39,8 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
     #define kAdBananerHeight 0
 #endif
 
+#define kShareURL @"https://itunes.apple.com/cn/app/bi-zhi-da-shi/id929114250?mt=8"
+
 
 //渠道
 //#define APP_STORE

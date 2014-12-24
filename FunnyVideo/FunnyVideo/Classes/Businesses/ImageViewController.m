@@ -20,7 +20,7 @@
     self = [super initWithRefreshStyle:refreshStyle tableViewStyle:style];
     if (self) {
         self.title = @"图片";
-        self.tabBarItem.image = [UIImage imageNamed:@"icon_image"];
+        self.tabBarItem.image = [UIImage imageNamed:@"icon_image1"];
     }
     return self;
 }

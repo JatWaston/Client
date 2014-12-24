@@ -75,12 +75,13 @@
 #ifdef APP_STORE
     NSArray *section2 = [NSArray arrayWithObjects:rateApp, nil];
 #endif
+    [_items addObject:section0];
     //[_items addObject:section0];
     [_items addObject:section1];
 #ifdef APP_STORE
     [_items addObject:section2];
 #endif
-    [_items addObject:section0];
+    
     [self.contentTableView reloadData];
     
     [self initAdmobAd];
@@ -113,7 +114,7 @@
     [super viewDidAppear:animated];
     
     if (self.contentTableView) {
-        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         [cell updateDescription:[self cacheSize]];
     }
 
@@ -121,6 +122,7 @@
 
 - (void)shareToFriends
 {
+    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
     NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://app.91.com/Soft/Detail.aspx?Platform=iPhone&f_id=10476958";             //分享内嵌文字
     UIImage *shareImage = [UIImage imageNamed:@"Icon"];          //分享内嵌图片
     NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
@@ -134,7 +136,7 @@
 {
     NSString *size = [self cacheSize];
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
         [cell updateDescription:@"0K"];
         NSString *message = [NSString stringWithFormat:@"已为你清除%@空间",size];
         [self.view makeToast:message duration:0.2f position:@"bottom"];
@@ -220,7 +222,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch ([indexPath section]) {
-        case 1:
+        case 0:
             switch ([indexPath row]) {
                 case 0:
                     [self shareToFriends];
@@ -229,7 +231,7 @@
                     break;
             }
             break;
-        case 0:
+        case 1:
             switch ([indexPath row]) {
                 case 0:
                     [self clearCache];
