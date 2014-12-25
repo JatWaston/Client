@@ -64,14 +64,6 @@
 		167C856D1A4A7FD9003A2227 /* mainCellDingClickN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85471A4A7FD9003A2227 /* mainCellDingClickN@2x.png */; };
 		167C856E1A4A7FD9003A2227 /* mainCellDingN.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85481A4A7FD9003A2227 /* mainCellDingN.png */; };
 		167C856F1A4A7FD9003A2227 /* mainCellDingN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85491A4A7FD9003A2227 /* mainCellDingN@2x.png */; };
-		167C85701A4A7FD9003A2227 /* mainCellPopupCai-click.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C854A1A4A7FD9003A2227 /* mainCellPopupCai-click.png */; };
-		167C85711A4A7FD9003A2227 /* mainCellPopupCai-click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C854B1A4A7FD9003A2227 /* mainCellPopupCai-click@2x.png */; };
-		167C85721A4A7FD9003A2227 /* mainCellPopupCai.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C854C1A4A7FD9003A2227 /* mainCellPopupCai.png */; };
-		167C85731A4A7FD9003A2227 /* mainCellPopupCai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C854D1A4A7FD9003A2227 /* mainCellPopupCai@2x.png */; };
-		167C85741A4A7FD9003A2227 /* mainCellPopupDing-click.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C854E1A4A7FD9003A2227 /* mainCellPopupDing-click.png */; };
-		167C85751A4A7FD9003A2227 /* mainCellPopupDing-click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C854F1A4A7FD9003A2227 /* mainCellPopupDing-click@2x.png */; };
-		167C85761A4A7FD9003A2227 /* mainCellPopupDing.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85501A4A7FD9003A2227 /* mainCellPopupDing.png */; };
-		167C85771A4A7FD9003A2227 /* mainCellPopupDing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85511A4A7FD9003A2227 /* mainCellPopupDing@2x.png */; };
 		167C85781A4A7FD9003A2227 /* mainCellShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85521A4A7FD9003A2227 /* mainCellShare.png */; };
 		167C85791A4A7FD9003A2227 /* mainCellShare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85531A4A7FD9003A2227 /* mainCellShare@2x.png */; };
 		167C857A1A4A7FD9003A2227 /* mainCellShareClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 167C85541A4A7FD9003A2227 /* mainCellShareClick.png */; };
@@ -285,14 +277,6 @@
 		167C85471A4A7FD9003A2227 /* mainCellDingClickN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellDingClickN@2x.png"; sourceTree = "<group>"; };
 		167C85481A4A7FD9003A2227 /* mainCellDingN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainCellDingN.png; sourceTree = "<group>"; };
 		167C85491A4A7FD9003A2227 /* mainCellDingN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellDingN@2x.png"; sourceTree = "<group>"; };
-		167C854A1A4A7FD9003A2227 /* mainCellPopupCai-click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellPopupCai-click.png"; sourceTree = "<group>"; };
-		167C854B1A4A7FD9003A2227 /* mainCellPopupCai-click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellPopupCai-click@2x.png"; sourceTree = "<group>"; };
-		167C854C1A4A7FD9003A2227 /* mainCellPopupCai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainCellPopupCai.png; sourceTree = "<group>"; };
-		167C854D1A4A7FD9003A2227 /* mainCellPopupCai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellPopupCai@2x.png"; sourceTree = "<group>"; };
-		167C854E1A4A7FD9003A2227 /* mainCellPopupDing-click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellPopupDing-click.png"; sourceTree = "<group>"; };
-		167C854F1A4A7FD9003A2227 /* mainCellPopupDing-click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellPopupDing-click@2x.png"; sourceTree = "<group>"; };
-		167C85501A4A7FD9003A2227 /* mainCellPopupDing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainCellPopupDing.png; sourceTree = "<group>"; };
-		167C85511A4A7FD9003A2227 /* mainCellPopupDing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellPopupDing@2x.png"; sourceTree = "<group>"; };
 		167C85521A4A7FD9003A2227 /* mainCellShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainCellShare.png; sourceTree = "<group>"; };
 		167C85531A4A7FD9003A2227 /* mainCellShare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellShare@2x.png"; sourceTree = "<group>"; };
 		167C85541A4A7FD9003A2227 /* mainCellShareClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainCellShareClick.png; sourceTree = "<group>"; };
@@ -694,14 +678,6 @@
 				167C85471A4A7FD9003A2227 /* mainCellDingClickN@2x.png */,
 				167C85481A4A7FD9003A2227 /* mainCellDingN.png */,
 				167C85491A4A7FD9003A2227 /* mainCellDingN@2x.png */,
-				167C854A1A4A7FD9003A2227 /* mainCellPopupCai-click.png */,
-				167C854B1A4A7FD9003A2227 /* mainCellPopupCai-click@2x.png */,
-				167C854C1A4A7FD9003A2227 /* mainCellPopupCai.png */,
-				167C854D1A4A7FD9003A2227 /* mainCellPopupCai@2x.png */,
-				167C854E1A4A7FD9003A2227 /* mainCellPopupDing-click.png */,
-				167C854F1A4A7FD9003A2227 /* mainCellPopupDing-click@2x.png */,
-				167C85501A4A7FD9003A2227 /* mainCellPopupDing.png */,
-				167C85511A4A7FD9003A2227 /* mainCellPopupDing@2x.png */,
 				167C85521A4A7FD9003A2227 /* mainCellShare.png */,
 				167C85531A4A7FD9003A2227 /* mainCellShare@2x.png */,
 				167C85541A4A7FD9003A2227 /* mainCellShareClick.png */,
@@ -1301,24 +1277,18 @@
 				163F00691A26E2710063CA8D /* icon_more@2x.png in Resources */,
 				1621CD571A2EC5B5000D588B /* fun_play_normal@2x.png in Resources */,
 				165F337C1A25DA90001D372A /* icon_like_pressed.png in Resources */,
-				167C85711A4A7FD9003A2227 /* mainCellPopupCai-click@2x.png in Resources */,
-				167C85761A4A7FD9003A2227 /* mainCellPopupDing.png in Resources */,
 				167C85611A4A7FD9003A2227 /* mainCellCaiN@2x.png in Resources */,
 				165F33831A25DA90001D372A /* icon_unlike_pressed@2x.png in Resources */,
 				167C855F1A4A7FD9003A2227 /* mainCellCaiClickN@2x.png in Resources */,
 				167C856F1A4A7FD9003A2227 /* mainCellDingN@2x.png in Resources */,
 				168CBD5A1A492F5E0041C0A4 /* Icon@2x.png in Resources */,
-				167C85741A4A7FD9003A2227 /* mainCellPopupDing-click.png in Resources */,
 				16DB4B6C1A2437700081EF68 /* UMSShareListController.xib in Resources */,
 				16BBE20A1A24ABB900C0ACB3 /* tab_daily@2x.png in Resources */,
-				167C85721A4A7FD9003A2227 /* mainCellPopupCai.png in Resources */,
 				167C856A1A4A7FD9003A2227 /* mainCellDingClick.png in Resources */,
 				16BBE21B1A24B22B00C0ACB3 /* share@2x.png in Resources */,
 				16DB4B691A2437700081EF68 /* UMShareEditViewControlleriPad.xib in Resources */,
 				165F337E1A25DA90001D372A /* icon_like_unpressed.png in Resources */,
 				16DB4B651A2437700081EF68 /* UMSCommentDetailController.xib in Resources */,
-				167C85701A4A7FD9003A2227 /* mainCellPopupCai-click.png in Resources */,
-				167C85731A4A7FD9003A2227 /* mainCellPopupCai@2x.png in Resources */,
 				165F33981A26DA70001D372A /* TOWebViewControllerLocalizable.strings in Resources */,
 				16BBE21C1A24B22B00C0ACB3 /* share1@2x.png in Resources */,
 				167C857F1A4A7FD9003A2227 /* mainCellShareN@2x.png in Resources */,
@@ -1337,7 +1307,6 @@
 				167C85601A4A7FD9003A2227 /* mainCellCaiN.png in Resources */,
 				161138F51A1F51E70024B34E /* InfoPlist.strings in Resources */,
 				167C855C1A4A7FD9003A2227 /* mainCellCaiClick.png in Resources */,
-				167C85751A4A7FD9003A2227 /* mainCellPopupDing-click@2x.png in Resources */,
 				167C855A1A4A7FD9003A2227 /* mainCellCai.png in Resources */,
 				167C855D1A4A7FD9003A2227 /* mainCellCaiClick@2x.png in Resources */,
 				16DB4B6A1A2437700081EF68 /* UMSLoginViewController.xib in Resources */,
@@ -1352,7 +1321,6 @@
 				167C855B1A4A7FD9003A2227 /* mainCellCai@2x.png in Resources */,
 				167C85641A4A7FD9003A2227 /* mainCellCommentClickN.png in Resources */,
 				16BBE21A1A24B22B00C0ACB3 /* play@2x.png in Resources */,
-				167C85771A4A7FD9003A2227 /* mainCellPopupDing@2x.png in Resources */,
 				16BBE20C1A24ABB900C0ACB3 /* tab_setting@2x.png in Resources */,
 				167C856D1A4A7FD9003A2227 /* mainCellDingClickN@2x.png in Resources */,
 				16BBE2191A24B22B00C0ACB3 /* like@2x.png in Resources */,

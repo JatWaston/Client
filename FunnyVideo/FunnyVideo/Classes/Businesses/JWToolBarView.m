@@ -173,16 +173,16 @@ static FMDatabase *_db = nil;
     
 }
 
-- (void)shareToFriends
-{
-    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
-    NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://app.91.com/Soft/Detail.aspx?Platform=iPhone&f_id=10476958";             //分享内嵌文字
-    UIImage *shareImage = [UIImage imageNamed:@"Icon"];          //分享内嵌图片
-    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
-    //如果得到分享完成回调，需要设置delegate为self
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
-    return;
-}
+//- (void)shareToFriends
+//{
+//    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
+//    NSString *shareText = @"我在AppStore发现了一个很搞笑的应用，分享给你，你快来下载啊！ http://app.91.com/Soft/Detail.aspx?Platform=iPhone&f_id=10476958";             //分享内嵌文字
+//    UIImage *shareImage = [UIImage imageNamed:@"Icon"];          //分享内嵌图片
+//    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+//    //如果得到分享完成回调，需要设置delegate为self
+//    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+//    return;
+//}
 
 - (void)fillingData:(NSDictionary*)info {
     self.infoID = [info valueForKey:@"id"];

@@ -10,4 +10,6 @@
 
 @interface FunnyImageTableViewCell : UITableViewCell
 
+- (void)initCellData:(NSDictionary*)info;
+
 @end

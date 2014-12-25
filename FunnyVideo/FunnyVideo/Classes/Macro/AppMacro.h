@@ -12,6 +12,7 @@
 #define kCatalogCachePath       @"Catalog"
 #define kVideoContentCachePath  @"Video"
 #define kJokeContentCachePath   @"Joke"
+#define kImageContentCachePath  @"Image"
 #define kCacheRootKey           @"JW"
 
 #define kValidStr @"Video"
@@ -29,6 +30,7 @@ typedef NS_ENUM(NSUInteger,JWStorePlatform)
 typedef NS_ENUM(NSUInteger,JWContentType) {
     JWVideoType = 0, //视频
     JWJokeType = 1,  //笑话
+    JWImageTyp = 2,
 };
 
 #define kShowAd
@@ -59,6 +61,7 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
         #define kDailyContentURL  @"http://funnyjoke.sinaapp.com/dailyContent.php"
         #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
         #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
+        #define kVideoDailyContentURL  @"http://172.17.158.11/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/dailyContent.php"
     #else
         #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/dailyContent.php"
         #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/checkVersionUpdate.php"

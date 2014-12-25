@@ -20,9 +20,6 @@
     UIImageView *_imageView;
     UIButton *_playButton;
     UILabel *_title;
-    UIButton *_likeBtn;
-    UIButton *_unlikeBtn;
-    UIButton *_shareBtn;
     UIView *_lineView;
     
     UILabel *_timeLabel;
@@ -90,59 +87,6 @@
         _toolView = [[JWToolBarView alloc] initWithFrame:CGRectZero];
         _toolView.type = JWVideoType;
         [view addSubview:_toolView];
-        
-#if 0
-        UIImage *like_unpress = [UIImage imageNamed:@"icon_like_unpressed"];
-        UIImage *like_press = [UIImage imageNamed:@"icon_like_pressed"];
-        UIImage *like_disabled = [UIImage imageNamed:@"icon_like_disabled"];
-        
-        UIImage *unlike_unpress = [UIImage imageNamed:@"icon_unlike_unpressed"];
-        UIImage *unlike_press = [UIImage imageNamed:@"icon_unlike_pressed"];
-        UIImage *unlike_disabled = [UIImage imageNamed:@"icon_unlike_disabled"];
-        
-        UIImage *shareImage = [UIImage imageNamed:@"icon_more"];
-        
-        _likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //likeBtn.backgroundColor = [UIColor skyBlueColor];
-        //likeBtn.frame = CGRectMake(10, heightOffset, 80, 30);
-        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-        _likeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        [_likeBtn setImage:like_unpress forState:UIControlStateNormal];
-        [_likeBtn setImage:like_press forState:UIControlStateHighlighted];
-        [_likeBtn setImage:like_press forState:UIControlStateSelected];
-        [_likeBtn setImage:like_disabled forState:UIControlStateDisabled];
-        //likeBtn.titleLabel.font = font;
-        [_likeBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
-        //[_likeBtn setTitle:@"1000" forState:UIControlStateNormal];
-        _likeBtn.titleLabel.font = kToolButtonFont;
-        [view addSubview:_likeBtn];
-        
-        _unlikeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //unlikeBtn.backgroundColor = [UIColor skyBlueColor];
-        //unlikeBtn.frame = CGRectMake(100, heightOffset, 80, 30);
-        _unlikeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _unlikeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        [_unlikeBtn setImage:unlike_unpress forState:UIControlStateNormal];
-        [_unlikeBtn setImage:unlike_press forState:UIControlStateHighlighted];
-        [_unlikeBtn setImage:unlike_press forState:UIControlStateSelected];
-        [_unlikeBtn setImage:unlike_disabled forState:UIControlStateDisabled];
-        _unlikeBtn.titleLabel.font = kToolButtonFont;
-        [_unlikeBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
-        //[_unlikeBtn setTitle:@"1000" forState:UIControlStateNormal];
-        [view addSubview:_unlikeBtn];
-        
-        _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //shareBtn.backgroundColor = [UIColor skyBlueColor];
-        //shareBtn.frame = CGRectMake(220, heightOffset, 80, 30);
-        _shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
-        [_shareBtn setImage:shareImage forState:UIControlStateNormal];
-        //shareBtn.titleLabel.textColor = [UIColor blackColor];
-        _shareBtn.titleLabel.font = kToolButtonFont;
-        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
-        //[_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
-        [view addSubview:_shareBtn];
-#endif
         
         
     }
