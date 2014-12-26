@@ -82,11 +82,17 @@
     
     offsetHeight += heigth;
     
+    float viewWidth = self.frame.size.width-20;
+    float imgWidth = [[info valueForKey:@"image_width"] floatValue];
+    float imgHeight = [[info valueForKey:@"image_height"] floatValue];
+    if (imgWidth >= viewWidth) {
+        float scale = viewWidth/imgWidth*1.0f;
+        imgWidth = viewWidth;
+        imgHeight = imgHeight*scale;
+    }
     
-    float imgWidth = 200.0f;//[[info valueForKey:@"image_width"] floatValue];
-    float imgHeight = 50.0f;//[[info valueForKey:@"image_height"] floatValue];
-    
-    _imageView.frame = CGRectMake(0, offsetHeight, imgWidth, imgHeight);
+    _imageView.frame = CGRectMake(10, offsetHeight, imgWidth, imgHeight);
+    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [_imageView sd_setImageWithURL:[info valueForKey:@"image_url"]];
     
     offsetHeight += imgHeight+1;

@@ -220,10 +220,18 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    float viewWidth = self.view.frame.size.width-20;
+    float imgWidth = [[info valueForKey:@"image_width"] floatValue];
+    float imgHeight = [[info valueForKey:@"image_height"] floatValue];
+    if (imgWidth >= viewWidth) {
+        float scale = viewWidth / imgWidth*1.0f;
+        imgWidth = viewWidth;
+        imgHeight = imgHeight*scale;
+    }
     NSString *content = [info valueForKey:@"content"];
     CGSize titleSize = [content sizeWithFont:kCellTitleFont constrainedToSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
     //    float heigth = [[UtilManager shareManager] heightForText:content rectSize:CGSizeMake(self.view.frame.size.width - 10.0f, MAXFLOAT) font:kCellTitleFont];
-    return titleSize.height + 70 + 55.0f;
+    return titleSize.height + imgHeight + 20.0f + 55.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
