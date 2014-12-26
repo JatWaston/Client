@@ -10,8 +10,9 @@
 
 @interface JWImageTableViewCell : UITableViewCell
 
-- (void)initCellData:(NSDictionary*)info;
+- (void)initCellData:(NSDictionary*)info indexPath:(NSIndexPath*)index;
+- (void)registerToolBarDelegate:(id)delegate;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (UIImage*)videoImage;
 
 @end

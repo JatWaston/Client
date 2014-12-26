@@ -65,13 +65,23 @@
     return self;
 }
 
+- (void)registerToolBarDelegate:(id)delegate {
+    if (_toolView) {
+        _toolView.delegate = delegate;
+    }
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
-- (void)initCellData:(NSDictionary*)info {
+- (UIImage*)funnyImage {
+    return _imageView.image;
+}
+
+- (void)initCellData:(NSDictionary*)info indexPath:(NSIndexPath*)index {
     _title.text = [info valueForKey:@"title"];
     
     float offsetHeight = 2.0f;
@@ -103,7 +113,7 @@
     
     _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 30);
     
-    [_toolView fillingData:info];
+    [_toolView fillingData:info indexPath:index];
 }
 
 @end

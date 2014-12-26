@@ -60,7 +60,13 @@
     return self;
 }
 
-- (void)initCellData:(NSDictionary*)info {
+- (void)registerToolBarDelegate:(id)delegate {
+    if (_toolView) {
+        _toolView.delegate = delegate;
+    }
+}
+
+- (void)initCellData:(NSDictionary*)info indexPath:(NSIndexPath*)index {
     _content.text = [info valueForKey:@"content"];
 //    float heigth = [[UtilManager shareManager] heightForText:_content.text
 //                                                    rectSize:CGSizeMake(self.frame.size.width-10, MAXFLOAT)
@@ -79,7 +85,7 @@
     
     _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 30);
     
-    [_toolView fillingData:info];
+    [_toolView fillingData:info indexPath:index];
     
 //    [_likeBtn setTitle:[info valueForKey:@"likeCount"] forState:UIControlStateNormal];
 //    [_unlikeBtn setTitle:[info valueForKey:@"unlikeCount"] forState:UIControlStateNormal];

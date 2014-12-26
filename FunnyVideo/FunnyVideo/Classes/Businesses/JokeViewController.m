@@ -23,10 +23,11 @@
 
 #import "UtilManager.h"
 #import "JWCacheManager.h"
+#import "JWToolBarView.h"
 
 #define kRequestPageSize 10
 
-@interface JokeViewController () <GADBannerViewDelegate,GADInterstitialDelegate>
+@interface JokeViewController () <GADBannerViewDelegate,GADInterstitialDelegate,JWToolBarDelegate>
 {
     GADBannerView *_adBannerView;
     GADInterstitial *_interstitialView;
@@ -200,6 +201,17 @@
 #endif
 }
 
+- (void)shareToFriends:(NSIndexPath*)indexPath
+{
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
+    NSString *shareText = [NSString stringWithFormat:@"%@ %@",[info valueForKey:@"title"],kShareURL];             //分享内嵌文字
+    UIImage *shareImage = [UIImage imageNamed:@"Icon"];          //分享内嵌图片
+    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+    //如果得到分享完成回调，需要设置delegate为self
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -226,9 +238,10 @@
     JokeTableViewCell *cell = (JokeTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
     if (cell == nil) {
         cell = [[JokeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        [cell registerToolBarDelegate:self];
     }
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
-    [cell initCellData:info];
+    [cell initCellData:info indexPath:indexPath];
     return cell;
 }
 
@@ -284,6 +297,12 @@
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSLog(@"GADInterstitial error:%@",[error localizedFailureReason]);
+}
+
+#pragma mark - JWToolBarDelegate
+
+- (void)didSelectShare:(JWToolBarView*)toolBarView {
+    [self shareToFriends:toolBarView.indexPath];
 }
 
 @end

@@ -10,6 +10,9 @@
 
 @interface FunnyImageTableViewCell : UITableViewCell
 
-- (void)initCellData:(NSDictionary*)info;
+- (void)initCellData:(NSDictionary*)info indexPath:(NSIndexPath*)index;
+- (void)registerToolBarDelegate:(id)delegate;
+
+- (UIImage*)funnyImage;
 
 @end

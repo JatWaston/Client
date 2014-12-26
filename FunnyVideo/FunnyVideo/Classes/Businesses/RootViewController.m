@@ -28,10 +28,12 @@
 #import "JWWebViewController.h"
 #import "JWReportManager.h"
 
+#import "JWToolBarView.h"
+
 #define kRequestPageSize 10
 
 
-@interface RootViewController () <GADBannerViewDelegate,GADInterstitialDelegate,UIAlertViewDelegate>
+@interface RootViewController () <GADBannerViewDelegate,GADInterstitialDelegate,UIAlertViewDelegate,JWToolBarDelegate>
 {
     JWMPMoviePlayerViewController *_player;
     
@@ -266,6 +268,22 @@
 //    [self presentMoviePlayerViewControllerAnimated:_player];
 //}
 
+- (void)shareToFriends:(NSIndexPath*)indexPath
+{
+    UITableViewCell *cell = [self.contentTableView cellForRowAtIndexPath:indexPath];
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
+    NSString *shareText = [NSString stringWithFormat:@"%@ %@",[info valueForKey:@"title"],[info valueForKey:@"webURL"]];             //分享内嵌文字
+    UIImage *shareImage = [(JWImageTableViewCell*)cell videoImage];          //分享内嵌图片
+    if (shareImage == nil) {
+        shareImage = [UIImage imageNamed:@"Icon"];
+    }
+    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+    //如果得到分享完成回调，需要设置delegate为self
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -291,9 +309,10 @@
     JWImageTableViewCell *cell = (JWImageTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
     if (cell == nil) {
         cell = [[JWImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        [cell registerToolBarDelegate:self];
     }
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
-    [cell initCellData:info];
+    [cell initCellData:info indexPath:indexPath];
     return cell;
 }
 
@@ -396,6 +415,12 @@
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
     }
     
+}
+
+#pragma mark - JWToolBarDelegate
+
+- (void)didSelectShare:(JWToolBarView*)toolBarView {
+    [self shareToFriends:toolBarView.indexPath];
 }
 
 @end

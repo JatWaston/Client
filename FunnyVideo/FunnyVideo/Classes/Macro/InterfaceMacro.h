@@ -20,7 +20,7 @@
 #define kToolButtonFont                     [UIFont systemFontOfSize:14.0f]
 
 #define kCellTitleColor                     [UIColor colorWithRed:0.18 green:0.18 blue:0.18 alpha:1.0]
-#define kToolButtonTitleColor               [UIColor colorWithRed:0.18 green:0.18 blue:0.18 alpha:1.0]
+#define kToolButtonTitleColor               [UIColor colorWithRed:135/255.0f green:135/255.0f blue:135/255.0f alpha:1.0]
 #define kToolButtonTitleSelectedColor       [UIColor colorWithRed:253/255.0f green:119/255.0f blue:7/255.0f alpha:1.0]
 #define kToolButtonTitleDisableColor        [UIColor colorWithRed:166/255.0f green:166/255.0f blue:166/255.0f alpha:1.0]
 

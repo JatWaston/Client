@@ -13,15 +13,19 @@
 #import "GADAdSize.h"
 #import "GADInterstitial.h"
 
+#import "UMSocialSnsService.h"
+#import "UMSocialSnsPlatformManager.h"
+
 #import "NSString+MD5.h"
 #import "MBProgressHUD+Add.h"
 
 #import "UtilManager.h"
 #import "JWCacheManager.h"
+#import "JWToolBarView.h"
 
 #define kRequestPageSize 10
 
-@interface ImageViewController () <GADBannerViewDelegate,GADInterstitialDelegate> {
+@interface ImageViewController () <GADBannerViewDelegate,GADInterstitialDelegate,JWToolBarDelegate> {
     NSUInteger _requestCount;
     GADBannerView *_adBannerView;
     GADInterstitial *_interstitialView;
@@ -184,6 +188,23 @@
     
 #endif
 }
+
+- (void)shareToFriends:(NSIndexPath*)indexPath
+{
+    UITableViewCell *cell = [self.contentTableView cellForRowAtIndexPath:indexPath];
+    NSDictionary *info = [_items objectAtIndex:[indexPath row]];
+    //这边的链接适用于sina微博，QQ空间点击url链接会跳转到这里指定的地址，点击整个会跳转到开头设定的地址
+    NSString *shareText = [NSString stringWithFormat:@"%@ %@",[info valueForKey:@"title"],kShareURL];             //分享内嵌文字
+    UIImage *shareImage = [(FunnyImageTableViewCell*)cell funnyImage];          //分享内嵌图片
+    if (shareImage == nil) {
+        shareImage = [UIImage imageNamed:@"Icon"];
+    }
+    NSArray *snsPlatform = [NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToWechatFavorite,UMShareToEmail,UMShareToSms, nil];
+    //如果得到分享完成回调，需要设置delegate为self
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUmengKey shareText:shareText shareImage:shareImage shareToSnsNames:snsPlatform delegate:(id<UMSocialUIDelegate>)self];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -208,9 +229,10 @@
     FunnyImageTableViewCell *cell = (FunnyImageTableViewCell*)[tableView dequeueReusableCellWithIdentifier:cellStr];
     if (cell == nil) {
         cell = [[FunnyImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        [cell registerToolBarDelegate:self];
     }
     NSDictionary *info = [_items objectAtIndex:[indexPath row]];
-    [cell initCellData:info];
+    [cell initCellData:info indexPath:indexPath];
     return cell;
 }
 
@@ -237,6 +259,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - JWToolBarDelegate
+
+- (void)didSelectShare:(JWToolBarView*)toolBarView {
+    [self shareToFriends:toolBarView.indexPath];
 }
 
 @end
