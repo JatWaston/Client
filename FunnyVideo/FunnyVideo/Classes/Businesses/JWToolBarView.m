@@ -12,6 +12,9 @@
 #import "UMSocialSnsService.h"
 #import "UMSocialSnsPlatformManager.h"
 
+#define kImageOffset -3
+#define kTitleOffset 3
+
 
 typedef NS_ENUM(NSUInteger,JWToolButtonTag) {
     JWToolButtonLike = 1, //喜欢
@@ -72,15 +75,17 @@ static FMDatabase *_db = nil;
         _likeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //likeBtn.backgroundColor = [UIColor skyBlueColor];
         //likeBtn.frame = CGRectMake(10, heightOffset, 80, 30);
-        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _likeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        _likeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, kImageOffset, 0, 0);
+        _likeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, kTitleOffset, 0, 0);
         [_likeBtn setImage:like_unpress forState:UIControlStateNormal];
         [_likeBtn setImage:like_press forState:UIControlStateHighlighted];
         [_likeBtn setImage:like_press forState:UIControlStateSelected];
         [_likeBtn setImage:like_disabled forState:UIControlStateDisabled];
         //likeBtn.titleLabel.font = font;
+        
         [_likeBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
         [_likeBtn setTitleColor:kToolButtonTitleSelectedColor forState:UIControlStateHighlighted];
+        [_likeBtn setTitleColor:kToolButtonTitleSelectedColor forState:UIControlStateSelected];
         [_likeBtn setTitleColor:kToolButtonTitleDisableColor forState:UIControlStateDisabled];
         [_likeBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
         _likeBtn.tag = JWToolButtonLike;
@@ -91,8 +96,8 @@ static FMDatabase *_db = nil;
         _unlikeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //unlikeBtn.backgroundColor = [UIColor skyBlueColor];
         //unlikeBtn.frame = CGRectMake(100, heightOffset, 80, 30);
-        _unlikeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _unlikeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        _unlikeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, kImageOffset, 0, 0);
+        _unlikeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, kTitleOffset, 0, 0);
         [_unlikeBtn setImage:unlike_unpress forState:UIControlStateNormal];
         [_unlikeBtn setImage:unlike_press forState:UIControlStateHighlighted];
         [_unlikeBtn setImage:unlike_press forState:UIControlStateSelected];
@@ -100,6 +105,7 @@ static FMDatabase *_db = nil;
         _unlikeBtn.titleLabel.font = kToolButtonFont;
         [_unlikeBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
         [_unlikeBtn setTitleColor:kToolButtonTitleSelectedColor forState:UIControlStateHighlighted];
+        [_unlikeBtn setTitleColor:kToolButtonTitleSelectedColor forState:UIControlStateSelected];
         [_unlikeBtn setTitleColor:kToolButtonTitleDisableColor forState:UIControlStateDisabled];
         //[_unlikeBtn setTitle:@"1000" forState:UIControlStateNormal];
         _unlikeBtn.tag = JWToolButtonUnlike;
@@ -109,23 +115,24 @@ static FMDatabase *_db = nil;
         _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //shareBtn.backgroundColor = [UIColor skyBlueColor];
         //shareBtn.frame = CGRectMake(220, heightOffset, 80, 30);
-        _shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        _shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, kImageOffset, 0, 0);
+        _shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, kTitleOffset, 0, 0);
         [_shareBtn setImage:share_unpress forState:UIControlStateNormal];
         [_shareBtn setImage:share_press forState:UIControlStateHighlighted];
         [_shareBtn setImage:share_press forState:UIControlStateSelected];
         [_shareBtn setImage:share_disabled forState:UIControlStateDisabled];
         _shareBtn.titleLabel.font = kToolButtonFont;
         [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
-        [_shareBtn setTitleColor:kToolButtonTitleColor forState:UIControlStateNormal];
+        [_shareBtn setTitleColor:kToolButtonTitleSelectedColor forState:UIControlStateHighlighted];
+        [_shareBtn setTitleColor:kToolButtonTitleSelectedColor forState:UIControlStateSelected];
         //[_shareBtn setTitle:@"1000" forState:UIControlStateNormal];
         [_shareBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
         _shareBtn.tag = JWToolButtonShare;
         [self addSubview:_shareBtn];
         
-        _likeBtn.frame = CGRectMake(30, 0, 80, 30);
+        _likeBtn.frame = CGRectMake(20, 0, 80, 30);
         _unlikeBtn.frame = CGRectMake(120, 0, 80, 30);
-        _shareBtn.frame = CGRectMake(210, 0, 80, 30);
+        _shareBtn.frame = CGRectMake(220, 0, 80, 30);
     }
     return self;
 }
@@ -139,6 +146,7 @@ static FMDatabase *_db = nil;
         {
             _likeBtn.enabled = NO;
             _unlikeBtn.selected = YES;
+            _unlikeBtn.titleLabel.textColor = kToolButtonTitleSelectedColor;
             _unlikeBtn.userInteractionEnabled = NO;
             self.unlikeCount = [_unlikeBtn.titleLabel.text integerValue]+1;
             title = [NSString stringWithFormat:@"%d",(int)[_unlikeBtn.titleLabel.text integerValue]+1];

@@ -83,7 +83,7 @@
     
     offsetHeight += 1;
     
-    _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 30);
+    _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 25);
     
     [_toolView fillingData:info indexPath:index];
     

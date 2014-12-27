@@ -90,7 +90,7 @@
                                                         font:kCellTitleFont];
     _title.frame = CGRectMake(5, 2.0f, self.frame.size.width-10, heigth);
     
-    offsetHeight += heigth;
+    offsetHeight += heigth+2;
     
     float viewWidth = self.frame.size.width-20;
     float imgWidth = [[info valueForKey:@"image_width"] floatValue];
@@ -111,7 +111,7 @@
     
     offsetHeight += 1;
     
-    _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 30);
+    _toolView.frame = CGRectMake(0, offsetHeight, self.frame.size.width, 25);
     
     [_toolView fillingData:info indexPath:index];
 }
