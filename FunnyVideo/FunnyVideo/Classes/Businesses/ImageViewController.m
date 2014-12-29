@@ -107,7 +107,7 @@
     NSString *devicePlatform = [[UtilManager shareManager] devicePlatform];
     NSString *udid = [[UtilManager shareManager] deviceUDID];
     NSString *md5 = [[NSString stringWithFormat:@"%@%d%d%@",version,(int)store,(int)_currentPage,kValidStr] MD5];
-    NSString *requestURL = [kVideoDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?version=%@&device=%@&udid=%@&page=%d&valid=%@&pageSize=%d&store=%d&content=%d",version,devicePlatform,udid,(int)_currentPage,md5,kRequestPageSize,(int)store,(int)JWImageTyp]];
+    NSString *requestURL = [kDailyContentURL stringByAppendingString:[NSString stringWithFormat:@"?version=%@&device=%@&udid=%@&page=%d&valid=%@&pageSize=%d&store=%d&content=%d",version,devicePlatform,udid,(int)_currentPage,md5,kRequestPageSize,(int)store,(int)JWImageTyp]];
     return requestURL;
 }
 
