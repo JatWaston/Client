@@ -111,7 +111,7 @@ static FMDatabase *_db = nil;
         _unlikeBtn.tag = JWToolButtonUnlike;
         [_unlikeBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_unlikeBtn];
-        
+#if 0
         _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //shareBtn.backgroundColor = [UIColor skyBlueColor];
         //shareBtn.frame = CGRectMake(220, heightOffset, 80, 30);
@@ -129,10 +129,11 @@ static FMDatabase *_db = nil;
         [_shareBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
         _shareBtn.tag = JWToolButtonShare;
         [self addSubview:_shareBtn];
+#endif
         
         _likeBtn.frame = CGRectMake(20, 0, 80, 30);
-        _unlikeBtn.frame = CGRectMake(120, 0, 80, 30);
-        _shareBtn.frame = CGRectMake(220, 0, 80, 30);
+        _unlikeBtn.frame = CGRectMake(200, 0, 80, 30);
+        //_shareBtn.frame = CGRectMake(220, 0, 80, 30);
     }
     return self;
 }

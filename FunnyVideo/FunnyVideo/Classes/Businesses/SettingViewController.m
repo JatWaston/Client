@@ -22,6 +22,8 @@
 #import "GADBannerView.h"
 #import "GADAdSize.h"
 
+#define kClearCacheSection 0
+
 #define kRateiOSAppStoreURLFormate @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=951382676"
 #define kRateiOS7AppStoreURLFormate @"itms-apps://itunes.apple.com/app/id951382676"
 
@@ -56,7 +58,7 @@
 {
     [super viewDidLoad];
     
-    NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
+    //NSDictionary *shareToFriends = [NSDictionary dictionaryWithObjectsAndKeys:@"分享给朋友",kTitleKey,@"",kDescriptionKey, nil];
     
     NSDictionary *clearCashe = [NSDictionary dictionaryWithObjectsAndKeys:@"清除图片缓存",kTitleKey,[self cacheSize],kDescriptionKey, nil];
     NSDictionary *feedBack = [NSDictionary dictionaryWithObjectsAndKeys:@"反馈问题",kTitleKey,@"",kDescriptionKey, nil];
@@ -70,12 +72,12 @@
     
     
     
-    NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
+    //NSArray *section0 = [NSArray arrayWithObjects:shareToFriends, nil];
     NSArray *section1 = [NSArray arrayWithObjects:clearCashe,feedBack,version, nil];
 #ifdef APP_STORE
     NSArray *section2 = [NSArray arrayWithObjects:rateApp, nil];
 #endif
-    [_items addObject:section0];
+    //[_items addObject:section0];
     //[_items addObject:section0];
     [_items addObject:section1];
 #ifdef APP_STORE
@@ -114,7 +116,7 @@
     [super viewDidAppear:animated];
     
     if (self.contentTableView) {
-        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:kClearCacheSection]];
         [cell updateDescription:[self cacheSize]];
     }
 
@@ -136,7 +138,7 @@
 {
     NSString *size = [self cacheSize];
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        SettingCell *cell = (SettingCell*)[self.contentTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:kClearCacheSection]];
         [cell updateDescription:@"0K"];
         NSString *message = [NSString stringWithFormat:@"已为你清除%@空间",size];
         [self.view makeToast:message duration:0.2f position:@"bottom"];
@@ -222,7 +224,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch ([indexPath section]) {
-        case 0:
+        case 1:
             switch ([indexPath row]) {
                 case 0:
                     [self shareToFriends];
@@ -231,7 +233,7 @@
                     break;
             }
             break;
-        case 1:
+        case 0:
             switch ([indexPath row]) {
                 case 0:
                     [self clearCache];
