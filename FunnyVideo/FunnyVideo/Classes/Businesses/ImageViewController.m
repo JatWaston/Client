@@ -161,7 +161,6 @@
     if (_requestCount >= 4 && _interstitialView && _interstitialView.isReady) {
         _requestCount = 0;
         [_interstitialView presentFromRootViewController:self];
-        [self loadInterstitiaAD];
     }
 }
 
@@ -265,6 +264,25 @@
 
 - (void)didSelectShare:(JWToolBarView*)toolBarView {
     [self shareToFriends:toolBarView.indexPath];
+}
+
+#pragma mark -
+#pragma mark GADInterstitialDelegate
+
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    NSLog(@"Received GADInterstitial successfully");
+    //[ad presentFromRootViewController:self];
+}
+
+
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    NSLog(@"GADInterstitial error:%@",[error localizedFailureReason]);
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    [self loadInterstitiaAD];
 }
 
 @end

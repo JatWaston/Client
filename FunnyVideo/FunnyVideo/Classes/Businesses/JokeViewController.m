@@ -173,7 +173,6 @@
     if (_requestCount >= 4 && _interstitialView && _interstitialView.isReady) {
         _requestCount = 0;
         [_interstitialView presentFromRootViewController:self];
-        [self loadInterstitiaAD];
     }
 }
 
@@ -297,6 +296,10 @@
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSLog(@"GADInterstitial error:%@",[error localizedFailureReason]);
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
+    [self loadInterstitiaAD];
 }
 
 #pragma mark - JWToolBarDelegate
