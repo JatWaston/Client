@@ -80,6 +80,10 @@ static NSString *cellStr = @"cell";
     _currentPage++;
 }
 
+- (void)refresh {
+    [_contentTableView headerBeginRefreshing];
+}
+
 
 
 - (void)didReceiveMemoryWarning {

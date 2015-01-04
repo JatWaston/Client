@@ -23,5 +23,6 @@
 
 - (void)headerRereshing;
 - (void)footerRereshing;
+- (void)refresh;
 
 @end

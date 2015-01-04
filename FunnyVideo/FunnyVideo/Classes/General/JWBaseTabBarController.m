@@ -7,8 +7,11 @@
 //
 
 #import "JWBaseTabBarController.h"
+#import "JWBaseTableViewController.h"
 
-@interface JWBaseTabBarController ()
+@interface JWBaseTabBarController () <UITabBarControllerDelegate> {
+    BOOL _shouldRefresh;
+}
 
 @end
 
@@ -17,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.delegate = self;
+    _shouldRefresh = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,6 +37,29 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - UITabBarControllerDelegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if (viewController == self.selectedViewController) {
+        _shouldRefresh = YES;
+    } else {
+        _shouldRefresh = NO;
+    }
+
+    return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+//    NSLog(@"viewController = %@",viewController);
+//    NSLog(@"selectedViewController = %@",self.selectedViewController);
+    if (_shouldRefresh && [viewController isKindOfClass:[UINavigationController class]]) {
+        //NSLog(@"visibleViewController=%@",((UINavigationController*)viewController).visibleViewController);
+        if ([((UINavigationController*)viewController).visibleViewController respondsToSelector:NSSelectorFromString(@"refresh")]) {
+            [(JWBaseTableViewController*)((UINavigationController*)viewController).visibleViewController refresh];
+        }
+    }
 }
 
 /*
