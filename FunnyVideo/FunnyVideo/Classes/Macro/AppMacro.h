@@ -56,27 +56,21 @@ typedef NS_ENUM(NSUInteger,JWContentType) {
 #define kTestURL
 #define kOuterNet
 
-#ifdef kTestURL
-    #ifdef kOuterNet
-        #define kDailyContentURL  @"http://funnyjoke.sinaapp.com/dailyContent.php"
-        #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
-        #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
-    #else
+#ifdef kOuterNet
+    #define kDailyContentURL  @"http://funnyjoke.sinaapp.com/dailyContent.php"
+    #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
+    #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
+    #define kPushContentURL   @"http://funnyjoke.sinaapp.com/pushContent.php"
+#else
+    #ifdef kTestURL
         #define kDailyContentURL @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/dailyContent.php"
         #define kVersionUpdateURL @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/checkVersionUpdate.php"
         #define kReportURL        @"http://192.168.254.97/~zzl/SAE/Service/FunnyVideo/funnyjoke/1/report.php"
-    #endif
-#else
-    #ifdef kOuterNet
-        #define kDailyContentURL  @"http://funnyjoke.sinaapp.com/dailyContent.php"
-        #define kVersionUpdateURL @"http://funnyjoke.sinaapp.com/checkVersionUpdate.php"
-        #define kReportURL        @"http://funnyjoke.sinaapp.com/report.php"
     #else
         #define kDailyContentURL @"http://192.168.1.10/~apple/PHP/SAE/Service/FunnyVideo/funnyjoke/1/dailyContent.php"
         #define kVersionUpdateURL @"http://192.168.1.10/~apple/PHP/SAE/Service/FunnyVideo/funnyjoke/1/checkVersionUpdate.php"
         #define kReportURL        @"http://192.168.1.10/~apple/PHP/SAE/Service/FunnyVideo/funnyjoke/1/report.php"
     #endif
 #endif
-
 
 #endif
