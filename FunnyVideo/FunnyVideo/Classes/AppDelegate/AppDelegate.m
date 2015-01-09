@@ -15,6 +15,9 @@
 #import "JWNetworking.h"
 #import "LocalNotificationManager.h"
 
+#import "PushContentViewController.h"
+
+
 #import "UMSocial.h"
 #import "UIColor+Colours.h"
 
@@ -83,14 +86,20 @@
     self.window.rootViewController = tab;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+//    UILocalNotification *notification = [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+//    if (notification) {
+//        [self showNotificationContent:notification];
+//    }
     [self showLocalNotificationMessage:launchOptions];
     [self fetchPushContent];
     return YES;
 }
 
 - (void)showLocalNotificationMessage:(NSDictionary *)launchOptions {
-    if ([launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey]) {
-        NSLog(@"");
+    UILocalNotification *notification = [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification) {
+        NSLog(@"%s",__func__);
+        [self showNotificationContent:notification];
     }
     /*launchOptions = {
 	    UIApplicationLaunchOptionsLocalNotificationKey = "<UIConcreteLocalNotification: 0x17d93ff0>{fire date = 2000\U5e741\U67081\U65e5 \U661f\U671f\U516d \U4e2d\U56fd\U6807\U51c6\U65f6\U95f4\U4e0b\U534810:41:00, time zone = Asia/Shanghai (GMT+8) offset 28800, repeat interval = NSDayCalendarUnit, repeat count = UILocalNotificationInfiniteRepeatCount, next fire date = 2015\U5e741\U67089\U65e5 \U661f\U671f\U4e94 \U4e2d\U56fd\U6807\U51c6\U65f6\U95f4\U4e0b\U534810:41:00, user info = {\n    joke =     {\n        content = \"\\U6211\\U7ecf\\U8fc7\\U4e00\\U4e2a\\U5e7c\\U513f\\U56ed\\U95e8\\U53e3\\Uff01 \\U4e00\\U4e2a\\U54e5\\U4eec\\Uff0c\\U4e00\\U4e2a\\U6f02\\U79fb\\U628a\\U8f66\\U505c\\U5230\\U8f66\\U4f4d\\U4e0a\\Uff0c\\U4e0b\\U8f66\\U540e\\U8fd8\\U5927\\U58f0\\U7684\\U8bf4\\Uff0c\\U513f\\U5b50\\Uff01\\U5feb\\U4e0b\\U8f66\\U8981\\U8fdf\\U5230\\U5566\\Uff01 \\U7136\\U540e\\U6253\\U5f00\\U540e\\U8f66\\U95e8\\Uff0c\\U53c8\\U8bf4\\U4e86\\U4e00\\U53e5\\U53eb\\U6211\\U4eec\\U77ac\\U95f4\\U65e0\\U8bed\\U7684\\U8bdd\\Uff01\\U5367\\U69fd\\Uff0c\\U5b69\\U5b50\\U5fd8\\U5e26\\U5566\\Uff01\";\n        createDate = \"2014-12-01 00:00:00\";\n        id = 4b33e042c3544eab144b31cd5ecafd70;\n        likeCount = 0;\n        shareCount = 0;\n        title = \"\\U5927\\U54e5\\Uff0c\\U4f60\\U6f02\\U79fb\\U6280\\U672f\\U4e0d\\U9519\\U554a\\Uff01\";\n        unlikeCount = 0;\n    };\n}}";
@@ -121,20 +130,22 @@
         NSDictionary *resultData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
         NSLog(@"resultData = %@",resultData);
         if (resultData && [[resultData valueForKey:@"code"] integerValue] == 0) {
+            //先取消所有已注册的通知，重新获取通知内容
+            [[UIApplication sharedApplication] cancelAllLocalNotifications];
             NSDictionary *info = [resultData valueForKey:@"data"];
             NSDictionary *imageContent = [(NSArray*)[info valueForKey:@"image"] objectAtIndex:0];
             NSDictionary *jokeContent = [(NSArray*)[info valueForKey:@"joke"] objectAtIndex:0];
             NSDictionary *videoContent = [(NSArray*)[info valueForKey:@"video"] objectAtIndex:0];
             
             NSDictionary *jokeInfo = [NSDictionary dictionaryWithObjectsAndKeys:jokeContent,@"joke", nil];
-            NSDate *jokeDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"22:41:00"];
+            NSDate *jokeDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"13:19:00"];
             [[LocalNotificationManager defaultManager] pushNotificationMessage:[jokeContent valueForKey:@"content"]
                                                                       userInfo:jokeInfo
                                                                       pushTime:jokeDate
                                                                       pushRate:NSCalendarUnitDay];
             
             NSDictionary *imageInfo = [NSDictionary dictionaryWithObjectsAndKeys:imageContent,@"image", nil];
-            NSDate *imageDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"22:42:00"];
+            NSDate *imageDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"13:20:00"];
             NSString *imageMessage = [NSString stringWithFormat:@"[图片] %@",[imageContent valueForKey:@"title"]];
             [[LocalNotificationManager defaultManager] pushNotificationMessage:imageMessage
                                                                       userInfo:imageInfo
@@ -142,7 +153,7 @@
                                                                       pushRate:NSCalendarUnitDay];
             
             NSDictionary *videoInfo = [NSDictionary dictionaryWithObjectsAndKeys:videoContent,@"video", nil];
-            NSDate *videoDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"22:43:00"];
+            NSDate *videoDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"13:21:00"];
             NSString *videoMessage = [NSString stringWithFormat:@"[视频] %@",[videoContent valueForKey:@"title"]];
             [[LocalNotificationManager defaultManager] pushNotificationMessage:videoMessage
                                                                       userInfo:videoInfo
@@ -180,8 +191,16 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"%s",__func__);
     application.applicationIconBadgeNumber = 0;
+    [self showNotificationContent:notification];
     
+    [application cancelLocalNotification:notification];
+    
+    //[application cancelAllLocalNotifications];
+}
+
+- (void)showNotificationContent:(UILocalNotification*)notification {
     if ([notification.userInfo valueForKey:@"joke"]) {
         NSLog(@"joke userinfo = %@",notification.userInfo);
     } else if ([notification.userInfo valueForKey:@"image"]) {
@@ -189,8 +208,9 @@
     } else if ([notification.userInfo valueForKey:@"video"]) {
         NSLog(@"video userinfo = %@",notification.userInfo);
     }
-    
-    [application cancelAllLocalNotifications];
+    PushContentViewController *contrtoller = [[PushContentViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:contrtoller];
+    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url

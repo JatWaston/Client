@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FunnyVideo/Classes/AppDelegate/AppDelegate.m"
-            timestampString = "441005010.306627"
+            timestampString = "442473440.066328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-application:handleOpenURL:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-fetchPushContent"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

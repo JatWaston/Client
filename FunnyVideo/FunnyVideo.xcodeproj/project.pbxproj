@@ -22,6 +22,7 @@
 		1621CD571A2EC5B5000D588B /* fun_play_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1621CD551A2EC5B5000D588B /* fun_play_normal@2x.png */; };
 		162E2CB61A38097D0053DF5B /* icon_joke@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 162E2CB41A38097D0053DF5B /* icon_joke@2x.png */; };
 		162E2CB71A38097D0053DF5B /* icon_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 162E2CB51A38097D0053DF5B /* icon_video@2x.png */; };
+		16370C9C1A5F9AE4003DE2B0 /* PushContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16370C9B1A5F9AE4003DE2B0 /* PushContentViewController.m */; };
 		163F00681A26E2710063CA8D /* icon_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 163F00661A26E2710063CA8D /* icon_more.png */; };
 		163F00691A26E2710063CA8D /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 163F00671A26E2710063CA8D /* icon_more@2x.png */; };
 		165F337A1A25DA90001D372A /* icon_like_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 165F336E1A25DA90001D372A /* icon_like_disabled.png */; };
@@ -225,6 +226,8 @@
 		1621CD551A2EC5B5000D588B /* fun_play_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fun_play_normal@2x.png"; sourceTree = "<group>"; };
 		162E2CB41A38097D0053DF5B /* icon_joke@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_joke@2x.png"; sourceTree = "<group>"; };
 		162E2CB51A38097D0053DF5B /* icon_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_video@2x.png"; sourceTree = "<group>"; };
+		16370C9A1A5F9AE4003DE2B0 /* PushContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushContentViewController.h; sourceTree = "<group>"; };
+		16370C9B1A5F9AE4003DE2B0 /* PushContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushContentViewController.m; sourceTree = "<group>"; };
 		163F00661A26E2710063CA8D /* icon_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_more.png; sourceTree = "<group>"; };
 		163F00671A26E2710063CA8D /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
 		165F336E1A25DA90001D372A /* icon_like_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_like_disabled.png; sourceTree = "<group>"; };
@@ -873,6 +876,8 @@
 				18563A981A5EC10A00B9E84A /* PushVideoContentViewController.m */,
 				18563A9A1A5EC11E00B9E84A /* PushImageContentViewController.h */,
 				18563A9B1A5EC11E00B9E84A /* PushImageContentViewController.m */,
+				16370C9A1A5F9AE4003DE2B0 /* PushContentViewController.h */,
+				16370C9B1A5F9AE4003DE2B0 /* PushContentViewController.m */,
 			);
 			name = PushContent;
 			sourceTree = "<group>";
@@ -1449,6 +1454,7 @@
 				18BB578D1A237DAA001C85B2 /* UtilManager.m in Sources */,
 				18BB57991A237DB1001C85B2 /* JWNavigationController.m in Sources */,
 				18BB57CE1A237E2C001C85B2 /* REFrostedViewController.m in Sources */,
+				16370C9C1A5F9AE4003DE2B0 /* PushContentViewController.m in Sources */,
 				16BBE2041A24AA7700C0ACB3 /* SettingViewController.m in Sources */,
 				18BB57B51A237DB7001C85B2 /* UIButton+Bootstrap.m in Sources */,
 				18BB57B11A237DB7001C85B2 /* NSObject+Category.m in Sources */,
@@ -1621,7 +1627,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dfd3dc36-57bf-440b-8f29-69e552fcc8a9";
+				PROVISIONING_PROFILE = "105DCE8F-30DC-46B9-8C15-632ED5B33DC0";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1655,7 +1661,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dfd3dc36-57bf-440b-8f29-69e552fcc8a9";
+				PROVISIONING_PROFILE = "105DCE8F-30DC-46B9-8C15-632ED5B33DC0";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
