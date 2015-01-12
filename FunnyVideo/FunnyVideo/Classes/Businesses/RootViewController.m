@@ -348,19 +348,14 @@
     [[JWReportManager defaultManager] updatePlayCountWithRecord:[info valueForKey:@"id"] contentType:JWVideoType];
     
     NSString *url = [info valueForKey:@"videoURL"];
-//    url = @"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=84175";
     NSURL *movieUrl = [NSURL URLWithString:url];
     //movieUrl = nil;
     if (movieUrl == nil || url.length <= 0) {
         NSURL *url = [NSURL URLWithString:[info valueForKey:@"webURL"]];
-        //url = [NSURL URLWithString:@"http://v.youku.com/v_show/id_XNDU1NjkyNDY4.html"];
-        //JWWebViewController *webViewController = [[JWWebViewController alloc] initWithURL:url];
         TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
-        //[self.navigationController pushViewController:webViewController animated:YES];
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
         
     } else {
-//        movieUrl = [NSURL URLWithString:@"http://pl.youku.com/playlist/m3u8?vid=209373014&type=flv&ep=eiaVHUyPXswC4STagD8bNS2wJyEIXPwK%2FxyCgtJjBNQgTuC2&token=4689&ctype=12&ev=1&oip=463169121&sid=841752822475812b1bcf7"];
         _player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
         [self presentMoviePlayerViewControllerAnimated:_player];
     }

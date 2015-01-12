@@ -7,17 +7,39 @@
 //
 
 #import "PushContentViewController.h"
+#import "JWToolBarView.h"
+#import "UtilManager.h"
+#import "UIImageView+WebCache.h"
+#import "TOWebViewController.h"
+#import "JWMPMoviePlayerViewController.h"
+#import "JWReportManager.h"
+
+#define kPushTitleFont      [UIFont boldSystemFontOfSize:20.0f]
+#define kPushContentFont    [UIFont systemFontOfSize:18.0f]
+
+#define kPlayImageWidth  45.0f
+#define kPlayImageHeight 45.0f
 
 @interface PushContentViewController() {
     UILocalNotification *_pushNotification;
+    NSDictionary *_userInfo;
+    UILabel *_titleLabel;
+    UILabel *_contentLabel;
+    UIImageView *_imageView;
+    UIButton *_likeBtn;
+    UIButton *_unlikeBtn;
+    JWToolBarView *_toolBar;
+    UIButton *_playButton;
 }
 
 @property (nonatomic, strong) UILocalNotification *pushNotification;
+@property (nonatomic, strong) NSDictionary *userInfo;
 
 @end
 
 @implementation PushContentViewController
 @synthesize pushNotification = _pushNotification;
+@synthesize userInfo = _userInfo;
 
 - (id)initWithNotification:(UILocalNotification*)notification {
     if (self = [super init]) {
@@ -31,14 +53,20 @@
     
     if ([self.pushNotification.userInfo valueForKey:@"joke"]) {
         NSLog(@"joke userinfo = %@",self.pushNotification.userInfo);
+        self.userInfo = [self.pushNotification.userInfo valueForKey:@"joke"];
         [self createJokeView];
     } else if ([self.pushNotification.userInfo valueForKey:@"image"]) {
         NSLog(@"image userinfo = %@",self.pushNotification.userInfo);
+        self.userInfo = [self.pushNotification.userInfo valueForKey:@"image"];
         [self createImageView];
     } else if ([self.pushNotification.userInfo valueForKey:@"video"]) {
         NSLog(@"video userinfo = %@",self.pushNotification.userInfo);
+        self.userInfo = [self.pushNotification.userInfo valueForKey:@"video"];
         [self createVideoView];
     }
+    [self createToolBarWithInfo:self.userInfo];
+    
+    self.title = @"查看内容";
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"完成"
                                                                  style:UIBarButtonItemStyleDone
@@ -47,16 +75,115 @@
     self.navigationItem.rightBarButtonItem = backItem;
 }
 
+- (void)createToolBarWithInfo:(NSDictionary*)info {
+    _toolBar = [[JWToolBarView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-25, self.view.frame.size.width, 25)];
+    _toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [_toolBar fillingData:info indexPath:nil];
+    _toolBar.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_toolBar];
+}
+
 - (void)createJokeView {
+    NSString *title = [self.userInfo valueForKey:@"title"];
+    float offsetHeight = 10;
+    if ([title isEqualToString:@"\n"] || title == nil ) {
+        
+    } else {
+        CGSize titleSize = [title sizeWithFont:kPushTitleFont constrainedToSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, self.view.frame.size.width-10, titleSize.height)];
+        _titleLabel.numberOfLines = 0;
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.text = title;
+        _titleLabel.font = kPushTitleFont;
+        [self.view addSubview:_titleLabel];
+        offsetHeight = 10+titleSize.height+5;
+    }
     
+    NSString *content = [self.userInfo valueForKey:@"content"];
+    CGSize contentSize = [content sizeWithFont:kPushContentFont constrainedToSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    _contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, offsetHeight, self.view.frame.size.width-10, contentSize.height)];
+    _contentLabel.backgroundColor = [UIColor clearColor];
+    _contentLabel.numberOfLines = 0;
+    _contentLabel.font = kPushContentFont;
+    _contentLabel.text = content;
+    [self.view addSubview:_contentLabel];
 }
 
 - (void)createImageView {
+    NSString *title = [self.userInfo valueForKey:@"title"];
+    NSString *img_url = [self.userInfo valueForKey:@"image_url"];
+
+    float offsetHeight = 2.0f;
+    float heigth = [[UtilManager shareManager] heightForText:title
+                                                    rectSize:CGSizeMake(self.view.frame.size.width-10.0f, MAXFLOAT)
+                                                        font:kPushTitleFont];
+    _titleLabel.frame = CGRectMake(5, 2.0f, self.view.frame.size.width-10, heigth);
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, offsetHeight, self.view.frame.size.width-10, heigth)];
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.backgroundColor = [UIColor clearColor];
+    _titleLabel.text = title;
+    _titleLabel.font = kPushTitleFont;
+    [self.view addSubview:_titleLabel];
     
+    offsetHeight += heigth+2;
+    
+    float viewWidth = self.view.frame.size.width-20;
+    float imgWidth = [[self.userInfo valueForKey:@"image_width"] floatValue];
+    float imgHeight = [[self.userInfo valueForKey:@"image_height"] floatValue];
+    if (imgWidth >= viewWidth) {
+        float scale = viewWidth/imgWidth*1.0f;
+        imgWidth = viewWidth;
+        imgHeight = imgHeight*scale;
+    }
+    
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, offsetHeight, imgWidth, imgHeight)];
+    _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [_imageView sd_setImageWithURL:[self.userInfo valueForKey:@"image_url"]];
+    [self.view addSubview:_imageView];
 }
 
 - (void)createVideoView {
+    NSString *title = [self.userInfo valueForKey:@"title"];
+    CGSize titleSize = [title sizeWithFont:kPushTitleFont constrainedToSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) lineBreakMode:NSLineBreakByWordWrapping];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, self.view.frame.size.width-10, titleSize.height)];
+    _titleLabel.numberOfLines = 0;
+    _titleLabel.backgroundColor = [UIColor clearColor];
+    _titleLabel.text = title;
+    _titleLabel.font = kPushTitleFont;
+    [self.view addSubview:_titleLabel];
     
+    float imgWidth = 135.0f*1.2f;
+    float imgHeight = 85.0f*1.2f;
+    
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width-imgWidth)/2.0f, 50, imgWidth, imgHeight)];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:[self.userInfo valueForKey:@"coverImgURL"]]];
+    [self.view addSubview:_imageView];
+    
+    UIImage *playNormalImg = [UIImage imageNamed:@"fun_play_normal"];
+    UIImage *playPressImg = [UIImage imageNamed:@"fun_play_hover"];
+    _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_playButton setImage:playNormalImg forState:UIControlStateNormal];
+    [_playButton setImage:playPressImg forState:UIControlStateHighlighted];
+    _playButton.frame = CGRectMake((imgWidth-kPlayImageWidth)/2.0f, (imgHeight-kPlayImageHeight)/2.0f, kPlayImageWidth, kPlayImageHeight);
+    [_playButton addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
+    [_imageView addSubview:_playButton];
+}
+
+- (void)playVideo {
+    [[JWReportManager defaultManager] updatePlayCountWithRecord:[self.userInfo valueForKey:@"id"] contentType:JWVideoType];
+    
+    NSString *url = [self.userInfo valueForKey:@"videoURL"];
+    NSURL *movieUrl = [NSURL URLWithString:url];
+    //movieUrl = nil;
+    if (movieUrl == nil || url.length <= 0) {
+        NSURL *url = [NSURL URLWithString:[self.userInfo valueForKey:@"webURL"]];
+        TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+        
+    } else {
+        JWMPMoviePlayerViewController *player = [[JWMPMoviePlayerViewController alloc] initWithContentURL:movieUrl];
+        [self presentMoviePlayerViewControllerAnimated:player];
+    }
 }
 
 - (void)returnBack {
