@@ -11,4 +11,5 @@
 
 @interface PushContentViewController : JWBaseViewController
 
+- (id)initWithNotification:(UILocalNotification*)notification;
 @end

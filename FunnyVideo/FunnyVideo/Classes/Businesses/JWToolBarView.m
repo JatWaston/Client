@@ -61,10 +61,11 @@ static FMDatabase *_db = nil;
         UIImage *unlike_unpress = [UIImage imageNamed:@"mainCellCaiN"];
         UIImage *unlike_press = [UIImage imageNamed:@"mainCellCaiClick"];
         UIImage *unlike_disabled = [UIImage imageNamed:@"mainCellCai"];
-        
+#if 0
         UIImage *share_unpress = [UIImage imageNamed:@"mainCellShareN"];
         UIImage *share_press = [UIImage imageNamed:@"mainCellShareClick"];
         UIImage *share_disabled = [UIImage imageNamed:@"mainCellShare"];
+#endif
         
         
         
