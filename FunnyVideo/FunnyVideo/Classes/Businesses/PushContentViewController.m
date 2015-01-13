@@ -188,6 +188,7 @@
     [[JWReportManager defaultManager] updatePlayCountWithRecord:[self.userInfo valueForKey:@"id"] contentType:JWVideoType];
     
     NSString *url = [self.userInfo valueForKey:@"videoURL"];
+//    url = [url stringByAppendingString:@"xxxx"];
     NSURL *movieUrl = [NSURL URLWithString:url];
     //movieUrl = nil;
     if (movieUrl == nil || url.length <= 0) {
@@ -209,9 +210,6 @@
 
 - (void)moviePlayerNotificationHandler:(NSNotification*)notification
 {
-    if (!_isAppear) {
-        return;
-    }
     if ([[notification name] isEqualToString:MPMoviePlayerPlaybackDidFinishNotification]) {
         NSNumber *reason =
         [notification.userInfo valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];

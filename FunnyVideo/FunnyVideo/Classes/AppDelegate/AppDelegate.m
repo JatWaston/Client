@@ -210,6 +210,7 @@
 }
 
 - (void)showNotificationContent:(UILocalNotification*)notification {
+    [[UIApplication sharedApplication] cancelLocalNotification:notification];
     PushContentViewController *contrtoller = [[PushContentViewController alloc] initWithNotification:notification];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:contrtoller];
     [self.window.rootViewController presentViewController:nav animated:YES completion:nil];

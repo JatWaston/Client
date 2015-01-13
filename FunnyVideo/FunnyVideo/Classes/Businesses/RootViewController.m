@@ -207,9 +207,6 @@
 
 - (void)moviePlayerNotificationHandler:(NSNotification*)notification
 {
-    if (!_isAppear) {
-        return;
-    }
     if ([[notification name] isEqualToString:MPMoviePlayerPlaybackDidFinishNotification]) {
         NSNumber *reason =
         [notification.userInfo valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
