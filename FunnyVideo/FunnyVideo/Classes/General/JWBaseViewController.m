@@ -168,6 +168,12 @@
 //    if (navBarFrame.origin.y == 20) {
 //        [self hiddenNavigationBar:YES];
 //    }
+     _isAppear = YES;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    _isAppear = NO;
 }
 
 - (void)viewDidLoad

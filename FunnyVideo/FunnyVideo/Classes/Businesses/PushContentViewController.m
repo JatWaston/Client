@@ -30,6 +30,7 @@
     UIButton *_unlikeBtn;
     JWToolBarView *_toolBar;
     UIButton *_playButton;
+    UILabel *_timeLabel;
 }
 
 @property (nonatomic, strong) UILocalNotification *pushNotification;
@@ -61,6 +62,7 @@
         [self createImageView];
     } else if ([self.pushNotification.userInfo valueForKey:@"video"]) {
         NSLog(@"video userinfo = %@",self.pushNotification.userInfo);
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerNotificationHandler:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil]; //检测播放结束的原因
         self.userInfo = [self.pushNotification.userInfo valueForKey:@"video"];
         [self createVideoView];
     }
@@ -76,11 +78,14 @@
 }
 
 - (void)createToolBarWithInfo:(NSDictionary*)info {
-    _toolBar = [[JWToolBarView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-25, self.view.frame.size.width, 25)];
-    _toolBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _toolBar = [[JWToolBarView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-40-64, self.view.bounds.size.width, 30)];
     [_toolBar fillingData:info indexPath:nil];
-    _toolBar.backgroundColor = [UIColor blackColor];
+    //_toolBar.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_toolBar];
+    
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 25)];
+//    view.backgroundColor = [UIColor blackColor];
+//    [self.view addSubview:view];
 }
 
 - (void)createJokeView {
@@ -155,9 +160,19 @@
     float imgWidth = 135.0f*1.2f;
     float imgHeight = 85.0f*1.2f;
     
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width-imgWidth)/2.0f, 50, imgWidth, imgHeight)];
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.frame.size.width-imgWidth)/2.0f, 10+titleSize.height+5, imgWidth, imgHeight)];
+    _imageView.userInteractionEnabled = YES;
     [_imageView sd_setImageWithURL:[NSURL URLWithString:[self.userInfo valueForKey:@"coverImgURL"]]];
     [self.view addSubview:_imageView];
+    
+    _timeLabel = [[UILabel alloc] init];
+    _timeLabel.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f];
+    _timeLabel.textColor = [UIColor whiteColor];
+    _timeLabel.textAlignment = NSTextAlignmentCenter;
+    _timeLabel.font = [UIFont systemFontOfSize:12.0f];
+    _timeLabel.frame = CGRectMake(imgWidth-40, imgHeight-20, 40, 20);
+    _timeLabel.text = [self.userInfo valueForKey:@"videoTime"];
+    [_imageView addSubview:_timeLabel];
     
     UIImage *playNormalImg = [UIImage imageNamed:@"fun_play_normal"];
     UIImage *playPressImg = [UIImage imageNamed:@"fun_play_hover"];
@@ -188,6 +203,67 @@
 
 - (void)returnBack {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 视频播放
+
+- (void)moviePlayerNotificationHandler:(NSNotification*)notification
+{
+    if (!_isAppear) {
+        return;
+    }
+    if ([[notification name] isEqualToString:MPMoviePlayerPlaybackDidFinishNotification]) {
+        NSNumber *reason =
+        [notification.userInfo valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+        if (reason != nil) {
+            NSInteger reasonAsInteger = [reason integerValue];
+            switch (reasonAsInteger){
+                case MPMovieFinishReasonPlaybackEnded:{
+                    /* The movie ended normally */
+                    NSLog(@"The movie ended normally");
+                    break;
+                }
+                case MPMovieFinishReasonPlaybackError:{
+                    /* An error happened and the movie ended */
+                    NSLog(@"An error happened and the movie ended");
+                    [self showPlayVideoErrorAlert];
+                    break;
+                }
+                case MPMovieFinishReasonUserExited:{
+                    /* The user exited the player */
+                    NSLog(@"The user exited the player");
+                    break;
+                }
+            }
+            NSLog(@"Finish Reason = %ld", (long)reasonAsInteger);
+        } /* if (reason != nil){ */
+    }
+    
+}
+
+- (void)showPlayVideoErrorAlert {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"当前视频播放出错，是否在网页中播放该视频？"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"否"
+                                                  otherButtonTitles:@"播放", nil];
+        [alertView show];
+    });
+    
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 1) {
+        NSURL *url = [NSURL URLWithString:[self.userInfo valueForKey:@"webURL"]];
+        TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+    }
+    
 }
 
 @end

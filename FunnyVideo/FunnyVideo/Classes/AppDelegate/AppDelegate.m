@@ -92,7 +92,16 @@
 //    }
     [self showLocalNotificationMessage:launchOptions];
     [self fetchPushContent];
+    
+    //[self performSelector:@selector(test) withObject:nil afterDelay:2.0f];
+    
     return YES;
+}
+
+- (void)test {
+    PushContentViewController *contrtoller = [[PushContentViewController alloc] initWithNotification:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:contrtoller];
+    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)showLocalNotificationMessage:(NSDictionary *)launchOptions {
@@ -138,14 +147,14 @@
             NSDictionary *videoContent = [(NSArray*)[info valueForKey:@"video"] objectAtIndex:0];
             
             NSDictionary *jokeInfo = [NSDictionary dictionaryWithObjectsAndKeys:jokeContent,@"joke", nil];
-            NSDate *jokeDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"22:51:00"];
+            NSDate *jokeDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"10:00:00"];
             [[LocalNotificationManager defaultManager] pushNotificationMessage:[jokeContent valueForKey:@"content"]
                                                                       userInfo:jokeInfo
                                                                       pushTime:jokeDate
                                                                       pushRate:NSCalendarUnitDay];
             
             NSDictionary *imageInfo = [NSDictionary dictionaryWithObjectsAndKeys:imageContent,@"image", nil];
-            NSDate *imageDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"22:52:00"];
+            NSDate *imageDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"15:00:00"];
             NSString *imageMessage = [NSString stringWithFormat:@"[图片] %@",[imageContent valueForKey:@"title"]];
             [[LocalNotificationManager defaultManager] pushNotificationMessage:imageMessage
                                                                       userInfo:imageInfo
@@ -153,7 +162,7 @@
                                                                       pushRate:NSCalendarUnitDay];
             
             NSDictionary *videoInfo = [NSDictionary dictionaryWithObjectsAndKeys:videoContent,@"video", nil];
-            NSDate *videoDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"22:53:00"];
+            NSDate *videoDate = [[LocalNotificationManager defaultManager] createTimeWithString:@"20:00:00"];
             NSString *videoMessage = [NSString stringWithFormat:@"[视频] %@",[videoContent valueForKey:@"title"]];
             [[LocalNotificationManager defaultManager] pushNotificationMessage:videoMessage
                                                                       userInfo:videoInfo

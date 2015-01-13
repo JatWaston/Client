@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, JWTableRefreshStyle)
 @interface JWBaseViewController : UIViewController
 {
     BOOL _isRequesting;
+    BOOL _isAppear;
 }
 
 - (id)initWithRequestURL:(NSString*)requestURL;
