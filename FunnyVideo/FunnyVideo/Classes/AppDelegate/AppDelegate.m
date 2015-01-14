@@ -199,7 +199,6 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"%s",__func__);
-    application.applicationIconBadgeNumber = 0;
     [self showNotificationContent:notification];
     
     //[application cancelLocalNotification:notification];
@@ -208,6 +207,7 @@
 }
 
 - (void)showNotificationContent:(UILocalNotification*)notification {
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
     PushContentViewController *contrtoller = [[PushContentViewController alloc] initWithNotification:notification];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:contrtoller];
