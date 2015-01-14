@@ -111,12 +111,10 @@
 		16DB4B751A2438CE0081EF68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B741A2438CE0081EF68 /* Security.framework */; };
 		16DB4B7B1A243F190081EF68 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */; };
 		16DB4B7D1A243F650081EF68 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DB4B7C1A243F650081EF68 /* libstdc++.dylib */; };
+		16F4E5C21A662A0D002A3F06 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F4E5C11A662A0D002A3F06 /* Global.m */; };
 		182997611A4857A500B28B18 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182997601A4857A500B28B18 /* ImageViewController.m */; };
 		182997631A48590600B28B18 /* icon_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182997621A48590600B28B18 /* icon_image@2x.png */; };
 		182997661A485BCD00B28B18 /* FunnyImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182997651A485BCD00B28B18 /* FunnyImageTableViewCell.m */; };
-		18563A951A5EC0E500B9E84A /* PushJokeContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18563A941A5EC0E500B9E84A /* PushJokeContentViewController.m */; };
-		18563A991A5EC10A00B9E84A /* PushVideoContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18563A981A5EC10A00B9E84A /* PushVideoContentViewController.m */; };
-		18563A9C1A5EC11E00B9E84A /* PushImageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18563A9B1A5EC11E00B9E84A /* PushImageContentViewController.m */; };
 		18563A9F1A5EC74300B9E84A /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18563A9E1A5EC74300B9E84A /* LocalNotificationManager.m */; };
 		1879E51E1A3D716200AA8323 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5151A3D716200AA8323 /* EventKit.framework */; };
 		1879E51F1A3D716200AA8323 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1879E5161A3D716200AA8323 /* EventKitUI.framework */; };
@@ -352,17 +350,13 @@
 		16DB4B741A2438CE0081EF68 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		16DB4B7A1A243F190081EF68 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		16DB4B7C1A243F650081EF68 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		16F4E5C01A662A0D002A3F06 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		16F4E5C11A662A0D002A3F06 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		1829975F1A4857A500B28B18 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		182997601A4857A500B28B18 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		182997621A48590600B28B18 /* icon_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_image@2x.png"; sourceTree = "<group>"; };
 		182997641A485BCD00B28B18 /* FunnyImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunnyImageTableViewCell.h; sourceTree = "<group>"; };
 		182997651A485BCD00B28B18 /* FunnyImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunnyImageTableViewCell.m; sourceTree = "<group>"; };
-		18563A931A5EC0E500B9E84A /* PushJokeContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushJokeContentViewController.h; sourceTree = "<group>"; };
-		18563A941A5EC0E500B9E84A /* PushJokeContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushJokeContentViewController.m; sourceTree = "<group>"; };
-		18563A971A5EC10A00B9E84A /* PushVideoContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushVideoContentViewController.h; sourceTree = "<group>"; };
-		18563A981A5EC10A00B9E84A /* PushVideoContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushVideoContentViewController.m; sourceTree = "<group>"; };
-		18563A9A1A5EC11E00B9E84A /* PushImageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushImageContentViewController.h; sourceTree = "<group>"; };
-		18563A9B1A5EC11E00B9E84A /* PushImageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushImageContentViewController.m; sourceTree = "<group>"; };
 		18563A9D1A5EC74300B9E84A /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
 		18563A9E1A5EC74300B9E84A /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		1879E5151A3D716200AA8323 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -870,12 +864,6 @@
 		18563A961A5EC0EC00B9E84A /* PushContent */ = {
 			isa = PBXGroup;
 			children = (
-				18563A931A5EC0E500B9E84A /* PushJokeContentViewController.h */,
-				18563A941A5EC0E500B9E84A /* PushJokeContentViewController.m */,
-				18563A971A5EC10A00B9E84A /* PushVideoContentViewController.h */,
-				18563A981A5EC10A00B9E84A /* PushVideoContentViewController.m */,
-				18563A9A1A5EC11E00B9E84A /* PushImageContentViewController.h */,
-				18563A9B1A5EC11E00B9E84A /* PushImageContentViewController.m */,
 				16370C9A1A5F9AE4003DE2B0 /* PushContentViewController.h */,
 				16370C9B1A5F9AE4003DE2B0 /* PushContentViewController.m */,
 			);
@@ -1109,6 +1097,8 @@
 				18BB57881A237DAA001C85B2 /* JWNetworking.m */,
 				18BB57891A237DAA001C85B2 /* UtilManager.h */,
 				18BB578A1A237DAA001C85B2 /* UtilManager.m */,
+				16F4E5C01A662A0D002A3F06 /* Global.h */,
+				16F4E5C11A662A0D002A3F06 /* Global.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1383,8 +1373,6 @@
 				18BB57321A237D73001C85B2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				18BB57291A237D73001C85B2 /* SDWebImageDecoder.m in Sources */,
 				18BB57D81A238135001C85B2 /* JWImageTableViewCell.m in Sources */,
-				18563A951A5EC0E500B9E84A /* PushJokeContentViewController.m in Sources */,
-				18563A9C1A5EC11E00B9E84A /* PushImageContentViewController.m in Sources */,
 				18BB57B31A237DB7001C85B2 /* NSString+MD5.m in Sources */,
 				18A106DC1A30A34A00D83BBC /* Toast+UIView.m in Sources */,
 				18F4F70C1A2DF03C00F14729 /* JokeTableViewCell.m in Sources */,
@@ -1422,7 +1410,6 @@
 				18BB574A1A237D79001C85B2 /* MJRefreshHeaderView.m in Sources */,
 				18BB57251A237D73001C85B2 /* MKAnnotationView+WebCache.m in Sources */,
 				18BB578C1A237DAA001C85B2 /* JWNetworking.m in Sources */,
-				18563A991A5EC10A00B9E84A /* PushVideoContentViewController.m in Sources */,
 				18BB57281A237D73001C85B2 /* SDWebImageCompat.m in Sources */,
 				18BB572D1A237D73001C85B2 /* SDWebImagePrefetcher.m in Sources */,
 				18BB57341A237D73001C85B2 /* UIView+WebCacheOperation.m in Sources */,
@@ -1441,6 +1428,7 @@
 				18BB57D01A237E2C001C85B2 /* UIView+REFrostedViewController.m in Sources */,
 				18BB574B1A237D79001C85B2 /* UIScrollView+MJExtension.m in Sources */,
 				18BB57021A2373C6001C85B2 /* JWMPMoviePlayerViewController.m in Sources */,
+				16F4E5C21A662A0D002A3F06 /* Global.m in Sources */,
 				18BB57541A237D7F001C85B2 /* MBProgressHUD+Add.m in Sources */,
 				18BB57B41A237DB7001C85B2 /* SDWebImageManager+MJ.m in Sources */,
 				18BB572F1A237D73001C85B2 /* UIImage+GIF.m in Sources */,
@@ -1627,7 +1615,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dfd3dc36-57bf-440b-8f29-69e552fcc8a9";
+				PROVISIONING_PROFILE = "105DCE8F-30DC-46B9-8C15-632ED5B33DC0";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1661,7 +1649,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dfd3dc36-57bf-440b-8f29-69e552fcc8a9";
+				PROVISIONING_PROFILE = "105DCE8F-30DC-46B9-8C15-632ED5B33DC0";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};

@@ -16,6 +16,7 @@
 #import "LocalNotificationManager.h"
 
 #import "PushContentViewController.h"
+#import "Global.h"
 
 
 #import "UMSocial.h"
@@ -86,10 +87,7 @@
     self.window.rootViewController = tab;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-//    UILocalNotification *notification = [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-//    if (notification) {
-//        [self showNotificationContent:notification];
-//    }
+
     [self showLocalNotificationMessage:launchOptions];
     [self fetchPushContent];
     
@@ -214,6 +212,7 @@
     PushContentViewController *contrtoller = [[PushContentViewController alloc] initWithNotification:notification];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:contrtoller];
     [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    [Global shareInstance].isInPushContent = YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url

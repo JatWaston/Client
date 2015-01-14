@@ -13,6 +13,7 @@
 #import "TOWebViewController.h"
 #import "JWMPMoviePlayerViewController.h"
 #import "JWReportManager.h"
+#import "Global.h"
 
 #define kPushTitleFont      [UIFont boldSystemFontOfSize:20.0f]
 #define kPushContentFont    [UIFont systemFontOfSize:18.0f]
@@ -31,6 +32,7 @@
     JWToolBarView *_toolBar;
     UIButton *_playButton;
     UILabel *_timeLabel;
+    UIScrollView *_scrollView;
 }
 
 @property (nonatomic, strong) UILocalNotification *pushNotification;
@@ -89,6 +91,11 @@
 }
 
 - (void)createJokeView {
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40)];
+    _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _scrollView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_scrollView];
+    
     NSString *title = [self.userInfo valueForKey:@"title"];
     float offsetHeight = 10;
     if ([title isEqualToString:@"\n"] || title == nil ) {
@@ -100,7 +107,7 @@
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.text = title;
         _titleLabel.font = kPushTitleFont;
-        [self.view addSubview:_titleLabel];
+        [_scrollView addSubview:_titleLabel];
         offsetHeight = 10+titleSize.height+5;
     }
     
@@ -111,12 +118,20 @@
     _contentLabel.numberOfLines = 0;
     _contentLabel.font = kPushContentFont;
     _contentLabel.text = content;
-    [self.view addSubview:_contentLabel];
+    [_scrollView addSubview:_contentLabel];
+    
+    offsetHeight += contentSize.height;
+    [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, offsetHeight)];
 }
 
 - (void)createImageView {
+    
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-40)];
+    _scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _scrollView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_scrollView];
+    
     NSString *title = [self.userInfo valueForKey:@"title"];
-    NSString *img_url = [self.userInfo valueForKey:@"image_url"];
 
     float offsetHeight = 2.0f;
     float heigth = [[UtilManager shareManager] heightForText:title
@@ -128,7 +143,7 @@
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.text = title;
     _titleLabel.font = kPushTitleFont;
-    [self.view addSubview:_titleLabel];
+    [_scrollView addSubview:_titleLabel];
     
     offsetHeight += heigth+2;
     
@@ -144,7 +159,10 @@
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, offsetHeight, imgWidth, imgHeight)];
     _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [_imageView sd_setImageWithURL:[self.userInfo valueForKey:@"image_url"]];
-    [self.view addSubview:_imageView];
+    [_scrollView addSubview:_imageView];
+    
+    offsetHeight += imgHeight;
+    [_scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, offsetHeight)];
 }
 
 - (void)createVideoView {
@@ -203,7 +221,9 @@
 }
 
 - (void)returnBack {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [Global shareInstance].isInPushContent = NO;
+    }];
 }
 
 #pragma mark - 视频播放

@@ -30,6 +30,8 @@
 
 #import "JWToolBarView.h"
 
+#import "Global.h"
+
 #define kRequestPageSize 10
 
 
@@ -207,6 +209,9 @@
 
 - (void)moviePlayerNotificationHandler:(NSNotification*)notification
 {
+    if ([Global shareInstance].isInPushContent) {
+        return;
+    }
     if ([[notification name] isEqualToString:MPMoviePlayerPlaybackDidFinishNotification]) {
         NSNumber *reason =
         [notification.userInfo valueForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
