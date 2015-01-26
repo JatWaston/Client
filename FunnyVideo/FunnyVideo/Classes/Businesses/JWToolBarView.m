@@ -61,7 +61,7 @@ static FMDatabase *_db = nil;
         UIImage *unlike_unpress = [UIImage imageNamed:@"mainCellCaiN"];
         UIImage *unlike_press = [UIImage imageNamed:@"mainCellCaiClick"];
         UIImage *unlike_disabled = [UIImage imageNamed:@"mainCellCai"];
-#if 0
+#if 1
         UIImage *share_unpress = [UIImage imageNamed:@"mainCellShareN"];
         UIImage *share_press = [UIImage imageNamed:@"mainCellShareClick"];
         UIImage *share_disabled = [UIImage imageNamed:@"mainCellShare"];
@@ -112,7 +112,7 @@ static FMDatabase *_db = nil;
         _unlikeBtn.tag = JWToolButtonUnlike;
         [_unlikeBtn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_unlikeBtn];
-#if 0
+#if 1
         _shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //shareBtn.backgroundColor = [UIColor skyBlueColor];
         //shareBtn.frame = CGRectMake(220, heightOffset, 80, 30);
@@ -133,8 +133,8 @@ static FMDatabase *_db = nil;
 #endif
         
         _likeBtn.frame = CGRectMake(20, 0, 80, 30);
-        _unlikeBtn.frame = CGRectMake(200, 0, 80, 30);
-        //_shareBtn.frame = CGRectMake(220, 0, 80, 30);
+        _unlikeBtn.frame = CGRectMake(120, 0, 80, 30);
+        _shareBtn.frame = CGRectMake(220, 0, 80, 30);
     }
     return self;
 }
